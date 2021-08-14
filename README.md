@@ -30,14 +30,16 @@ Com isso, você foi o responsável por pensar na escalabilidade como também gar
 - Deve existir uma lista de clínicas
 - No formulário de cadastro de clínica, deve-se coletar os seguintes dados:
 
-1 - Página
+Página 1
 a) Nome da clínica.
 b) CPF do responsável.
 c) Capital social da Clínica.
-2 - Página
+
+Página 2
 a) Dados de endereço (Livre)
-3 - Página
-a) Conclusão de cadastro juntamente com uma mensagem de cadastro realizado com sucesso.
+
+Página 3
+a) Um Botão para a conclusão de cadastro juntamente com uma mensagem de cadastro realizado com sucesso.
 
 
 - Pontos a serem observados: 
@@ -45,7 +47,7 @@ a) Conclusão de cadastro juntamente com uma mensagem de cadastro realizado com 
 2) Deve ser criado uma Landing Page. O custom design deve preservar a UI e UX, se atentando às tecnologias voltadas para o css nativo, sass, JSS ou styled components.
 3) Na obtenção para os dados de endereço, pode ser utilizado a api dos correios, ViaCEP (https://viacep.com.br/).
 4) A manipulação e criação de hooks também contarão na avaliação do projeto.
-5) Fique livre para tratar as questões de boas práticas, convenções, nomenclaturas, padrões, frameworks e etc... 
+5) Fique livre para tratar as questões de boas práticas, convenções, nomenclaturas, padrões, frameworks e etc...
 
 
 Logo, vamos adentrar em algumas dicas que podem melhorar a experiência para a execução deste desafio.
@@ -54,14 +56,16 @@ Descricao do projeto: ->
 
 Exemplificar um caso de uso que mantenha em foco a manipulacao de formulários de cadastro com paginacao, que em detrimento utiliza-se todos a maior parte dos recursos do React como também propõe o domínio de se trabalhar com validações, frameworks e lógicas de programação básica com a utilização de javascript, html, css, ReactJS e paradigmas como Orientado a Objetos e Programação funcional.
 
-# Features ..
+# Features ...
 
 - Fique à vontade para fazer a Estruturação de Layout e Fluxo de Aplicação na maneira que quiser.
-
+- Deve ser possível navegar em uma home page.
+- Deve ser possível listar e cadastrar clínicas.
+- 
 Bonus:
-- Tela de Splash;
-- Home Page
-- Tratamento de erros e apresentação dos fluxos de exceção:Error generico ou loading;
+- Tela de Splas;
+- Home Page com transições e animações;
+- Tratamento de erros e apresentação dos fluxos de exceção: Generic Error's e Loading's;
 
 
 
