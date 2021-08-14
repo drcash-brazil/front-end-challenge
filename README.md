@@ -139,11 +139,11 @@ Não tente fazer o PUSH diretamente para ESTE repositório!
 
 **ATENÇÃO**
 Depois de implementar a solução, crie uma branch nova seguindo o seguinte padrão:
-a) inicias do seu primeiro e último nome 
-b) "/" 
-c) "feature"
-d) b) "/" 
-e) + o "nome da branch"
+1. A inicial do seu primeiro e último nome 
+2. "/" 
+3. "feature"
+4. "/" 
+5. + o "nome da branch"
 em seguida envie um pull request para este repositório. 
 
 O processo de Pull Request funciona da seguinte maneira:
