@@ -31,15 +31,15 @@ Com isso, você foi o responsável por pensar na escalabilidade como também gar
           - No formulário de cadastro de clínica, deve-se coletar os seguintes dados:
 
 Página 1
-     a) Nome da clínica.
-     b) CPF do responsável.
-     c) Capital social da Clínica.
+- a) Nome da clínica.
+- b) CPF do responsável.
+- c) Capital social da Clínica.
 
 Página 2
-     a) Dados de endereço (Livre)
+- a) Dados de endereço (Livre)
 
 Página 3
-     a) Um Botão para a conclusão de cadastro juntamente com uma mensagem de cadastro realizado com sucesso.
+- a) Um Botão para a conclusão de cadastro juntamente com uma mensagem de cadastro realizado com sucesso.
 
 
 - Pontos a serem observados: 
