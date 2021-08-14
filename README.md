@@ -16,17 +16,20 @@ Primeiramente é importante se atentar aos pilares da Dr.Cash, seguindo metodolo
 
 # Desafio 
 
-Michael contratou um plataforma para gerenciar as clínicas de sua rede. Inicialmente a regra de negócio consiste no registro de suas clínicas que realizam tratamentos estéticos em seu estado. 
 
+O único pré-requisito é que o código seja feito em ReactJS, de preferência na versão mais atual. 
+
+Michael contratou um plataforma para gerenciar as clínicas de sua rede. Inicialmente a regra de negócio consiste no registro de suas clínicas que realizam tratamentos estéticos em seu estado. 
 
 Com isso, você foi o responsável por pensar na escalabilidade como também garantir que os dados cadastrados de suas clínicas permaneçam íntegros.
 
 * Criar Landing Page.
 - Supreenda-nos com a criação de uma landing page para a rede de clínicas de Michael.
-* Criar tela de listagem e cadastro de clínicas.
+* Criar layout para tela de listagem e cadastro de clínicas.
 - A partir da página home, deve ser possível navegar até a página de listagem de clínicas, aonde o usuário poderá realizar o cadastro de uma clínica em específico.
 - Deve existir uma lista de clínicas
 - No formulário de cadastro de clínica, deve-se coletar os seguintes dados:
+
 1 - Página
 a) Nome da clínica.
 b) CPF do responsável.
@@ -42,11 +45,10 @@ a) Conclusão de cadastro juntamente com uma mensagem de cadastro realizado com 
 2) Deve ser criado uma Landing Page. O custom design deve preservar a UI e UX, se atentando às tecnologias voltadas para o css nativo, sass, JSS ou styled components.
 3) Na obtenção para os dados de endereço, pode ser utilizado a api dos correios, ViaCEP (https://viacep.com.br/).
 4) A manipulação e criação de hooks também contarão na avaliação do projeto.
+5) Fique livre para tratar as questões de boas práticas, convenções, nomenclaturas, padrões, frameworks e etc... 
 
 
 Logo, vamos adentrar em algumas dicas que podem melhorar a experiência para a execução deste desafio.
-
-O único pré-requisito é que o código seja feito em ReactJS, de preferência na versão mais atual. 
 
 Descricao do projeto: -> 
 
