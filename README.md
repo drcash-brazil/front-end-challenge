@@ -28,11 +28,11 @@ Michael contratou um plataforma para gerenciar as clínicas de sua rede. Inicial
 Com isso, você foi o responsável por pensar na escalabilidade como também garantir que os dados cadastrados de suas clínicas permaneçam íntegros.
 
 * Criar Landing Page.
-          - Supreenda-nos com a criação de uma landing page para a rede de clínicas de Michael.
+Supreenda-nos com a criação de uma landing page para a rede de clínicas de Michael.
 * Criar layout para tela de listagem e cadastro de clínicas.
-          - A partir da página home, deve ser possível navegar até a página de listagem de clínicas, aonde o usuário poderá realizar o cadastro de uma clínica em específico.
-          - Deve existir uma lista de clínicas
-          - No formulário de cadastro de clínica, deve-se coletar os seguintes dados:
+A partir da página home, deve ser possível navegar até a página de listagem de clínicas, aonde o usuário poderá realizar o cadastro de uma clínica em específico.
+Deve existir uma lista de clínicas
+No formulário de cadastro de clínica, deve-se coletar os seguintes dados:
 
 Página 1
 - a) Nome da clínica.
