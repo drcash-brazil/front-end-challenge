@@ -17,7 +17,11 @@ Primeiramente é importante se atentar aos pilares da Dr.Cash, seguindo metodolo
 # Desafio 
 
 
-O único pré-requisito é que o código seja feito em ReactJS, de preferência na versão mais atual. 
+Exemplificar um caso de uso que mantenha em foco a manipulacao de formulário de cadastro com paginação, que determina a utilização de recursos do React como também propõe o domínio de se trabalhar com validações, frameworks e lógicas de programação básica com a utilização de javascript, html, css, ReactJS, alinhado com paradigmas como Orientado a Objetos e Programação funcional.
+
+Obs:  O único pré-requisito é que o código seja feito em ReactJS, de preferência na versão mais atual. 
+
+# - Contexto
 
 Michael contratou um plataforma para gerenciar as clínicas de sua rede. Inicialmente a regra de negócio consiste no registro de suas clínicas que realizam tratamentos estéticos em seu estado. 
 
@@ -42,19 +46,14 @@ Página 3
 - a) Um Botão para a conclusão de cadastro juntamente com uma mensagem de cadastro realizado com sucesso.
 
 
-- Pontos a serem observados: 
+
+
+# Pontos a serem observados: 
 1) Material UI como biblioteca para desenvolver layouts.
 2) Deve ser criado uma Landing Page. O custom design deve preservar a UI e UX, se atentando às tecnologias voltadas para o css nativo, sass, JSS ou styled components.
 3) Na obtenção para os dados de endereço, pode ser utilizado a api dos correios, ViaCEP (https://viacep.com.br/).
 4) A manipulação e criação de hooks também contarão na avaliação do projeto.
 5) Fique livre para tratar as questões de boas práticas, convenções, nomenclaturas, padrões, frameworks e etc...
-
-
-Logo, vamos adentrar em algumas dicas que podem melhorar a experiência para a execução deste desafio.
-
-Descricao do projeto: -> 
-
-Exemplificar um caso de uso que mantenha em foco a manipulacao de formulários de cadastro com paginacao, que em detrimento utiliza-se todos a maior parte dos recursos do React como também propõe o domínio de se trabalhar com validações, frameworks e lógicas de programação básica com a utilização de javascript, html, css, ReactJS e paradigmas como Orientado a Objetos e Programação funcional.
 
 # Features ...
 
@@ -62,11 +61,10 @@ Exemplificar um caso de uso que mantenha em foco a manipulacao de formulários d
 - Deve ser possível navegar em uma home page.
 - Deve ser possível listar e cadastrar clínicas.
 - 
-Bonus:
-- Tela de Splas;
+# Bonus:
+- Tela de Splash;
 - Home Page com transições e animações;
 - Tratamento de erros e apresentação dos fluxos de exceção: Generic Error's e Loading's;
-
 
 
 # App em execução
