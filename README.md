@@ -17,7 +17,7 @@ Primeiramente é importante se atentar aos pilares da Dr.Cash, seguindo metodolo
 # Desafio 
 
 
-Exemplificar um caso de uso que mantenha em foco a manipulacao de formulário de cadastro com paginação, que determina a utilização de recursos do React como também propõe o domínio de se trabalhar com validações, frameworks e lógicas de programação básica com a utilização de javascript, html, css, ReactJS, alinhado com paradigmas como Orientado a Objetos e Programação funcional.
+Exemplificar um caso de uso que mantenha em foco a manipulação de formulário de cadastro com paginação, que determina a utilização de recursos do React como também propõe o domínio de se trabalhar com validações, frameworks e lógicas de programação básica com a utilização de javascript, html, css, ReactJS, alinhado com paradigmas como Orientado a Objetos e Programação funcional.
 
 Obs:  O único pré-requisito é que o código seja feito em ReactJS, de preferência na versão mais atual. 
 
