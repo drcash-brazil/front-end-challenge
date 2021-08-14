@@ -138,7 +138,15 @@ Não tente fazer o PUSH diretamente para ESTE repositório!
 <!-- - [Arthur de Castro](https://github.com/arthurfjadecastro) -->
 
 **ATENÇÃO**
-Depois de implementar a solução, crie uma branch separada e envie um pull request para este repositório. O processo de Pull Request funciona da seguinte maneira:
+Depois de implementar a solução, crie uma branch nova seguindo o seguinte padrão:
+a) inicias do seu primeiro e último nome 
+b) "/" 
+c) "feature"
+d) b) "/" 
+e) + o "nome da branch"
+em seguida envie um pull request para este repositório. 
+
+O processo de Pull Request funciona da seguinte maneira:
 1. Faça um fork deste repositório (não clonar direto!);
 2. Faça seu projeto neste fork;
 3. Commit e suba as alterações para o SEU fork;
