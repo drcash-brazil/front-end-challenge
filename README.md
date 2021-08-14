@@ -17,7 +17,7 @@ Primeiramente é importante se atentar aos pilares da Dr.Cash, seguindo metodolo
 # Desafio 
 
 
-Exemplificar um caso de uso que mantenha em foco a manipulação de formulário de cadastro com paginação, que determina a utilização de recursos do React como também propõe o domínio de se trabalhar com validações, frameworks e lógicas de programação básica com a utilização de javascript, html, css, ReactJS, alinhado com paradigmas como Orientado a Objetos e Programação funcional.
+Exemplificar um caso de uso que mantenha em foco a manipulação de formulário de cadastro com paginação, que determina a utilização de recursos do React como também propõe o domínio de se trabalhar com validações, frameworks e lógicas de programação básica com a utilização de JavaScript, Html, CSS, ReactJS, alinhado com paradigmas como Orientado a Objetos e Programação funcional.
 
 Obs:  O único pré-requisito é que o código seja feito em ReactJS, de preferência na versão mais atual. 
 
@@ -48,11 +48,9 @@ Página 3
 - a) Um Botão para a conclusão de cadastro juntamente com uma mensagem de cadastro realizado com sucesso.
 
 
-
-
 # Pontos a serem observados: 
 1) Material UI como biblioteca para desenvolver layouts.
-2) Deve ser criado uma Landing Page. O custom design deve preservar a UI e UX, se atentando às tecnologias voltadas para o css nativo, sass, JSS ou styled components.
+2) Deve ser criado uma Landing Page. O custom design deve preservar a UI e UX, se atentando às tecnologias voltadas para o CSS, SASS, JSS ou Styled Components.
 3) Na obtenção para os dados de endereço, pode ser utilizado a api dos correios, ViaCEP (https://viacep.com.br/).
 4) A manipulação e criação de hooks também contarão na avaliação do projeto.
 5) Fique livre para tratar as questões de boas práticas, convenções, nomenclaturas, padrões, frameworks e etc...
