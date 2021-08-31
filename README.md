@@ -16,13 +16,12 @@ Primeiramente é importante se atentar aos pilares da Dr.Cash, seguindo metodolo
 
 # Desafio 
 
+Exemplificar um caso de uso que mantenha em foco a manipulação de formulário de cadastro com paginação, que determina a utilização de recursos do React como também propõe o domínio de se trabalhar com validações, frameworks e lógicas de programação básica com a utilização de JavaScript, Html, CSS, ReactJS, alinhado com paradigmas como Orientado a Objetos e Programação funcional. Fique à vontade para fazer a Estruturação de Layout e Fluxo de Aplicação na maneira que quiser.
 
-Exemplificar um caso de uso que mantenha em foco a manipulação de formulário de cadastro com paginação, que determina a utilização de recursos do React como também propõe o domínio de se trabalhar com validações, frameworks e lógicas de programação básica com a utilização de JavaScript, Html, CSS, ReactJS, alinhado com paradigmas como Orientado a Objetos e Programação funcional.
 
 Obs:  O único pré-requisito é que o código seja feito em ReactJS, de preferência na versão mais atual. 
 
 # - Contexto
-
 Michael contratou um plataforma para gerenciar as clínicas de sua rede. Inicialmente a regra de negócio consiste no registro de suas clínicas que realizam tratamentos estéticos em seu estado. 
 
 Com isso, você foi o responsável por pensar na escalabilidade como também garantir que os dados cadastrados de suas clínicas permaneçam íntegros.
@@ -51,26 +50,22 @@ Página 3
 # Pontos a serem observados: 
 1) Material UI como biblioteca para desenvolver layouts.
 2) Deve ser criado uma Landing Page. O custom design deve preservar a UI e UX, se atentando às tecnologias voltadas para o CSS, SASS, JSS ou Styled Components.
-3) Na obtenção para os dados de endereço, pode ser utilizado a api dos correios, ViaCEP (https://viacep.com.br/).
+3) Na obtenção para os dados de endereço deve ser utilizado a API dos correios, ViaCEP (https://viacep.com.br/).
 4) A manipulação e criação de hooks também contarão na avaliação do projeto.
 5) Fique livre para tratar as questões de boas práticas, convenções, nomenclaturas, padrões, frameworks e etc...
 
-# Features ...
-
-- Fique à vontade para fazer a Estruturação de Layout e Fluxo de Aplicação na maneira que quiser.
-- Deve ser possível navegar em uma home page.
+# Features:
 - Deve ser possível listar e cadastrar clínicas.
-- 
+- Os dados coletados podem ser tratados com uma Mock API.
+
 # Bonus:
 - Tela de Splash;
 - Home Page com transições e animações;
 - Tratamento de erros e apresentação dos fluxos de exceção: Generic Error's e Loading's;
 
-
 # App em execução
 
 Instrua como usar e também como foi a desenvoltura mediante os processos realizados neste sistema desenvolvido, além de quais ferramentas e tecnologias o auxiliaram e por quê?
-
 
 ## Como executar o projeto 
 
@@ -78,8 +73,8 @@ Descreva como executar o projeto e detalhe caso haja algum script ou regra exist
 
 ## Estrutura de arquivos do projeto
 
-Importante se atentar nos aspectos de modularização, demonstre seu conhecimento sobre importações e exportações, trabalhando no mais avançado nível.
-```` Exemplo Simples
+Importante se atentar nos aspectos de modularização, demonstre seu conhecimento sobre importações e exportações com raciocínio lógico e boas práticas.
+```` Apenas um exemplo
 root
 +--iClinic // 
 |
@@ -136,20 +131,22 @@ Não tente fazer o PUSH diretamente para ESTE repositório!
 <!-- - [Arthur de Castro](https://github.com/arthurfjadecastro) -->
 
 **ATENÇÃO**
-Depois de implementar a solução, crie uma branch nova seguindo o seguinte padrão:
-1. A inicial do seu primeiro e último nome 
+Crie uma branch nova seguindo o seguinte padrão:
+1. As iniciais do seu primeiro e último nome. Ex: Gustavo Almeida (gc)
 2. Seguido de "/" 
 3. Seguido de "feature"
 4. Seguido de "/" 
 5. Seguido de o "nome da branch"
 em seguida envie um pull request para este repositório. 
 
+
 O processo de Pull Request funciona da seguinte maneira:
+
 1. Faça um fork deste repositório (não clonar direto!);
 2. Faça seu projeto neste fork;
 3. Commit e suba as alterações para o SEU fork;
-4. Pela interface do Github, envie um Pull Request.
-5. Deixe o fork público para facilitar a inspeção do código.
+4. Pela interface do Github, envie um Pull Request;
+5. Deixe o fork público para facilitar a inspeção do código;
 
 ATENÇÃO
 Não tente fazer o PUSH diretamente para ESTE repositório!
