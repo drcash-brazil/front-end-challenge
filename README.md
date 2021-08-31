@@ -74,7 +74,8 @@ Descreva como executar o projeto e detalhe caso haja algum script ou regra exist
 ## Estrutura de arquivos do projeto
 
 Importante se atentar nos aspectos de modularização, demonstre seu conhecimento sobre importações e exportações com raciocínio lógico e boas práticas.
-```` Apenas um exemplo
+```` 
+*Exemplo Simplista*
 root
 +--iClinic // 
 |
