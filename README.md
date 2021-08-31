@@ -22,7 +22,7 @@ Exemplificar um caso de uso que mantenha em foco a manipulação de formulário 
 Obs:  O único pré-requisito é que o código seja feito em ReactJS, de preferência na versão mais atual. 
 
 # - Contexto
-Michael contratou um plataforma para gerenciar as clínicas de sua rede. Inicialmente a regra de negócio consiste no registro de suas clínicas que realizam tratamentos estéticos em seu estado. 
+Michael contratou um plataforma para gerenciar as clínicas de sua rede. A regra de negócio consiste no registro de suas clínicas que realizam tratamentos estéticos em seu estado. 
 
 Com isso, você foi o responsável por pensar na escalabilidade como também garantir que os dados cadastrados de suas clínicas permaneçam íntegros.
 
