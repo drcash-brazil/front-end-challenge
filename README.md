@@ -133,7 +133,7 @@ Não tente fazer o PUSH diretamente para ESTE repositório!
 
 **ATENÇÃO**
 Crie uma branch nova seguindo o seguinte padrão:
-1. As iniciais do seu primeiro e último nome. Ex: Ricardo Almeida (rc)
+1. As iniciais do seu primeiro e último nome. Ex: Ricardo Almeida (ra)
 2. Seguido de "/" 
 3. Seguido de "feature"
 4. Seguido de "/" 
