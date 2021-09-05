@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+:root {
+    --primary-color: #05c0a1;
+    --background-color: #f8f9fa;
+    --black-color: black;
+    --white-color: white;
+}
+
+body {
+    font-family: 'Roboto Condensed', sans-serif !important;
+}
+
+.list {
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.about-list {
+    color: var(--black-color);
+    text-transform: uppercase;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.map-list {
+    width: 100%;
+}
+
+
+.container-list {
+    margin-left: 10rem;
+    margin-right: 10rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: var(--black-color) 1px solid;
+    margin-bottom: 3rem;
+}
+
+.container-list h1 {
+    color: white;
+    font-size: 40px;
+    margin-left: 183px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+thead th {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 1.8rem 13rem 1rem 2rem;
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+thead th:nth-child(1) {
+    text-align: left;
+    padding-left: 3.5rem;
+}
+
+tbody {
+    background-color: white;
+    font-size: 24px;
+
+}
+
+tbody td {
+    padding: 1.5rem 9rem 1.5rem 3.12rem;
+    border-bottom: 3px solid #F1F1F1;
+}
+
+tbody td:nth-child(n+2) {
+    color: var(--black-color);
+    
+    
+}
+
+tbody td:nth-child(1) {
+    width: 33%;
+    color: var(--black-color);
+    font-weight: 600;
+    
+}
+
+.class-size {
+    width: 100%;
+}
+
+@media(max-width:900px) {
+    .header {
+        margin: 36px 9px 0px 9px;
+    }
+
+    .homeButton {
+        width: 106px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+    .homeButton img {
+        width: 12px;
+        height: auto;
+        margin-right: 5px;
+    }
+
+    .exitButton {
+        width: 104px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+    .exitButton img {
+        width: 12px;
+        height: auto;
+        margin-right: 5px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        margin-left: 9px;
+        margin-right: 9px;
+    }
+
+    .container h1 {
+        font-size: 33px;
+    }
+
+    
+    thead {
+        width: 100%;
+    }
+
+    thead th {
+        font-size: 17px;
+        padding: 0;
+        margin: 0;
+    }
+
+    
+    tbody {
+        font-size: 14px;
+        width: 100%;
+        
+    }
+
+
+    tbody td {
+        padding: 21px 16px 21px 58px;
+        border-bottom: 3px solid #F1F1F1;
+    }
+
+
+    tbody td:nth-child(1) {
+        width: 70%;
+    }
+
+
+
+}
+
+
+@media(max-width: 1400px) {
+
+    thead th {
+        padding: 1rem 6rem 1rem 1rem;
+        font-size: 16px;
+    }
+    tbody td {
+        padding: 1rem 6rem 1rem 1rem;
+        font-size: 16px;
+    }
+
+
+}
+
+
+@media(max-width: 950px) {
+    thead th {
+        padding: 1rem 3rem 1rem 1rem;
+        font-size: 13px;
+    }
+    tbody td {
+        padding: 1rem 3rem 1rem 1rem;
+        font-size: 13px;
+    }
+
+
+}
+
+@media(max-width: 768px) {
+
+    .container-list {
+        width: 100%;
+        margin-left: 0.1rem;
+        margin-right: 0.1rem;
+    }
+
+    .about-list {
+        font-size: 18px;
+    }
+    
+
+}

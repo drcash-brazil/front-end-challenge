@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+:root {
+    --primary-color: #05c0a1;
+    --background-color: #f8f9fa;
+    --black-color: black;
+    --white-color: white;
+}
+
+body {
+    font-family: 'Roboto Condensed', sans-serif !important;
+}
+
+
+/******** FORM ********/
+
+.forms {
+    background-color: var(--background-color);
+    padding: 3rem 0;
+    margin-top: 3rem;
+    
+}
+
+.forms h1 {
+    color: var(--primary-color);
+    padding: 1.3rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.forms p {
+    color: var(--black-color);
+    letter-spacing: 0.1rem;
+    font-size: 1.2rem;
+}
+
+
+/******** INPUTS ********/
+
+.forms input {
+    width: 100%;
+    box-sizing: border-box;
+    background: none;
+    resize: none;
+    border: 0;
+    margin-bottom: 0.5rem;
+    border-bottom: 0.125rem solid var(--primary-color);
+    border-radius: 0;
+    color: var(--primary-color);
+    outline: 0 !important;
+    box-shadow: 0 !important;
+    padding-left: 0 !important;
+    margin-top: 1rem;
+}
+
+.forms .container {
+    padding: 4rem 0;
+}
+
+.forms input:focus {
+    background: transparent;
+    color: var(--black-color);
+    border-bottom: 0.125rem solid var(--primary-color);
+}
+
+.contact-btn {
+    margin: 1rem 0 0 0;
+    width: 100%;
+    font-size: 2rem;
+    background-color: var(--background-color);
+}
+
+#uf {
+    margin-top: 1.3rem;
+}
+
+
+/******** MEDIA ********/
+
+@media (max-width: 768px) {
+    .forms .container {
+        padding: 0 1rem;
+    }
+    .forms p {
+        padding: 0 0.4rem;
+    }
+
+    .row {
+        margin-right: 1rem;
+    }
+}

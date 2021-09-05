@@ -1,0 +1,60 @@
+{
+  "clinicas": [
+    {
+      "id": 1,
+      "nome": "Clinica de teste",
+      "cpf": "46606252814",
+      "email": "mwsleonardo@gmail.com",
+      "capital": "100000000",
+      "cep": "02122090",
+      "logradouro": "Rua Nova Prata",
+      "numero": "148",
+      "complemento": "1",
+      "bairro": "Vila Maria Alta",
+      "localidade": "São Paulo",
+      "uf": "SP"
+    },
+    {
+      "id": 2,
+      "nome": "Clinica de teste",
+      "cpf": "46606252814",
+      "email": "mwsleonardo@gmail.com",
+      "capital": "100000000",
+      "cep": "02122090",
+      "logradouro": "Rua Nova Prata",
+      "numero": "148",
+      "complemento": "1",
+      "bairro": "Vila Maria Alta",
+      "localidade": "São Paulo",
+      "uf": "SP"
+    },
+    {
+      "id": 3,
+      "nome": "Clinica de teste",
+      "cpf": "46606252814",
+      "email": "mwsleonardo@gmail.com",
+      "capital": "100000000",
+      "cep": "02122090",
+      "logradouro": "Rua Nova Prata",
+      "numero": "148",
+      "complemento": "1",
+      "bairro": "Vila Maria Alta",
+      "localidade": "São Paulo",
+      "uf": "SP"
+    },
+    {
+      "nome": "Clinica teste video",
+      "cpf": "46606252814",
+      "email": "mwsleonardo@gmail.com",
+      "capital": "5000000",
+      "cep": "02122090",
+      "logradouro": "Rua Nova Prata",
+      "numero": "148",
+      "complemento": "1",
+      "bairro": "Vila Maria Alta",
+      "localidade": "São Paulo",
+      "uf": "SP",
+      "id": 4
+    }
+  ]
+}

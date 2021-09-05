@@ -1,0 +1,13 @@
+.tsparticles-canvas-el {
+    position: absolute;
+    height: 100vh;
+    width: 100vh;
+    z-index: 1;
+}
+
+
+@media(max-width: 768px) {
+    .particle-canvas {
+        display: none;
+    }
+}

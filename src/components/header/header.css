@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+:root {
+    --primary-color: #05c0a1;
+    --background-color: #f8f9fa;
+    --black-color: black;
+    --white-color: white;
+}
+
+body {
+    font-family: 'Roboto Condensed', sans-serif !important;
+}
+
+
+/******** HEADER ********/
+
+.headerWrapper {
+    position: relative;
+    background: url(../images/wallpaper-background.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.main-info {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+    
+}
+
+.main-info h1 {
+    color: var(--white-color);
+    text-transform: uppercase;
+    margin-top: 30vh;
+    font-weight: 700;
+    letter-spacing: 0.6rem;
+}
+
+/******** TYPED TEXT ********/
+
+.typed-text {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.2rem;
+    color: var(--background-color);
+    text-transform: uppercase;
+    margin-top: 16vh;
+}
+
+/******** HEADER MAIN OFFER BUTTON ********/
+
+.btn-main-offer {
+    text-transform: uppercase;
+    border-radius: 0.625rem 0.625rem;
+    padding: 0.625rem 0.75rem 0.75rem 0.75rem;
+    color: var(--black-color);
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin: 2rem;
+    
+    background-color: var(--background-color);
+    
+}
+
+.btn-main-offer:hover {
+    text-decoration: none;
+    color: var(--primary-color);
+    opacity: 1;
+    transition: 0.3s ease-in-out;
+}
+
+@media(max-width: 768px){
+    .main-info h1 {
+        font-size: 1.3rem !important;
+        letter-spacing: 0.3rem !important;
+    }
+    .btn-main-offer {
+    font-size: 1rem;
+    }
+}
