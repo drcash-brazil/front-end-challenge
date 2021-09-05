@@ -1,155 +1,104 @@
-# inspirational-challenge
+# inspirational-challenge - Leonardo (iClinic)
 
-Seja bem-vindo ao repositório do projeto iClinic, um caso de uso que deve ser implementado contendo uma versão para plataforma web. Obrigado por participar do desafio da Dr.Cash! Estamos muito contentes pelo seu primeiro passo para fazer parte de um time excepcional.
+Vídeo privado da apresentação do projeto: [Apresentação](https://www.youtube.com/watch?v=N1Zw7YmHFMY).
 
+Repositório do projeto: [iClinic-Challange](https://github.com/mwsleonardo/iclinic-challenge).
 
-## Afinal, o que é esse desafio?
+Como solicitado, foi criada uma Landing Page para as clíncias de Michael,
+um formulário de cadastro de clínicas e sua listagem com ambas com método get/post interagindo com a mock api.
 
-Primeiramente é importante se atentar aos pilares da Dr.Cash, seguindo metodologias de desenvolvimento ágil.
-
-- [Transparência] - Todo momento é momento para perguntar, tirar dúvidas e conversar sobre os processos e tarefas a serem executados, comunicação em primeiro lugar, sempre.
-
-- [Adaptabilidade] - Ofereça melhorias baseado em perspectivas e fundamentos, como também se adeque as normas impostas visando padrões já estipulados.
-
-- [Autonomia] - Ser Autodidata, proativo e fidelidade na busca constante por conhecimento.
-
-
-# Desafio 
-
-Exemplificar um caso de uso que mantenha em foco a manipulação de formulário de cadastro com paginação, que determina a utilização de recursos do React como também propõe o domínio de se trabalhar com validações, frameworks e lógicas de programação básica com a utilização de JavaScript, Html, CSS, ReactJS, alinhado com paradigmas como Orientado a Objetos e Programação funcional. Fique à vontade para fazer a Estruturação de Layout e Fluxo de Aplicação na maneira que quiser.
-
-
-Obs:  O único pré-requisito é que o código seja feito em ReactJS, de preferência na versão mais atual. 
-
-# - Contexto
-Michael contratou um plataforma para gerenciar as clínicas de sua rede. A regra de negócio consiste no registro de suas clínicas que realizam tratamentos estéticos em seu estado. 
-
-Com isso, você foi o responsável por pensar na escalabilidade como também garantir que os dados cadastrados de suas clínicas permaneçam íntegros.
-
-## Criar Landing Page.
-Supreenda-nos com a criação de uma landing page para a rede de clínicas de Michael.
-
-## Criar layout para tela de listagem e cadastro de clínicas.
-1) A partir da página home, deve ser possível navegar até a página de listagem de clínicas, aonde o usuário poderá realizar o cadastro de uma clínica em específico.
-2) Deve existir uma lista de clínicas
-
-No formulário de cadastro de clínica, deve-se coletar os seguintes dados:
-
-Página 1
-- a) Nome da clínica.
-- b) CPF do responsável.
-- c) Capital social da Clínica.
-
-Página 2
-- a) Dados de endereço (Livre)
-
-Página 3
-- a) Um Botão para a conclusão de cadastro juntamente com uma mensagem de cadastro realizado com sucesso.
-
-
-# Pontos a serem observados: 
-1) Material UI como biblioteca para desenvolver layouts.
-2) Deve ser criado uma Landing Page. O custom design deve preservar a UI e UX, se atentando às tecnologias voltadas para o CSS, SASS, JSS ou Styled Components.
-3) Na obtenção para os dados de endereço deve ser utilizado a API dos correios, ViaCEP (https://viacep.com.br/).
-4) A manipulação e criação de hooks também contarão na avaliação do projeto.
-5) Fique livre para tratar as questões de boas práticas, convenções, nomenclaturas, padrões, frameworks e etc...
-
-# Features:
-- Deve ser possível listar e cadastrar clínicas.
-- Os dados coletados podem ser tratados com uma Mock API.
-
-# Bonus:
-- Tela de Splash;
-- Home Page com transições e animações;
-- Tratamento de erros e apresentação dos fluxos de exceção: Generic Error's e Loading's;
+Formulário com auto preenchimento após digitar CEP (Api viaCep).
 
 # App em execução
 
-Instrua como usar e também como foi a desenvoltura mediante os processos realizados neste sistema desenvolvido, além de quais ferramentas e tecnologias o auxiliaram e por quê?
+Para rodar a aplicação e a API basta usar os comandos no terminal:
 
-## Como executar o projeto 
+### `npm start`
+### `npm run server`
 
-Descreva como executar o projeto e detalhe caso haja algum script ou regra existente.
+## Tecnologias, frameworks & bibliotecas aplicadas no projeto.
 
-## Estrutura de arquivos do projeto
+### `React`
 
-Importante se atentar nos aspectos de modularização, demonstre seu conhecimento sobre importações e exportações com raciocínio lógico e boas práticas.
+• Bootstrap 4
+
+• react-fontawesome
+
+• react-typed
+
+• react-particles-js
+
+• formik
+
+• yup
+
+• react-responsive-carousel
+
+• react-share
+
+• react-scroll
+
+# Experiência com o projeto
+
+A experiência de desenvolver este projeto para o inspirational-challenge foi incrível,
+pois a prova meu conhecimento em vários momentos, tive a oportunidade de utilizar várias 
+tecnologias novas que com certeza agregarão muito ao meu conhecimento, como por exemplo o Bootstrap.
+
+Trouxe a tona a necessidade de organização ao desenvolvimento, nos comentários e commits,
+e também no próprio tempo, para trazer a melhor produtividade possível no tempo engajado.
+
+E um aspecto muito importante é a avaliação profissional do projeto, isso nos traz
+a necessidade de ser sempre melhor, cada linha, cada código pode ser melhorado.
+
+# Futuro
+
+Em uma próxima versão do projeto, eu adicionaria a requisição de login para 
+editar e excluir os valores da tabela de clínicas, sem necessidade de realiza-lo direto no API.
+
+E alguns pontos visuais para as versões responsivas.
+
+## Estrutura dos arquivos
 ```` 
-*Exemplo Simplista*
-root
 +--iClinic // 
 |
-     Utils //  
-|      index // 
-|      MaskedInputs //
-|      Palette //
-     Validations //  
-|      index // 
-|      isValidNewPatient //
-|      isValid //
+     SRC //  
+|      index.js // 
+|      index.css //
+|      reportWebVitals.js //
      Components //
-|      UI //
-|        index // 
-|        Inputs // 
-|        Selectors // 
-|        Grids // 
-       Form // 
-|        index // 
-|        Form // 
-|        Pagination //
-|          index //
-|          Pagination //
-|          Pages //
-|            index //
-|            First //
-|            Second //
-|            Third //
-| 
+        schema.js
+|      about //
+|        about.jsx // 
+|        about.css //
+|      base //
+|        base.jsx // 
+|      footer //
+|        footer.jsx // 
+|        footer.css //
+|      form //
+|        form.jsx // 
+|        form.css //  
+|      header //
+|        header.jsx // 
+|        header.css // 
+|      images //
+|        logo.png // 
+|        myfoto.jpg //
+|        testimonials-bg.png //
+|        wallpaper-background.png //
+|           avatars //
+|               avatar1 //
+|               avatar2 //
+|               avatar3 //
+|               avatar4 //
+|      list //
+|        list.jsx // 
+|        list.css //
+|      navbar //
+|        navbar.jsx // 
+|        navbar.css //  
+|      testimonials //
+|        testimonials.jsx // 
+|        testimonials.css // 
+|        testimonialsCarousel.jsx // 
 ````
-
-## Frameworks aplicadas no projeto
-
-
-**Atenção** - Informe quais recursos de terceriros foram utilizados no projeto e descreva o por quê.
-
-
-## Experiência com o projeto 
-    # Descreva sua experiênca com o projeto, tanto na parte técnica quanto na parte teórica.
-  
-  
-## Futuro
-
-Descreva sobre possíveis planos para este projeto, melhorias ou alterações que você realizaria em prol de aumentar a qualidade no desenvolvimento.
-
-    
-### **ATENÇÃO**
-
-Não tente fazer o PUSH diretamente para ESTE repositório!
-    
-   
-### Autor
-
-<!-- - [Arthur de Castro](https://github.com/arthurfjadecastro) -->
-
-**ATENÇÃO**
-Crie uma branch nova seguindo o seguinte padrão:
-1. As iniciais do seu primeiro e último nome. Ex: Ricardo Almeida (ra)
-2. Seguido de "/" 
-3. Seguido de "feature"
-4. Seguido de "/" 
-5. Seguido de o "nome da branch"
-em seguida envie um pull request para este repositório. 
-
-
-O processo de Pull Request funciona da seguinte maneira:
-
-1. Faça um fork deste repositório (não clonar direto!);
-2. Faça seu projeto neste fork;
-3. Commit e suba as alterações para o SEU fork;
-4. Pela interface do Github, envie um Pull Request;
-5. Deixe o fork público para facilitar a inspeção do código;
-
-ATENÇÃO.
-Não tente fazer o PUSH diretamente para ESTE repositório!
-
-
