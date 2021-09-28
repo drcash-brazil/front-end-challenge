@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 88px 24px 0;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.children {
+  width: 100%;
+}
