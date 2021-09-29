@@ -1,7 +1,6 @@
 import React, { memo, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import cx from 'classnames';
-import PropTypes from 'prop-types';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -85,7 +84,7 @@ function Header({
 
         <div className="flex flex-row items-center">
           <Typography variant="body1" display="block">
-            Olá Administrador01
+            Olá, Michael
           </Typography>
           <IconButton
             aria-label="account of current user"
@@ -119,14 +118,5 @@ function Header({
     </AppBar>
   );
 }
-
-Header.propTypes = {
-  handleDrawer: PropTypes.func.isRequired,
-  open: PropTypes.bool,
-};
-
-Header.defaultProps = {
-  open: false,
-};
 
 export default memo(Header);
