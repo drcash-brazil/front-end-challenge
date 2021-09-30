@@ -1,12 +1,16 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding: 88px 24px 0;
+  padding: 88px 24px 24px;
+  height: 100%;
 }
+
 .row {
   display: flex;
   flex-direction: row;
+  height: 100%;
 }
+
 .children {
-  width: 100%;
+  flex: 1;
 }

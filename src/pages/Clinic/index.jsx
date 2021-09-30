@@ -12,8 +12,8 @@ import Loader from 'react-loader-spinner';
 import emptyResultImg from 'assets/img/empty-result.png';
 
 const Clinic = () => {
-  const [ clinics, setClinics ] = useState([]);
-  const [ showLoadingSpinner, setShowLoadingSpinner ] = useState(true);
+  const [clinics, setClinics] = useState([]);
+  const [showLoadingSpinner, setShowLoadingSpinner] = useState(true);
   const history = useHistory();
 
   const handleAddButonClick = (ev) => {
@@ -28,7 +28,7 @@ const Clinic = () => {
       ClinicRequests.getAll()
         .then(response => {
           const { data } = response;
-  
+
           setClinics(data);
         })
         .catch(error => {
@@ -55,7 +55,7 @@ const Clinic = () => {
         {showLoadingSpinner
           ? (
             <div className="w-100 h-100 flex justify-center items-center">
-              <Loader 
+              <Loader
                 type="ThreeDots"
                 color="#3B74F2"
                 height={100}
@@ -64,46 +64,46 @@ const Clinic = () => {
               />
             </div>
           )
-        : clinics.length > 0
-          ? (
-            <div className="mb12 w-100 flex flex-column items-end">
-              <Table
-                data={clinics}
-                headers={[
-                  'Clínica',
-                  'CPF Representante',
-                  'Capital Social',
-                  'CEP',
-                  'Cidade/UF',
-                ]}
-                cells={[
-                  'name',
-                  'cpf',
-                  'socialCapital',
-                  'cep',
-                  'location',
-                ]}
-                formatElements={({cpf, socialCapital, cep, state, city}) => ({
-                  cpf: cpfLib.format(cpf),
-                  socialCapital: formatMoney(socialCapital),
-                  cep: formatCep(cep),
-                  location: `${city}/${state}`
-                })}
-              />
-              <div className="mt12">
-                <span>Quantidade de registros encontrados: {clinics.length}</span>
+          : clinics.length > 0
+            ? (
+              <div className="mb12 w-100 flex flex-column items-end">
+                <div className="mb12">
+                  <span>Quantidade de registros encontrados: {clinics.length}</span>
+                </div>
+                <Table
+                  data={clinics}
+                  headers={[
+                    'Clínica',
+                    'CPF Representante',
+                    'Capital Social',
+                    'CEP',
+                    'Cidade/UF',
+                  ]}
+                  cells={[
+                    'name',
+                    'cpf',
+                    'socialCapital',
+                    'cep',
+                    'location',
+                  ]}
+                  formatElements={({ cpf, socialCapital, cep, state, city }) => ({
+                    cpf: cpfLib.format(cpf),
+                    socialCapital: formatMoney(socialCapital),
+                    cep: formatCep(cep),
+                    location: `${city}/${state}`
+                  })}
+                />
               </div>
-            </div>
-          )
-          : (
-            <div className="w-100 flex flex-column justify-center items-center">
-              <img className="mw-300" src={emptyResultImg} alt="Sem resultados!" />
+            )
+            : (
+              <div className="w-100 flex flex-column justify-center items-center">
+                <img className="mw-300" src={emptyResultImg} alt="Sem resultados!" />
 
-              <div className="tc mt16 pl16">
-                <span>Nenhum registro foi encontrado!</span>
+                <div className="tc mt16 pl16">
+                  <span>Nenhum registro foi encontrado!</span>
+                </div>
               </div>
-            </div>
-          )}
+            )}
       </Card>
     </>
   );

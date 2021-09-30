@@ -1,22 +1,30 @@
-import { ErrorMessage, useField } from 'formik';
+import { useField } from 'formik';
+import TextField from '@material-ui/core/TextField';
+import { memo } from 'react';
 
 const Input = ({ label, className, ...props }) => {
   const [field, meta] = useField(props);
 
+  const { error, touched } = meta;
+
+  const hasError = Boolean(error && touched)
+
   return (
     <div className={className}>
-      <label htmlFor={field.name}>
-        {label}
-      </label>
-      
-      <input
-        className={`form-control ${meta.touched && meta.error && 'is-invalid'}`}
-        {...field} {...props}
+      <TextField
+        {...field}
+        {...props}
+        fullWidth
+        label={label}
+        color="primary"
+        variant="outlined"
         autoComplete="off"
+        helperText={hasError && error}
+        error={hasError}
+        inputProps={{ style: { height: 56 } }}
       />
-      <ErrorMessage component="div" name={field.name} className="absolute red f11" />
     </div>
   )
 }
 
-export default Input;
+export default memo(Input);

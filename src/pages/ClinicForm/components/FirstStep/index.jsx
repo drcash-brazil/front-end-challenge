@@ -26,7 +26,7 @@ const FirstStep = ({
 
   return (
     <>
-      <h3 className="mv12">Dados gerais</h3>
+      <h2 className="mt12 mb24 f20">Sobre a Clínica</h2>
 
       <Formik
         initialValues={formData}
@@ -53,7 +53,7 @@ const FirstStep = ({
                 name="name"
                 type="text"
                 className="mb16"
-                label="Nome da cínica"
+                label="Nome da clínica"
               />
               <Input
                 name="cpf"
@@ -87,7 +87,7 @@ FirstStep.propTypes = {
 
 FirstStep.defaultProps = {
   formData: {},
-  setForm: () => {},
+  setForm: () => { },
   navigation: {}
 }
 

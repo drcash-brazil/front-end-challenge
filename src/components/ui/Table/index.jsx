@@ -15,7 +15,7 @@ const Table = ({
   cells,
   formatElements
 }) => (
-  <>
+  <div className="ba br2 b--black-10 w-100">
     <TableContainer component={Paper}>
       <MaterialTable>
         <TableHead>
@@ -55,7 +55,7 @@ const Table = ({
         </TableBody>
       </MaterialTable>
     </TableContainer>
-  </>
+  </div>
 );
 
 Table.defaultProps = {

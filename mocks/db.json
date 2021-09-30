@@ -61,6 +61,19 @@
       "number": "1234",
       "complement": "lado ímpar",
       "id": 5
+    },
+    {
+      "name": "Nome teste 01",
+      "cpf": "11793994633",
+      "socialCapital": "10000",
+      "cep": "01001000",
+      "state": "SP",
+      "city": "São Paulo",
+      "neightborhood": "Sé",
+      "street": "Praça da Sé",
+      "number": "1",
+      "complement": "",
+      "id": 6
     }
   ]
 }

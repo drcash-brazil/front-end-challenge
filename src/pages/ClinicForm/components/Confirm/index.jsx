@@ -36,13 +36,14 @@ const Confirm = ({
 
   return (
     <>
-      <h2>Conferir informações</h2>
-      <DetailAccordion defaultExpanded={true} className="mt16" summary="Sobre" go={ go } details={[
+      <h2 className="mt12 f20">Revisar Dados</h2>
+      <h4 className="mt12 mb24 f14 fw3 gray">Clique no lápis para editar</h4>
+      <DetailAccordion defaultExpanded={true} className="mt16 ba br2 shadow-4 b--black-10" summary="Sobre a Clínica" go={go} details={[
         { 'Nome da clínica': name },
         { 'CPF do responsável': cpfLib.format(cpf) },
         { 'Capital social': formatMoney(socialCapital) },
       ]} />
-      <DetailAccordion className="mt16" summary="Endereço" go={ go } details={[
+      <DetailAccordion className="mt16 ba br2 shadow-4 b--black-10" summary="Endereço" go={go} details={[
         { 'Cep': formatCep(cep) },
         { 'State': state },
         { 'City': city },

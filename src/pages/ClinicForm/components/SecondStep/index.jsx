@@ -33,41 +33,40 @@ const SecondStep = ({
   const handleCepBlur = async (ev, setFieldValue, setFieldError) => {
     const { value } = ev.target;
 
-    if(value) {
+    if (value) {
       setDisplaySpinner(true);
 
       setTimeout(() => {
         searchCep(value)
           .then(({ data, status }) => {
             const { erro } = data;
-  
-            if(erro || status >= 400) {
+
+            if (erro || status >= 400) {
               console.log("entrou aqui!");
               setFieldError("cep", "Valor não encontrado!");
             }
             else {
               const relation = {
-                cep:  "cep",
-                state:  "uf",
-                city:  "localidade",
-                street:  "logradouro",
-                neightborhood:  "bairro",
-                complement:  "complemento",
+                cep: "cep",
+                state: "uf",
+                city: "localidade",
+                street: "logradouro",
+                neightborhood: "bairro",
               };
-  
+
               Object.keys(data).forEach(key => {
                 const apiResponseValue = data[key];
-  
-                if(apiResponseValue) {
+
+                if (apiResponseValue) {
                   const fieldName = Object.keys(relation).filter(rk => relation[rk] === key)[0];
-                  
-                  if(fieldName) {
+
+                  if (fieldName) {
                     const isCepField = fieldName === "cep";
-  
-                    if(!isCepField) {
+
+                    if (!isCepField) {
                       setFieldValue(fieldName, apiResponseValue);
                     }
-                    
+
                     setForm({
                       target: {
                         name: fieldName,
@@ -77,12 +76,12 @@ const SecondStep = ({
                   }
                 }
               });
-  
+
               console.log({ formData });
             }
           })
           .catch(error => {
-  
+
           })
           .finally(() => {
             setDisplaySpinner(false);
@@ -93,18 +92,18 @@ const SecondStep = ({
 
   return (
     <div className="relative">
-    {displaySpinner  && (
-      <div className="absolute bg-white pa32 br4 shadow-2 transform-center">
-        <Loader 
-          type="ThreeDots"
-          color="#3B74F2"
-          height={100}
-          width={100}
-          visible={true}
-        />
-      </div>
-    )}
-      <h3 className="mv12">Endereço</h3>
+      {displaySpinner && (
+        <div className="o-80 flex items-center justify-center fixed z-2 w-100 h-100 top-0 left-0 bg-white pa32 br4 shadow-2">
+          <Loader
+            type="ThreeDots"
+            color="#3B74F2"
+            height={100}
+            width={100}
+            visible={true}
+          />
+        </div>
+      )}
+      <h2 className="mt12 mb24 f20">Endereço</h2>
 
       <Formik
         initialValues={formData}
@@ -129,13 +128,13 @@ const SecondStep = ({
             <Form>
               <Input
                 className="mb16"
-                label="Cep"
+                label="CEP"
                 name="cep"
                 type="text"
                 onBlur={(ev) => {
                   handleBlur(ev);
 
-                  if(!errors["cep"]) {
+                  if (!errors["cep"]) {
                     handleCepBlur(ev, setFieldValue, setFieldError);
                   }
                 }}
@@ -197,7 +196,7 @@ SecondStep.propTypes = {
 
 SecondStep.defaultProps = {
   formData: {},
-  setForm: () => {},
+  setForm: () => { },
   navigation: {}
 }
 

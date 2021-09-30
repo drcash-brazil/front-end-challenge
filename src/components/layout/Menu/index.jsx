@@ -1,69 +1,25 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
-
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-
-import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
+import Drawer from '@material-ui/core/Drawer';
+import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
+import IconButton from '@material-ui/core/IconButton';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import IconButton from '@material-ui/core/IconButton';
-import Divider from '@material-ui/core/Divider';
 
-const useStyles = makeStyles((theme) => ({
-  drawer: {
-    width: 240,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
-  },
-  drawerOpen: {
-    width: 240,
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  drawerClose: {
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    overflowX: 'hidden',
-    width: theme.spacing(7) + 1,
-    [theme.breakpoints.up('sm')]: {
-      width: theme.spacing(9) + 1,
-    },
-  },
-  toolbar: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar,
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
-
-  blue: {
-    color: '#3f51b5',
-  },
-
-}));
-
+import materialStyleConfig from './utils/materialStyleConfig';
 function Menu({
-  handleDrawer,
+  handleDrawer, 
   open,
   options,
   activated,
   handleActivated,
 }) {
-  const classes = useStyles();
+  const classes = materialStyleConfig();
   return (
     <Drawer
       variant="permanent"
@@ -89,14 +45,16 @@ function Menu({
           option.map((o, key) => (
             <div key={o.route}>
               <ListItem component={Link} to={o.route} button key={o.title}>
-                <ListItemIcon
-                  className={cx({
-                    [classes.blue]: activated === key,
-                  })}
-                  onClick={() => handleActivated(key)}
-                >
-                  {o.image}
-                </ListItemIcon>
+                <div className="pl8">
+                  <ListItemIcon
+                    className={cx({
+                      [classes.blue]: activated === key
+                    })}
+                    onClick={() => handleActivated(key)}
+                  >
+                    {o.image}
+                  </ListItemIcon>
+                </div>
                 <ListItemText
                   primary={o.title}
                   className={cx('fw6', { [classes.blue]: activated === key })}

@@ -13,17 +13,24 @@ const DetailAccordion = ({ summary, go, details, className, defaultExpanded }) =
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
         >
-          <p className="f20">{summary}</p>
+          <p className="f14">{summary}</p>
         </AccordionSummary>
         <AccordionDetails>
           <div className="w-100">
-            { details.map((data, index) => {
+            {details.map((data, index) => {
               const objKey = Object.keys(data)[0];
               const objValue = data[Object.keys(data)[0]];
 
-              return <ListItemText key={index}>{`${objKey}: ${objValue}`}</ListItemText>
+              return (
+                <ListItemText
+                  key={index}
+                  primaryTypographyProps={{ style: { fontSize: 13 } }}
+                >
+                  {`${objKey}: ${objValue}`}
+                </ListItemText>
+              )
 
-            }) }
+            })}
             <div className="flex justify-end items-center">
               <IconButton
                 color="primary"

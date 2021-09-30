@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 
 import Header from '../Header';
 import Menu from '../Menu';
-
 import styles from './styles.module.css';
-
-import menuOptions from '../../../assets/jsx/MenuOptions';
+import menuOptions from 'assets/jsx/MenuOptions';
 
 function MenuWithTopBar({
   children,
