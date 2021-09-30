@@ -11,7 +11,6 @@ const FirstStep = ({
   setForm,
   navigation
 }) => {
-  const { name, cpf, socialCapital } = formData;
 
   const validate = yup.object({
     name: yup.string()
@@ -27,14 +26,10 @@ const FirstStep = ({
 
   return (
     <>
-      <h2 className="mb32">Dados gerais</h2>
+      <h3 className="mv12">Dados gerais</h3>
 
       <Formik
-        initialValues={{
-          name,
-          cpf,
-          socialCapital
-        }}
+        initialValues={formData}
         validationSchema={validate}
         onSubmit={async values => {
           await Object.keys(values).map(key => {

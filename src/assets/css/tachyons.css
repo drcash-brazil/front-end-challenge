@@ -750,6 +750,7 @@ img {
 .b--dark-blue {
   border-color: #00449e;
 }
+
 .b--blue {
   border-color: #357edd;
 }
@@ -1051,6 +1052,15 @@ img {
      -l  = large
 
 */
+
+.transform-center {
+  transform: translate3d(115px, 158px, 0px);
+}
+
+.top-50 {
+  top: 50%;
+}
+
 .top-0 {
   top: 0;
 }
@@ -2225,6 +2235,10 @@ code,
 .dark-blue {
   color: #00449e;
 }
+.cool-blue {
+  color: #3f51b5;
+}
+
 .blue {
   color: #357edd;
 }
@@ -3471,6 +3485,9 @@ code,
 }
 .pa16 {
   padding: 1rem;
+}
+.pa20 {
+  padding: 1.25rem;
 }
 .pa24 {
   padding: 1.5rem;
@@ -9227,4 +9244,9 @@ code,
   .v-btm-l {
     vertical-align: bottom;
   }
+}
+
+
+.mw-300 {
+  max-width: 300px
 }

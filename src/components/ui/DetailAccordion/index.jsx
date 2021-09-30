@@ -24,13 +24,11 @@ const DetailAccordion = ({ summary, go, details, className, defaultExpanded }) =
               return <ListItemText key={index}>{`${objKey}: ${objValue}`}</ListItemText>
 
             }) }
-            <div
-              className="flex justify-end items-center"
-              onClick={() => go(`${summary.toLowerCase()}`)}
-            >
+            <div className="flex justify-end items-center">
               <IconButton
                 color="primary"
                 component="span"
+                onClick={() => go(`${summary.toLowerCase()}`)}
               >
                 <EditIcon />
               </IconButton>

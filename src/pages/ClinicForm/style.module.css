@@ -1,16 +1,7 @@
-.formWrapper {
-  width: 100%;
-  max-width: 600px;
-  padding-left: 75px;
-}
-
-.imgWrapper {
+.wrapper {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100%;
-}
-
-.imgWrapper img {
-  max-width: 650px;
+  max-width: 450px;
+  width: 100%;
 }

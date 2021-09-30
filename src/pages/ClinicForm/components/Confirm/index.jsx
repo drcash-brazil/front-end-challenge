@@ -1,5 +1,10 @@
-import DetailAccordion from 'components/ui/DetailAccordion';
+import { cpf as cpfLib } from 'cpf-cnpj-validator';
+
+import Clinic from 'resources/clinic';
+import formatCep from 'utils/formatCep';
 import Button from 'components/ui/Button';
+import formatMoney from 'utils/formatMoney';
+import DetailAccordion from 'components/ui/DetailAccordion';
 
 const Confirm = ({
   formData, navigation
@@ -17,16 +22,28 @@ const Confirm = ({
     number
   } = formData;
 
+  const handleSubmitClick = async (ev) => {
+    ev.stopPropagation();
+
+    Clinic.create(formData)
+      .then(response => {
+        go('done');
+      })
+      .catch(error => {
+        alert(error);
+      })
+  }
+
   return (
     <>
       <h2>Conferir informações</h2>
       <DetailAccordion defaultExpanded={true} className="mt16" summary="Sobre" go={ go } details={[
         { 'Nome da clínica': name },
-        { 'CPF do responsável': cpf },
-        { 'Capital social': socialCapital },
+        { 'CPF do responsável': cpfLib.format(cpf) },
+        { 'Capital social': formatMoney(socialCapital) },
       ]} />
       <DetailAccordion className="mt16" summary="Endereço" go={ go } details={[
-        { 'Cep': cep },
+        { 'Cep': formatCep(cep) },
         { 'State': state },
         { 'City': city },
         { 'Bairro': neightborhood },
@@ -39,7 +56,7 @@ const Confirm = ({
         <Button
           buttonValue="Enviar"
           color="primary"
-          onClick={() => go('done')}
+          onClick={handleSubmitClick}
           type="submit"
         />
       </div>

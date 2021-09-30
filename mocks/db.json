@@ -1,0 +1,66 @@
+{
+  "clinics": [
+    {
+      "id": 1,
+      "name": "Clínica 01",
+      "cpf": "11111111111",
+      "socialCapital": "10000",
+      "cep": "38500000",
+      "state": "MG",
+      "city": "Monte Carmelo",
+      "neightborhood": "Centro",
+      "street": "Primeira Rua de Teste",
+      "number": "111"
+    },
+    {
+      "id": 2,
+      "name": "Clínica 02",
+      "cpf": "22222222222",
+      "socialCapital": "20000",
+      "cep": "38500000",
+      "state": "MG",
+      "city": "Monte Carmelo",
+      "neightborhood": "Centro",
+      "street": "Primeira Rua de Teste",
+      "number": "222"
+    },
+    {
+      "id": 3,
+      "name": "Clínica 03",
+      "cpf": "33333333333",
+      "socialCapital": "30000",
+      "cep": "38500000",
+      "state": "MG",
+      "city": "Monte Carmelo",
+      "neightborhood": "Centro",
+      "street": "Primeira Rua de Teste",
+      "number": "333"
+    },
+    {
+      "name": "Nome 04",
+      "cpf": "11793994633",
+      "socialCapital": "12345",
+      "cep": "38500000",
+      "state": "MG",
+      "city": "Monte Carmelo",
+      "neightborhood": "Bairro 4",
+      "street": "Endereço 4",
+      "number": "101",
+      "complement": "",
+      "id": 4
+    },
+    {
+      "name": "teste ",
+      "cpf": "00000000191",
+      "socialCapital": "102131235",
+      "cep": "01001000",
+      "state": "SP",
+      "city": "São Paulo",
+      "neightborhood": "Sé",
+      "street": "Praça da Sé",
+      "number": "1234",
+      "complement": "lado ímpar",
+      "id": 5
+    }
+  ]
+}
