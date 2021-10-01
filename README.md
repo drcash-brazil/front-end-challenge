@@ -1,12 +1,4 @@
 # inspirational-challenge
-# Bonus:
-- Tela de Splash;
-- Home Page com transições e animações;
-- Tratamento de erros e apresentação dos fluxos de exceção: Generic Error's e Loading's;
-
-# App em execução
-
-Instrua como usar e também como foi a desenvoltura mediante os processos realizados neste sistema desenvolvido, além de quais ferramentas e tecnologias o auxiliaram e por quê?
 
 ## Como executar o projeto 
 
