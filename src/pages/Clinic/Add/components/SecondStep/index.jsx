@@ -42,7 +42,6 @@ const SecondStep = ({
             const { erro } = data;
 
             if (erro || status >= 400) {
-              console.log("entrou aqui!");
               setFieldError("cep", "Valor não encontrado!");
             }
             else {
@@ -76,8 +75,6 @@ const SecondStep = ({
                   }
                 }
               });
-
-              console.log({ formData });
             }
           })
           .catch(error => {

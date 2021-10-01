@@ -5,12 +5,14 @@ import Header from '../Header';
 import Menu from '../Menu';
 import styles from './styles.module.css';
 import menuOptions from 'assets/jsx/MenuOptions';
+import { useLocation } from 'react-router';
 
 function MenuWithTopBar({
   children,
 }) {
+  const location = useLocation();
   const [open, setOpen] = useState(false);
-  const [activated, setIsActivated] = useState(0);
+  const [activated, setIsActivated] = useState(location.pathname === '/clinic' ? 0 : 1);
 
   const handleDrawer = () => {
     setOpen(!open);

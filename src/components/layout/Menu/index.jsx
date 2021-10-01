@@ -44,13 +44,18 @@ function Menu({
         {options.map((option) => (
           option.map((o, key) => (
             <div key={o.route}>
-              <ListItem component={Link} to={o.route} button key={o.title}>
+              <ListItem
+                component={Link}
+                to={o.route}
+                button
+                key={o.title}
+                onClick={() => handleActivated(key)}
+              >
                 <div className="pl8">
                   <ListItemIcon
                     className={cx({
                       [classes.blue]: activated === key
                     })}
-                    onClick={() => handleActivated(key)}
                   >
                     {o.image}
                   </ListItemIcon>
@@ -58,7 +63,6 @@ function Menu({
                 <ListItemText
                   primary={o.title}
                   className={cx('fw6', { [classes.blue]: activated === key })}
-                  onClick={() => handleActivated(key)}
                 />
               </ListItem>
             </div>

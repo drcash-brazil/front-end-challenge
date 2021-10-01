@@ -35,32 +35,6 @@
       "neightborhood": "Centro",
       "street": "Primeira Rua de Teste",
       "number": "333"
-    },
-    {
-      "name": "Nome 04",
-      "cpf": "00000000191",
-      "socialCapital": "12345",
-      "cep": "01001000",
-      "state": "SP",
-      "city": "São Paulo",
-      "neightborhood": "Sé",
-      "street": "Praça da Sé",
-      "number": "123",
-      "complement": "",
-      "id": 4
-    },
-    {
-      "name": "nome 04",
-      "cpf": "11793994633",
-      "socialCapital": "123456",
-      "cep": "01001000",
-      "state": "SP",
-      "city": "São Paulo",
-      "neightborhood": "Sé",
-      "street": "Praça da Sé",
-      "number": "1",
-      "complement": "",
-      "id": 5
     }
   ]
 }
