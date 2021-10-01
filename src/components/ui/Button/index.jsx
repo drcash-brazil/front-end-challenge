@@ -16,7 +16,6 @@ const Button = ({
       type={type}
       className={className}
       disabled={disabled}
-      style={{ minWidth: '82.63px' }}
       {...props}
     >
       {buttonValue}

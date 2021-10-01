@@ -12,7 +12,6 @@ import Confirm from "./components/Confirm";
 import Done from "./components/Done";
 import formInitialFieldsValue from "./utils/formInitialFieldsValue";
 import formStepsConfig from "./utils/formStepsConfig";
-import doctorsImage from 'assets/img/doctors.png';
 
 const ClinicForm = () => {
   const history = useHistory();
@@ -86,9 +85,6 @@ const ClinicForm = () => {
                 )}
               </div>
             </div>
-          </div>
-          <div className={styles.imgWrapper}>
-            <img src={doctorsImage} alt="Doctors" />
           </div>
         </div>
 

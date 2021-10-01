@@ -77,6 +77,7 @@ const Clinic = () => {
                     'CPF Representante',
                     'Capital Social',
                     'CEP',
+                    'Endereço',
                     'Cidade/UF',
                   ]}
                   cells={[
@@ -84,13 +85,15 @@ const Clinic = () => {
                     'cpf',
                     'socialCapital',
                     'cep',
+                    'address',
                     'location',
                   ]}
-                  formatElements={({ cpf, socialCapital, cep, state, city }) => ({
+                  formatElements={({ cpf, socialCapital, cep, state, city, neightborhood, street, number, complement }) => ({
                     cpf: cpfLib.format(cpf),
                     socialCapital: formatMoney(socialCapital),
                     cep: formatCep(cep),
-                    location: `${city}/${state}`
+                    location: `${city}/${state}`,
+                    address: `${street}, ${neightborhood} - ${number} ${complement ?? ""}`
                   })}
                 />
               </div>

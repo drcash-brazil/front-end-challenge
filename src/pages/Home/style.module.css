@@ -1,9 +1,23 @@
 .container {
-  background: linear-gradient(90deg, #6d62fd, #483afc);
+  background: linear-gradient(270deg, #6d62fd, #483afc);
   height: 100vh;
   width: 100vw;
+  display: flex;
+  justify-content: center;
 }
 
-.header {
-  padding: 1rem;
+.wrapper {
+  width: 100%;
+  max-width: 1280px; 
+  display: flex;
+  flex-direction: column;
+}
+
+.imgWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.imgWrapper img {
+  max-width: 500px;
 }

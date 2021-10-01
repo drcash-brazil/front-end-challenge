@@ -126,25 +126,33 @@ const SecondStep = ({
         {({ handleBlur, errors, setFieldValue, setFieldError }) => (
           <div>
             <Form>
-              <Input
-                className="mb16"
-                label="CEP"
-                name="cep"
-                type="text"
-                onBlur={(ev) => {
-                  handleBlur(ev);
+              
+              <div className="flex w-100">
+                <div className="pr8 w-60">
+                  <Input
+                    className="mb16"
+                    label="CEP"
+                    name="cep"
+                    type="text"
+                    onBlur={(ev) => {
+                      handleBlur(ev);
 
-                  if (!errors["cep"]) {
-                    handleCepBlur(ev, setFieldValue, setFieldError);
-                  }
-                }}
-              />
-              <Input
-                className="mb16"
-                label="Estado (UF)"
-                name="state"
-                type="text"
-              />
+                      if (!errors["cep"]) {
+                        handleCepBlur(ev, setFieldValue, setFieldError);
+                      }
+                    }}
+                  />
+                </div>
+                <div className="pl8 w-40">
+                  <Input
+                    className="mb16"
+                    label="Estado (UF)"
+                    name="state"
+                    type="text"
+                  />
+                </div>
+              </div>
+              
               <Input
                 className="mb16"
                 label="Cidade"
@@ -163,18 +171,24 @@ const SecondStep = ({
                 name="street"
                 type="text"
               />
-              <Input
-                className="mb16"
-                label="Número"
-                name="number"
-                type="text"
-              />
-              <Input
-                className="mb16"
-                label="Complemento"
-                name="complement"
-                type="text"
-              />
+              <div className="flex w-100">
+                <div className="pr8 w-40">
+                  <Input
+                    className="mb16"
+                    label="Número"
+                    name="number"
+                    type="text"
+                  />
+                </div>
+                <div className="pl8 w-60">
+                  <Input
+                    className="mb16"
+                    label="Complemento"
+                    name="complement"
+                    type="text"
+                  />
+                </div>
+              </div>
 
               <div className="flex justify-between">
                 <Button buttonValue="Voltar" type="button" onClick={() => navigation.previous()} variant="outlined" color="default" />

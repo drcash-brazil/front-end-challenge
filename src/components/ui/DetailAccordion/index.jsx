@@ -5,7 +5,6 @@ import ListItemText from '@material-ui/core/ListItemText'
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 
-
 const DetailAccordion = ({ summary, go, details, className, defaultExpanded }) => {
   return (
     <div className={className}>

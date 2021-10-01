@@ -38,34 +38,21 @@
     },
     {
       "name": "Nome 04",
-      "cpf": "11793994633",
-      "socialCapital": "12345",
-      "cep": "38500000",
-      "state": "MG",
-      "city": "Monte Carmelo",
-      "neightborhood": "Bairro 4",
-      "street": "Endereço 4",
-      "number": "101",
-      "complement": "",
-      "id": 4
-    },
-    {
-      "name": "teste ",
       "cpf": "00000000191",
-      "socialCapital": "102131235",
+      "socialCapital": "12345",
       "cep": "01001000",
       "state": "SP",
       "city": "São Paulo",
       "neightborhood": "Sé",
       "street": "Praça da Sé",
-      "number": "1234",
-      "complement": "lado ímpar",
-      "id": 5
+      "number": "123",
+      "complement": "",
+      "id": 4
     },
     {
-      "name": "Nome teste 01",
+      "name": "nome 04",
       "cpf": "11793994633",
-      "socialCapital": "10000",
+      "socialCapital": "123456",
       "cep": "01001000",
       "state": "SP",
       "city": "São Paulo",
@@ -73,7 +60,7 @@
       "street": "Praça da Sé",
       "number": "1",
       "complement": "",
-      "id": 6
+      "id": 5
     }
   ]
 }

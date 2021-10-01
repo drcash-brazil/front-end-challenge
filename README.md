@@ -1,63 +1,4 @@
 # inspirational-challenge
-
-Seja bem-vindo ao repositório do projeto iClinic, um caso de uso que deve ser implementado contendo uma versão para plataforma web. Obrigado por participar do desafio da Dr.Cash! Estamos muito contentes pelo seu primeiro passo para fazer parte de um time excepcional.
-
-
-## Afinal, o que é esse desafio?
-
-Primeiramente é importante se atentar aos pilares da Dr.Cash, seguindo metodologias de desenvolvimento ágil.
-
-- [Transparência] - Todo momento é momento para perguntar, tirar dúvidas e conversar sobre os processos e tarefas a serem executados, comunicação em primeiro lugar, sempre.
-
-- [Adaptabilidade] - Ofereça melhorias baseado em perspectivas e fundamentos, como também se adeque as normas impostas visando padrões já estipulados.
-
-- [Autonomia] - Ser Autodidata, proativo e fidelidade na busca constante por conhecimento.
-
-
-# Desafio 
-
-Exemplificar um caso de uso que mantenha em foco a manipulação de formulário de cadastro com paginação, que determina a utilização de recursos do React como também propõe o domínio de se trabalhar com validações, frameworks e lógicas de programação básica com a utilização de JavaScript, Html, CSS, ReactJS, alinhado com paradigmas como Orientado a Objetos e Programação funcional. Fique à vontade para fazer a Estruturação de Layout e Fluxo de Aplicação na maneira que quiser.
-
-
-Obs:  O único pré-requisito é que o código seja feito em ReactJS, de preferência na versão mais atual. 
-
-# - Contexto
-Michael contratou um plataforma para gerenciar as clínicas de sua rede. A regra de negócio consiste no registro de suas clínicas que realizam tratamentos estéticos em seu estado. 
-
-Com isso, você foi o responsável por pensar na escalabilidade como também garantir que os dados cadastrados de suas clínicas permaneçam íntegros.
-
-## Criar Landing Page.
-Supreenda-nos com a criação de uma landing page para a rede de clínicas de Michael.
-
-## Criar layout para tela de listagem e cadastro de clínicas.
-1) A partir da página home, deve ser possível navegar até a página de listagem de clínicas, aonde o usuário poderá realizar o cadastro de uma clínica em específico.
-2) Deve existir uma lista de clínicas
-
-No formulário de cadastro de clínica, deve-se coletar os seguintes dados:
-
-Página 1
-- a) Nome da clínica.
-- b) CPF do responsável.
-- c) Capital social da Clínica.
-
-Página 2
-- a) Dados de endereço (Livre)
-
-Página 3
-- a) Um Botão para a conclusão de cadastro juntamente com uma mensagem de cadastro realizado com sucesso.
-
-
-# Pontos a serem observados: 
-1) Material UI como biblioteca para desenvolver layouts.
-2) Deve ser criado uma Landing Page. O custom design deve preservar a UI e UX, se atentando às tecnologias voltadas para o CSS, SASS, JSS ou Styled Components.
-3) Na obtenção para os dados de endereço deve ser utilizado a API dos correios, ViaCEP (https://viacep.com.br/).
-4) A manipulação e criação de hooks também contarão na avaliação do projeto.
-5) Fique livre para tratar as questões de boas práticas, convenções, nomenclaturas, padrões, frameworks e etc...
-
-# Features:
-- Deve ser possível listar e cadastrar clínicas.
-- Os dados coletados podem ser tratados com uma Mock API.
-
 # Bonus:
 - Tela de Splash;
 - Home Page com transições e animações;
@@ -69,87 +10,46 @@ Instrua como usar e também como foi a desenvoltura mediante os processos realiz
 
 ## Como executar o projeto 
 
-Descreva como executar o projeto e detalhe caso haja algum script ou regra existente.
+1. Clone este este repositório com o comando `git clone https://github.com/Cardoso-CHM/inspirational-challenge/`
+2. Execute o comando `yarn` para instalar as dependências (caso não tenha este gerenciador de pacotes efetue o download neste [link](https://yarnpkg.com/getting-started/install))
+3. Execute o comando `yarn start:server` para iniciar o json-server (certifique-se que a porta 5000 esteja livre)
+4. Execute o comando `yarn start` para iniciar o projeto (certifique-se que a porta 3000 esteja livre)
+5. Pronto! Uma aba deverá ser aberta em seu navegador padrão com a aplicaçao rodando
 
-## Estrutura de arquivos do projeto
+## Principais frameworks usados no projeto
 
-Importante se atentar nos aspectos de modularização, demonstre seu conhecimento sobre importações e exportações com raciocínio lógico e boas práticas.
-```` 
-*Exemplo Simplista*
-root
-+--iClinic // 
-|
-     Utils //  
-|      index // 
-|      MaskedInputs //
-|      Palette //
-     Validations //  
-|      index // 
-|      isValidNewPatient //
-|      isValid //
-     Components //
-|      UI //
-|        index // 
-|        Inputs // 
-|        Selectors // 
-|        Grids // 
-       Form // 
-|        index // 
-|        Form // 
-|        Pagination //
-|          index //
-|          Pagination //
-|          Pages //
-|            index //
-|            First //
-|            Second //
-|            Third //
-| 
-````
+- Formik e Yup
+> Para validar e auxiliar no controle de estado dos formulários
 
-## Frameworks aplicadas no projeto
+- react-hooks-helper
+> Para auxiliar principalmente no controle de estado dos passos do formulário (Step Form), disponibilizando funções de ir até o próximo passo, voltar ao anterior, determinar o estado atual do formulário, etc.
 
+- json-server
+> Para simular uma API através de um arquivo json utilizado como mock
 
-**Atenção** - Informe quais recursos de terceriros foram utilizados no projeto e descreva o por quê.
+- axios
+> Para auxiliar na realização de chamadas http
 
+- prop-types
+> Para realizar a tipagem das props dos componentes auxiliando na depuração do código através da aba console do navegador
+
+- react-loader-spinner
+> Para renderizar um componente que indica uma situação de loading na tela para uma melhor UX
+
+- cpf-cnpj-validator
+> Para formatar e validar o documento CPF
+
+- react-confirm-alert
+> Para renderizar um componente parecido com a função "confirm" do javascript, provendo um modal com a opção de continuar com a ação ou não.
 
 ## Experiência com o projeto 
-    # Descreva sua experiênca com o projeto, tanto na parte técnica quanto na parte teórica.
-  
+Foi uma experiência bastante positiva pois tive a oportunidade de reforçar meus conhecimentos a respeito de desenvolvimento de projetos utilizando o material design e conhecer novos pacotes para auxiliar no controle de estados dos componentes como o **react-hooks-helper** que me auxiliou bastante.
   
 ## Futuro
+- Realizar aprimoramentos na interface para garantir a responsividade adequada em outros tamanhos de tela, e não apenas na desktop full hd (1920 x 1080).
+- Melhorar a home page da aplicação adicionando mais elementos descritivos sobre a plataforma.
+- Adicionar transições e animações na ui provendo uma melhor experiência ao usuário.
+- Utilizar um backend real para que seja possível trabalhar com rotas privadas e públicas através de autenticação JWT.
 
-Descreva sobre possíveis planos para este projeto, melhorias ou alterações que você realizaria em prol de aumentar a qualidade no desenvolvimento.
-
-    
-### **ATENÇÃO**
-
-Não tente fazer o PUSH diretamente para ESTE repositório!
-    
-   
 ### Autor
-
-<!-- - [Arthur de Castro](https://github.com/arthurfjadecastro) -->
-
-**ATENÇÃO**
-Crie uma branch nova seguindo o seguinte padrão:
-1. As iniciais do seu primeiro e último nome. Ex: Ricardo Almeida (ra)
-2. Seguido de "/" 
-3. Seguido de "feature"
-4. Seguido de "/" 
-5. Seguido de o "nome da branch"
-em seguida envie um pull request para este repositório. 
-
-
-O processo de Pull Request funciona da seguinte maneira:
-
-1. Faça um fork deste repositório (não clonar direto!);
-2. Faça seu projeto neste fork;
-3. Commit e suba as alterações para o SEU fork;
-4. Pela interface do Github, envie um Pull Request;
-5. Deixe o fork público para facilitar a inspeção do código;
-
-ATENÇÃO.
-Não tente fazer o PUSH diretamente para ESTE repositório!
-
-
+[Arthur de Castro](https://github.com/arthurfjadecastro)

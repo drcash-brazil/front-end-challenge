@@ -1,13 +1,14 @@
-import "./assets/css/global.css";
-import './assets/css/tachyons.css';
-
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
+import Home from './pages/Home';
+import Thanks from "pages/Thanks";
+import Clinic from './pages/Clinic/List';
+import ClinicForm from './pages/Clinic/Add';
 import Route from './components/routing/CustomRoute';
 import MenuWithTopBar from './components/layout/MenuWithTopBar';
-import Clinic from './pages/Clinic';
-import ClinicForm from './pages/ClinicForm';
-import Home from './pages/Home';
+
+import "./assets/css/global.css";
+import './assets/css/tachyons.css';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route path="/clinic" layout={MenuWithTopBar}>
           <Clinic />
+        </Route>
+        <Route path="/thanks" layout={MenuWithTopBar}>
+          <Thanks />
         </Route>
       </Switch>
     </Router>
