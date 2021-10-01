@@ -19,7 +19,8 @@ const Confirm = ({
     city,
     neightborhood,
     street,
-    number
+    number,
+    complement
   } = formData;
 
   const handleSubmitClick = async (ev) => {
@@ -50,6 +51,7 @@ const Confirm = ({
         { 'Bairro': neightborhood },
         { 'Endereço': street },
         { 'Número': number },
+        { 'Complemento': complement },
       ]} />
 
       <div className="flex justify-between mt32">
