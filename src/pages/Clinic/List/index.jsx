@@ -33,6 +33,7 @@ const Clinic = () => {
         })
         .catch(error => {
           setClinics([]);
+          alert(error);
         })
         .finally(() => {
           setShowLoadingSpinner(false);
@@ -93,7 +94,7 @@ const Clinic = () => {
                     socialCapital: formatMoney(socialCapital),
                     cep: formatCep(cep),
                     location: `${city}/${state}`,
-                    address: `${street}, ${neightborhood} - ${number} ${complement ?? ""}`
+                    address: `${street}, ${number} - ${neightborhood} ${complement ? ` (${complement})` : ""}`
                   })}
                 />
               </div>

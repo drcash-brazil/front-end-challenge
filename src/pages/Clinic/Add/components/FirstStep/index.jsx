@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import { Form, Formik } from "formik";
-import * as yup from 'yup';
-import { cpf as cpfValidator } from 'cpf-cnpj-validator';
 
 import Input from 'components/ui/Input';
 import Button from 'components/ui/Button';
+import validationSchema from './utils/validationSchema';
 
 const FirstStep = ({
   formData,
@@ -12,25 +11,13 @@ const FirstStep = ({
   navigation
 }) => {
 
-  const validate = yup.object({
-    name: yup.string()
-      .max(100, 'Deve ter no máximo 100 caracteres!')
-      .required('Campo obrigatório!'),
-    cpf: yup.string()
-      .required('Campo obrigatório!')
-      .test('cpf-validation', 'Número Inválido!', value => cpfValidator.isValid(value)),
-    socialCapital: yup.string()
-      .required('Campo obrigatório!')
-      .test('money-validation', 'Valor inválido!', value => !isNaN(+value))
-  });
-
   return (
     <>
       <h2 className="mt12 mb24 f20">Sobre a Clínica</h2>
 
       <Formik
         initialValues={formData}
-        validationSchema={validate}
+        validationSchema={validationSchema}
         onSubmit={async values => {
           await Object.keys(values).map(key => {
             const formTarget = {
