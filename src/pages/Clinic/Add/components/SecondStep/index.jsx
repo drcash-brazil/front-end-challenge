@@ -1,12 +1,13 @@
+import { useState } from "react";
 import { Form, Formik } from "formik";
-import * as yup from 'yup';
 import Loader from 'react-loader-spinner';
 import PropTypes from 'prop-types';
+
 import Input from 'components/ui/Input';
 import Button from 'components/ui/Button';
-
 import { searchCep } from './requests';
-import { useState } from "react";
+import validateSchema from "./utils/validationSchema";
+import apiRelationToFormFields from "./utils/apiRelationToFormFields";
 
 const SecondStep = ({
   formData,
@@ -14,21 +15,6 @@ const SecondStep = ({
   navigation
 }) => {
   const [displaySpinner, setDisplaySpinner] = useState(false);
-
-  const validate = yup.object({
-    cep: yup
-      .string()
-      .required('CEP obrigatório')
-      .min(8, 'O CEP contém 8 digitos')
-      .max(8, 'O CEP contém 8 digitos'),
-    state: yup.string().required('Campo obrigatório')
-      .max(2, 'A UF tem no máximo 2 letras!'),
-    city: yup.string().required('Campo obrigatório'),
-    street: yup.string().required('Campo obrigatório'),
-    number: yup.string().required('Campo obrigatório'),
-    neightborhood: yup.string().required('Campo obrigatório'),
-    complement: yup.string(),
-  });
 
   const handleCepBlur = async (ev, setFieldValue, setFieldError) => {
     const { value } = ev.target;
@@ -45,19 +31,11 @@ const SecondStep = ({
               setFieldError("cep", "Valor não encontrado!");
             }
             else {
-              const relation = {
-                cep: "cep",
-                state: "uf",
-                city: "localidade",
-                street: "logradouro",
-                neightborhood: "bairro",
-              };
-
               Object.keys(data).forEach(key => {
                 const apiResponseValue = data[key];
 
                 if (apiResponseValue) {
-                  const fieldName = Object.keys(relation).filter(rk => relation[rk] === key)[0];
+                  const fieldName = Object.keys(apiRelationToFormFields).filter(rk => apiRelationToFormFields[rk] === key)[0];
 
                   if (fieldName) {
                     const isCepField = fieldName === "cep";
@@ -65,20 +43,13 @@ const SecondStep = ({
                     if (!isCepField) {
                       setFieldValue(fieldName, apiResponseValue);
                     }
-
-                    setForm({
-                      target: {
-                        name: fieldName,
-                        value: isCepField ? value : apiResponseValue,
-                      }
-                    });
                   }
                 }
               });
             }
           })
           .catch(error => {
-
+            alert(error);
           })
           .finally(() => {
             setDisplaySpinner(false);
@@ -104,7 +75,7 @@ const SecondStep = ({
 
       <Formik
         initialValues={formData}
-        validationSchema={validate}
+        validationSchema={validateSchema}
         onSubmit={async values => {
           await Object.keys(values).map(key => {
             const formTarget = {

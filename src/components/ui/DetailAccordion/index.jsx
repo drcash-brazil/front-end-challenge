@@ -18,17 +18,18 @@ const DetailAccordion = ({ summary, go, details, className, defaultExpanded }) =
           <div className="w-100">
             {details.map((data, index) => {
               const objKey = Object.keys(data)[0];
-              const objValue = data[Object.keys(data)[0]];
+              const objValue = data[objKey];
 
-              return (
-                <ListItemText
-                  key={index}
-                  primaryTypographyProps={{ style: { fontSize: 13 } }}
-                >
-                  {`${objKey}: ${objValue}`}
-                </ListItemText>
-              )
-
+              if(objValue) {
+                return (
+                  <ListItemText
+                    key={index}
+                    primaryTypographyProps={{ style: { fontSize: 13 } }}
+                  >
+                    {`${objKey}: ${objValue}`}
+                  </ListItemText>
+                );
+              }
             })}
             <div className="flex justify-end items-center">
               <IconButton
