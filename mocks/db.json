@@ -35,45 +35,6 @@
       "neightborhood": "Centro",
       "street": "Primeira Rua de Teste",
       "number": "333"
-    },
-    {
-      "name": "Clínica 05",
-      "cpf": "11793994633",
-      "socialCapital": "12345",
-      "cep": "01001000",
-      "state": "SP",
-      "city": "São Paulo",
-      "neightborhood": "Sé",
-      "street": "Praça da Sé",
-      "number": "01",
-      "complement": "",
-      "id": 4
-    },
-    {
-      "name": "Clínica 06",
-      "cpf": "00000000191",
-      "socialCapital": "123",
-      "cep": "01001000",
-      "state": "SP",
-      "city": "São Paulo",
-      "neightborhood": "Sé",
-      "street": "Praça da Sé",
-      "number": "01",
-      "complement": "",
-      "id": 5
-    },
-    {
-      "name": "Clínica 07",
-      "cpf": "11793994633",
-      "socialCapital": "16444",
-      "cep": "38500000",
-      "state": "MG",
-      "city": "Monte Carmelo",
-      "neightborhood": "Centro",
-      "street": "Rua Aureliano Rocha ",
-      "number": "1999",
-      "complement": "Bloco 1 apto 204",
-      "id": 6
     }
   ]
 }
