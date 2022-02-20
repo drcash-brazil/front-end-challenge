@@ -1,7 +1,7 @@
 import * as faker from 'faker'
 
 import { HttpStatusCode } from '@/data/protocols/http'
-import { HttpClientSpy } from '@/__mocks__/mock-http'
+import { mockClinic, HttpClientSpy } from '@/__mocks__'
 
 import { RemoteLoadClinics } from './remote-load-clinics'
 
@@ -23,17 +23,34 @@ describe('RemoteLoadClinics', () => {
   it('Should call HttpClient with correct values', async () => {
     const url = faker.internet.url()
     const { sut, httpClientSpy } = makeSut(url)
+
     await sut.load()
+
     expect(httpClientSpy.url).toBe(url)
     expect(httpClientSpy.method).toBe('get')
   })
 
-  it('Should throw an UnexpectedError  if HttpClient does not return 200', async () => {
+  it('Should throw an UnexpectedError if HttpClient does not return 200', async () => {
     const { sut, httpClientSpy } = makeSut()
+
     httpClientSpy.response = {
       statusCode: HttpStatusCode.notFound
     }
     const promise = sut.load()
+
     await expect(promise).rejects.toThrow()
+  })
+
+  it('Should return a Clinic if HttpClient returns 200', async () => {
+    const { sut, httpClientSpy } = makeSut()
+    const result = mockClinic()
+    httpClientSpy.response = {
+      statusCode: HttpStatusCode.ok,
+      body: result
+    }
+
+    const httpResponse = await sut.load()
+
+    expect(httpResponse).toEqual(result)
   })
 })
