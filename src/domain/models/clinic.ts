@@ -4,3 +4,9 @@ export type Clinic = {
   cpf: string
   address: string
 }
+
+export type AddClinicPayload = {
+  name: string
+  cpf: string
+  address: string
+}
