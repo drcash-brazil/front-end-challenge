@@ -5,5 +5,5 @@ export interface LoadClinics {
 }
 
 export namespace LoadClinics {
-  export type Model = LoadClinics
+  export type Model = Clinic[]
 }

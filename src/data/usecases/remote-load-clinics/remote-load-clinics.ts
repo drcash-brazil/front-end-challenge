@@ -1,6 +1,7 @@
 import { Clinic } from '@/domain/models'
 import { LoadClinics } from '@/domain/usecases'
-import { HttpClient } from '@/data/protocols/http'
+import { HttpClient, HttpStatusCode } from '@/data/protocols/http'
+import { UnexpectedError } from '@/domain/errors'
 
 export class RemoteLoadClinics implements LoadClinics {
   constructor (
@@ -9,11 +10,14 @@ export class RemoteLoadClinics implements LoadClinics {
   ) {}
 
   async load (): Promise<Clinic[]> {
-    await this.httpClient.request({
+    const httpResponse = await this.httpClient.request({
       url: this.url,
       method: 'get'
     })
 
-    return new Promise(resolve => resolve([]))
+    switch (httpResponse.statusCode) {
+      case HttpStatusCode.ok: return (httpResponse.body as LoadClinics.Model)
+      default: throw new UnexpectedError()
+    }
   }
 }
