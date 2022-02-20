@@ -1,7 +1,7 @@
 import { Clinic } from '@/domain/models'
 
 export interface LoadClinicById {
-  load(): Promise<Clinic>
+  load(id: string): Promise<Clinic>
 }
 
 export namespace LoadClinicById {
