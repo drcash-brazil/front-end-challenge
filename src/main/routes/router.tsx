@@ -6,9 +6,9 @@ import { PagesRoutes } from '../constants'
 const Router: React.FC = () => {
   return (
     <BrowserRouter>
-        <Routes>
-          <Route path={PagesRoutes.Homepage} element={<MakeHomePage />}/>
-        </Routes>
+      <Routes>
+        <Route path={PagesRoutes.Homepage} element={<MakeHomePage />}/>
+      </Routes>
     </BrowserRouter>
   )
 }
