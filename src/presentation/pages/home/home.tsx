@@ -12,15 +12,13 @@ type Props = {
 }
 
 export const HomePage = ({ loadClinics }: Props) => {
-  const { data } = useQuery('clinics', loadClinics.load)
-
-  console.log(data)
+  const { data } = useQuery('clinics', async () => await loadClinics.load())
 
   return (
     <Box alignItems="center">
       <HomeHeaderSection />
       <HomeServicesSection />
-      <HomeClinicsSection />
+      <HomeClinicsSection clinics={data ?? []} />
     </Box>
   )
 }

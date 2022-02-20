@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
 export enum PagesRoutes {
-  Homepage = '/'
+  Homepage = '/',
+  Clinics = '/clicnics'
 }
