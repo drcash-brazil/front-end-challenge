@@ -1,10 +1,10 @@
 import { Box, Heading, Text } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
+import { makeSpecifiClinicLink } from '@/main/utils/helpers'
 import { Clinic as ClinicProps } from '@/domain/models'
 
 import { SpaceButton } from '@/presentation/components'
-import { Link } from 'react-router-dom'
-import { PagesRoutes } from '@/main/constants'
 
 export const Clinic = ({ name, cpf, address }: ClinicProps) => {
   return (
@@ -12,7 +12,7 @@ export const Clinic = ({ name, cpf, address }: ClinicProps) => {
       <Heading textTransform="capitalize" mb="2rem">{name}</Heading>
       <Text><b>CPF</b>: {cpf}</Text>
       <Text><b>Address</b>: {address}</Text>
-      <Link to={`${PagesRoutes.Clinics}/${name.replace(' ', '-')}`}>
+      <Link to={makeSpecifiClinicLink(name)}>
         <SpaceButton dark mt="2rem">Learn More</SpaceButton>
       </Link>
     </Box>

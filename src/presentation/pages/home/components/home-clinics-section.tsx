@@ -1,8 +1,10 @@
 import { Box, Grid, Heading } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
 import { Clinic as ClinicProps } from '@/domain/models'
+import { PagesRoutes } from '@/main/constants'
 
-import { Clinic } from '@/presentation/components'
+import { Clinic, SpaceButton } from '@/presentation/components'
 
 type Props = {
   clinics: ClinicProps[]
@@ -20,6 +22,9 @@ export const HomeClinicsSection = ({ clinics }: Props) => {
         >
           {clinics.map(clinic => <Clinic key={clinic.id} {...clinic}/>)}
         </Grid>
+        <Link to={PagesRoutes.Clinics}>
+          <SpaceButton dark mt="4rem">See All</SpaceButton>
+        </Link>
       </Box>
     </Box>
   )
