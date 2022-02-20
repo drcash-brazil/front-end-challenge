@@ -4,9 +4,9 @@ import { SpaceButton } from '@/presentation/components'
 
 export const HomePage = () => {
   return (
-    <Box bg="gray.900" alignItems="center" color="whiteAlpha.900">
-      <Flex maxWidth="142rem" m="0 auto" p="2rem 4rem">
-        <Box>
+    <Box alignItems="center" color="whiteAlpha.900">
+      <Box bg="gray.900">
+        <Flex maxWidth="142rem" m="0 auto" p="2rem 4rem">
           <Box maxWidth="70%">
             <Heading fontSize="6rem">A sua melhor rede de clinicas de estéticas</Heading>
             <Text fontSize="1.5rem" color="whiteAlpha.500" my="1.5rem">
@@ -22,8 +22,21 @@ export const HomePage = () => {
               ))}
             </Flex>
           </Box>
+        </Flex>
+      </Box>
+
+      {/* Services */}
+      <Box bg="whiteAlpha.900" color="gray.900" textAlign="center" p="6rem 0">
+        <Box maxWidth="142rem" m="0 auto" p="2rem 4rem">
+          <Heading>Our services are  Guaranteeed, We Take Your Skin Seriously</Heading>
+          <Text>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod suscipit temporibus accusantium earum
+            perferendis incidunt commodi aliquam similique dolor debitis quibusdam officia deleniti quis aperiam,
+            numquam delectus saepe, perspiciatis placeat.
+          </Text>
+          <SpaceButton dark>Learn More</SpaceButton>
         </Box>
-      </Flex>
+      </Box>
     </Box>
   )
 }
