@@ -17,7 +17,7 @@ type Props = {
 export const ClinicPage = ({ loadClinicById }: Props) => {
   const { id } = useParams() as ClinicPageParamProps
 
-  const { data: clinic, isFetched, isFetching } = useQuery('clinic', async () => await loadClinicById.load(id))
+  const { data: clinic, isFetched, isLoading } = useQuery('clinic', async () => await loadClinicById.load(id))
 
   return (
     <Box>
@@ -29,7 +29,7 @@ export const ClinicPage = ({ loadClinicById }: Props) => {
         bgSize="cover"
         bgPos="center"
       />
-      {isFetching && <p>Loading</p>}
+      {isLoading && <p>Loading</p>}
       {isFetched && (
         <Box maxWidth="142rem" width="100%" m="0 auto">
           <Box bg="whiteAlpha.900">
