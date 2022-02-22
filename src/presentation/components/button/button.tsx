@@ -4,10 +4,9 @@ import { thisElseThat } from '@/main/utils/helpers'
 
 type Props = {
   dark?: boolean
-  children: React.ReactNode
-} & ButtonProps
+}
 
-export const SpaceButton = ({ dark = false, children, ...rest }: Props) => {
+export const SpaceButton: React.FC<Props & ButtonProps> = ({ children, dark = false, ...rest }) => {
   return (
     <Button
       h="4rem"
