@@ -1,6 +1,6 @@
 import { LoadClinicById } from '@/domain/usecases'
-import { makeApiUrl, makeAxiosHttpClient } from '@/main/factories/http'
 import { RemoteLoadClinicById } from '@/data/usecases'
+import { makeApiUrl, makeAxiosHttpClient } from '@/main/factories/http'
 
-export const makeRemoteLoadClinicById = (id: string): LoadClinicById =>
-  new RemoteLoadClinicById(makeApiUrl(`clinics${id}`), makeAxiosHttpClient())
+export const makeRemoteLoadClinicById = (): LoadClinicById =>
+  new RemoteLoadClinicById(makeApiUrl('clinics'), makeAxiosHttpClient())

@@ -1,1 +1,2 @@
-export * from './make-homepage'
+export * from './make-home-page'
+export * from './make-clinic-page'

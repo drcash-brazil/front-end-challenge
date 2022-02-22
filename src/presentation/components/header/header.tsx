@@ -23,7 +23,7 @@ export const Header = () => {
   return (
     <Flex alignItems="center" justifyContent="center" bg="gray.900">
       <Flex p="2rem 4rem" m="0 auto" maxWidth="142rem" width="100%" alignItems="center" color="whiteAlpha.900">
-        <Heading mr="4rem" fontSize="2.5rem">Re_clins.</Heading>
+        <Heading mr="4rem" fontSize="2.5rem">Reclins</Heading>
         <Flex mr="auto" justifyContent="center" alignItems="center">
           {links.map(item => (
             <Link key={uuid()} to={item.link}>
