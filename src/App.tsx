@@ -4,11 +4,11 @@ import {
   QueryClientProvider
 } from 'react-query'
 
-import { queryClient } from '@/presentation/modules/query-client'
-
 import Router from '@/main/routes/router'
+
+import { queryClient } from '@/presentation/modules/services/query-client'
 import { theme } from '@/presentation/styles/global-styles'
-import { Wrapper } from './presentation/components'
+import { Wrapper } from '@/presentation/components'
 
 const App = () => {
   return (
