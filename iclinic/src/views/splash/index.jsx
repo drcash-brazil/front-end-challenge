@@ -19,7 +19,7 @@ const SplashWrapper = styled.div`
 const Splash = (props) => {
     return (
         <SplashWrapper>
-        <ScaleLoader  size={1000} color="#458FF6" loading={props.loading}> 
+        <ScaleLoader color="#458FF6" loading={props.loading}> 
         </ScaleLoader>
         </SplashWrapper>
     );

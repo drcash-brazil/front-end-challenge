@@ -3,9 +3,7 @@ import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import { Box, Link } from "@material-ui/core";
 import styled from 'styled-components';
 import NavItem from './nav-item';
 
@@ -17,6 +15,17 @@ padding:0 55px;
 color:black;
 display:flex;
 justify-content:space-between;
+.menuToogle{
+  display:none;
+}
+@media(max-width:927px){
+  ul{
+    display:none;
+  }
+  .menuToogle{
+  display:flex;
+}
+}
 .iconLogo{
   background:#458FF6;
    border-radius:30px;
@@ -33,7 +42,7 @@ list-style:none;
 width:30%;
 padding:10px;
 justify-content:space-between;
-
+ 
 `;
 
 
@@ -62,7 +71,7 @@ function NavBar() {
         
         </Nav>
 
-        
+        <MenuIcon className="menuToogle"/>
      
       </NavItemsWrapper>
     </AppBar>
