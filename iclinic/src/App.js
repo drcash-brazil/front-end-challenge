@@ -3,8 +3,6 @@ import Home from "./views/home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 
-import Theme from './utils'
-
 const App = () => {
   return (
 

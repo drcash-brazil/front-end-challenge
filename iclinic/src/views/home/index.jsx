@@ -1,10 +1,24 @@
-import React from 'react'
-import {NavBar , Hero} from '../../components'
+import React ,  {useState , useEffect} from 'react'
+import {NavBar , Hero} from '../../components';
+import Splash from '../splash';
+
 function Home() {
-  return (<>
- <NavBar/>
- <Hero/>
-  
+
+const [loading , setLoading] = useState(false);
+  useEffect(()=>{
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false)
+    }, 5000);
+
+  }, []);
+  return (
+<>
+     {
+
+   loading ? (<Splash/>) : (<> <NavBar/><Hero/></>)
+
+     }
   </>
 
     )

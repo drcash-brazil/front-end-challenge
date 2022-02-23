@@ -6,8 +6,12 @@ import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import { makeStyles } from "@material-ui/core/styles";
 
+import Theme from '../../../utils/pallete/index.jsx'
 
-const useStyles = makeStyles((theme) => ({
+
+import { ThemeProvider } from '@material-ui/styles';
+
+const useStyles = makeStyles((Theme) => ({
   root: {
     display: "flex",
     height:"580px",
@@ -26,30 +30,31 @@ const useStyles = makeStyles((theme) => ({
   rightAside:{
       display:"flex",
 
-      "align-items":"end",
-      "justify-content":"center",
+      alignItems:"end",
+      justifyContent:"center",
        width:"60%",
        padding:"10px 50px"
   },
   title: {
     flexGrow: 1,
-    "font-family":"Mulish",
-    "font-weight":"bold",
-    "font-size":"48px",
+    fontFamily:"Mulish",
+    fontWeight:"bold",
+    fontSize:"48px",
     color:"#000000", 
-     "mix-blend-mode": "normal"
-    
-  },subtitle:{
-"font-family": "Roboto",
-"font-style":" normal",
-"font-weight": "300",
-"font-size": "21px",
-"line-height": "32px",
+     "mix-blend-mode": "normal",
+     },subtitle:{
+
+fontFamily: "Roboto",
+fontStyle:" normal",
+fontWeight: "300",
+fontSize: "21px",
+lineHeight: "32px",
 color: "#7D7987;"
+     
   } ,
   button:{
-"border-radius": "55px",
-"background":"primary"
+borderRadius: "55px",
+background:"primary"
   }
 
 }));
@@ -72,8 +77,8 @@ const Image = styled.img`
 export default function Hero() {
   const classes = useStyles();
   return (
-    
     <Container className={classes.root}>
+    <ThemeProvider  theme={Theme}>
           <Box className={classes.leftAside}> 
             <Typography variant="h3">
             Virtual healthcare for you
@@ -84,14 +89,16 @@ export default function Hero() {
             healthcare, accessible on mobile and online 
              for everyone
             </Typography>
-            <Button className={classes.button} variant="contained"> 
+            <Button className={classes.button} variant="contained" color="primary" > 
               Consult today
             </Button> 
           </Box>
           <Box className={classes.rightAside}> 
           <Image src={`${process.env.PUBLIC_URL}heroImage.svg`} />
           </Box>
-          {console.log(process.env.PUBLIC_URL)}
+          
+          </ThemeProvider>
     </Container>
+    
   )
 }
