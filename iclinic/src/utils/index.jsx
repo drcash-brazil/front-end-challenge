@@ -1,1 +1,1 @@
-export {default as Theme} from './pallete';
+export {default as theme} from './pallete';

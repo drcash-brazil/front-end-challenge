@@ -1,64 +1,70 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+// import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Box, Link } from "@material-ui/core";
+import styled from 'styled-components';
+import NavItem from './nav-item';
 
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  navbar: {
-    background: "gray",
-    boxShadow: "none",
-  },
-}));
+
+const NavItemsWrapper = styled(Toolbar)`
+background: #fff;
+padding:0 55px;
+color:black;
+display:flex;
+justify-content:space-between;
+.iconLogo{
+  background:#458FF6;
+   border-radius:30px;
+   font-size:20px;
+   padding:2px;
+   color:#FFF
+}
+`; 
+
+const Nav = styled.ul`
+
+display:flex;
+list-style:none;
+width:30%;
+padding:10px;
+justify-content:space-between;
+
+`;
+
 
 function NavBar() {
-  const classes = useStyles();
+
   return (
-    <AppBar position="static">
-      <Toolbar className={classes.navbar}>
-        <IconButton
-          edge="start"
-          className={classes.menuButton}
-          color="inherit"
-          aria-label="menu"
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6" className={classes.title}>
-          Iclinic
+    <AppBar position="sticky">
+      <NavItemsWrapper >
+ 
+        <Typography variant="h6" >
+        <span className="iconLogo"> I</span>    Iclinic 
         </Typography>
-        <Box component="ul" clone >
-          <li>
-            <Link href="#" onClick={(e) => e.preventDefault}></Link>
-          </li>
-          <li></li>
-          <Link
-            href="#"
-            onClick={(e) => e.preventDefault}
-            color="inherit"
-          ></Link>
-          <li>
-            <Link
-              href="#"
-              onClick={(e) => e.preventDefault}
-              variant="body2"
-            ></Link>
-          </li>
-        </Box>
-      </Toolbar>
+        <Nav> 
+          <NavItem> 
+           Home
+          </NavItem>
+          <NavItem> 
+           Testemunhos
+          </NavItem>
+          <NavItem> 
+           Sobre Nós
+          </NavItem>
+          <NavItem> 
+           Clínicas
+          </NavItem>
+        
+        </Nav>
+
+        
+     
+      </NavItemsWrapper>
     </AppBar>
   );
 }
