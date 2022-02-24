@@ -1,0 +1,35 @@
+{
+  "name": "drcash-brazil-test",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "backend:serve": "json-server --watch db.json --port 3333"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.8.1",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.4.3",
+    "axios": "^0.26.0",
+    "json-server": "^0.17.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-input-mask": "^2.0.4",
+    "react-router-dom": "^6.2.1",
+    "styled-components": "^5.3.3",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.33",
+    "@types/react-dom": "^17.0.10",
+    "@types/react-input-mask": "^3.0.1",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.23",
+    "@vitejs/plugin-react": "^1.0.7",
+    "typescript": "^4.5.4",
+    "vite": "^2.8.0",
+    "vite-plugin-react-svg": "^0.2.0"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "clinics": [
+    {
+      "name": "Clínica São José",
+      "cpf": "42631749847",
+      "capital": "20.000,00",
+      "logradouro": "Rua Corifeu de Azevedo Marques",
+      "bairro": "Jardim das Indústrias",
+      "cep": "12241040",
+      "localidade": "São José dos Campos",
+      "uf": "SP",
+      "numero": "3213",
+      "id": 1
+    }
+  ]
+}

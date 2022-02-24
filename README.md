@@ -1,155 +1,67 @@
-# inspirational-challenge
 
-Seja bem-vindo ao repositório do projeto iClinic, um caso de uso que deve ser implementado contendo uma versão para plataforma web. Obrigado por participar do desafio da Dr.Cash! Estamos muito contentes pelo seu primeiro passo para fazer parte de um time excepcional.
+# DrChash - iClinic
 
+A tecnologia escolhida foi ReactJs com TypeScript, por se tratar de uma aplicação SPA.
+A decisão da escolha foi tomada com base em estudos e por ser uma tecnologia muito utilizada no mercado.
+Além disso a reutilização de componentes auxiliam e facilitam o trabalho para organização e reutilização dos componentes.
+Sendo assim o sistema tem a finalidade de cadastrar clínicas de sua rede de clientes.
 
-## Afinal, o que é esse desafio?
+## Tecnoligias Utilizadas
 
-Primeiramente é importante se atentar aos pilares da Dr.Cash, seguindo metodologias de desenvolvimento ágil.
+**Client:** ReactJS, TypeScript, Styled-Components, Axios
 
-- [Transparência] - Todo momento é momento para perguntar, tirar dúvidas e conversar sobre os processos e tarefas a serem executados, comunicação em primeiro lugar, sempre.
+**Server:** Json-Server
 
-- [Adaptabilidade] - Ofereça melhorias baseado em perspectivas e fundamentos, como também se adeque as normas impostas visando padrões já estipulados.
+ReactJS foi utilizado por se tratar de uma tecnolia nova e muito utilizada no mercado de trabalho
 
-- [Autonomia] - Ser Autodidata, proativo e fidelidade na busca constante por conhecimento.
+TypeScript foi utlizado para tipar os elementos e previnir possíveis bugs de compilação, vale lembrar que hoje não se programa em ReactJS sem TypeScript.
 
+Styled-Components foi utilizado para estilização e criação de alguns componentes, por trabalhar de maneira em cascata e assim como o SASS podendo encadear os estilos alem de poder usar condicionais em estilos.
 
-# Desafio 
-
-Exemplificar um caso de uso que mantenha em foco a manipulação de formulário de cadastro com paginação, que determina a utilização de recursos do React como também propõe o domínio de se trabalhar com validações, frameworks e lógicas de programação básica com a utilização de JavaScript, Html, CSS, ReactJS, alinhado com paradigmas como Orientado a Objetos e Programação funcional. Fique à vontade para fazer a Estruturação de Layout e Fluxo de Aplicação na maneira que quiser.
-
-
-Obs:  O único pré-requisito é que o código seja feito em ReactJS, de preferência na versão mais atual. 
-
-# - Contexto
-Michael contratou um plataforma para gerenciar as clínicas de sua rede. A regra de negócio consiste no registro de suas clínicas que realizam tratamentos estéticos em seu estado. 
-
-Com isso, você foi o responsável por pensar na escalabilidade como também garantir que os dados cadastrados de suas clínicas permaneçam íntegros.
-
-## Criar Landing Page.
-Supreenda-nos com a criação de uma landing page para a rede de clínicas de Michael.
-
-## Criar layout para tela de listagem e cadastro de clínicas.
-1) A partir da página home, deve ser possível navegar até a página de listagem de clínicas, aonde o usuário poderá realizar o cadastro de uma clínica em específico.
-2) Deve existir uma lista de clínicas
-
-No formulário de cadastro de clínica, deve-se coletar os seguintes dados:
-
-Página 1
-- a) Nome da clínica.
-- b) CPF do responsável.
-- c) Capital social da Clínica.
-
-Página 2
-- a) Dados de endereço (Livre)
-
-Página 3
-- a) Um Botão para a conclusão de cadastro juntamente com uma mensagem de cadastro realizado com sucesso.
+Axios foi utilizado para requisições e também por ser uma ferramenta muito popular. Hoje ela ajuda demais nas requisições assim como fecth.
 
 
-# Pontos a serem observados: 
-1) Material UI como biblioteca para desenvolver layouts.
-2) Deve ser criado uma Landing Page. O custom design deve preservar a UI e UX, se atentando às tecnologias voltadas para o CSS, SASS, JSS ou Styled Components.
-3) Na obtenção para os dados de endereço deve ser utilizado a API dos correios, ViaCEP (https://viacep.com.br/).
-4) A manipulação e criação de hooks também contarão na avaliação do projeto.
-5) Fique livre para tratar as questões de boas práticas, convenções, nomenclaturas, padrões, frameworks e etc...
+## API
 
-# Features:
-- Deve ser possível listar e cadastrar clínicas.
-- Os dados coletados podem ser tratados com uma Mock API.
+#### Busca de endereço a partir do CEP
 
-# Bonus:
-- Tela de Splash;
-- Home Page com transições e animações;
-- Tratamento de erros e apresentação dos fluxos de exceção: Generic Error's e Loading's;
+```http
+  https://viacep.com.br/
+```
 
-# App em execução
+#### SERVER
 
-Instrua como usar e também como foi a desenvoltura mediante os processos realizados neste sistema desenvolvido, além de quais ferramentas e tecnologias o auxiliaram e por quê?
+```http
+  Json-server
+```
+### Executar o Projeto
 
-## Como executar o projeto 
+Para executar o projeto você deve primeiramente ter no node instalado em sua máquina. No caso eu estou utilizando Yarn mas os comandos também podem ser feitos via NPM
 
-Descreva como executar o projeto e detalhe caso haja algum script ou regra existente.
+Primeiramente será necessário iniciar o servidor json-server para que o sistema utilize do "banco de dados" criado para armazenamento de clinicas.
 
-## Estrutura de arquivos do projeto
+Para isso deve-se utilizar: `yarn backend:server`
 
-Importante se atentar nos aspectos de modularização, demonstre seu conhecimento sobre importações e exportações com raciocínio lógico e boas práticas.
-```` 
-*Exemplo Simplista*
-root
-+--iClinic // 
-|
-     Utils //  
-|      index // 
-|      MaskedInputs //
-|      Palette //
-     Validations //  
-|      index // 
-|      isValidNewPatient //
-|      isValid //
-     Components //
-|      UI //
-|        index // 
-|        Inputs // 
-|        Selectors // 
-|        Grids // 
-       Form // 
-|        index // 
-|        Form // 
-|        Pagination //
-|          index //
-|          Pagination //
-|          Pages //
-|            index //
-|            First //
-|            Second //
-|            Third //
-| 
-````
+Após esse processo você esta pronto para iniciar o projeto, para isso você deverá utilizar o comando: `yarn dev`
 
-## Frameworks aplicadas no projeto
+Com isso você já esta preparado para utilizar a aplicação
 
+### Experiência com o Projeto
 
-**Atenção** - Informe quais recursos de terceriros foram utilizados no projeto e descreva o por quê.
+Primeiramente gostaria de agradecer a oprtunidade de realizar esse desafio no qual me fez aumentar ainda mais meu conhecimento. 
+Para ele utilizei algumas das minhas skills para conseguir realizar essa entrega.
 
+Usar antes contextAPI era um desafio pois por não ter utilizado muito antes me fez aceitar esse desafio e vi seu potencial enorme para que propriedades seja distribuidas para toda a aplicação.
 
-## Experiência com o projeto 
-    # Descreva sua experiênca com o projeto, tanto na parte técnica quanto na parte teórica.
-  
-  
-## Futuro
+Também elevei meu conhecimento com relação a requisições usando Axios e também em componentização com styled-components
 
-Descreva sobre possíveis planos para este projeto, melhorias ou alterações que você realizaria em prol de aumentar a qualidade no desenvolvimento.
+### Futuro
+Para o futuro desse projeto vejo a criação de uma tela de login primeiramente para que cada usuário veja a cartela de clínicas clientes que apenas o pertence
 
-    
-### **ATENÇÃO**
+Após isso vejo tambem como uma forma de melhoria seria o tempo em que a clínica faz parte de sua cartela de clientes e selecionar avisos para cada ano | mês de renovação
 
-Não tente fazer o PUSH diretamente para ESTE repositório!
-    
-   
-### Autor
+## Autor
 
-<!-- - [Arthur de Castro](https://github.com/arthurfjadecastro) -->
-
-**ATENÇÃO**
-Crie uma branch nova seguindo o seguinte padrão:
-1. As iniciais do seu primeiro e último nome. Ex: Ricardo Almeida (ra)
-2. Seguido de "/" 
-3. Seguido de "feature"
-4. Seguido de "/" 
-5. Seguido de o "nome da branch"
-em seguida envie um pull request para este repositório. 
-
-
-O processo de Pull Request funciona da seguinte maneira:
-
-1. Faça um fork deste repositório (não clonar direto!);
-2. Faça seu projeto neste fork;
-3. Commit e suba as alterações para o SEU fork;
-4. Pela interface do Github, envie um Pull Request;
-5. Deixe o fork público para facilitar a inspeção do código;
-
-ATENÇÃO.
-Não tente fazer o PUSH diretamente para ESTE repositório!
+- [@rodrigomoreirasantos](https://github.com/rodrigomoreirasantos)
 
 
