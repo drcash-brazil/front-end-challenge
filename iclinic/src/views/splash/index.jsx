@@ -11,8 +11,9 @@ const SplashWrapper = styled.div`
   width:100%;
   height:100vh;
   align-items:center;
-
-
+  position:absolute;
+  top:0;
+  z-index:20;
 `;
 
 

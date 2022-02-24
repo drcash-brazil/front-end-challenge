@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import MenuIcon from "@material-ui/icons/Menu";
 import styled from 'styled-components';
 import NavItem from './nav-item';
-
+import {Link} from 'react-router-dom';
 
 
 const NavItemsWrapper = styled(Toolbar)`
@@ -57,7 +57,7 @@ function NavBar() {
         </Typography>
         <Nav> 
           <NavItem> 
-           Home
+          <Link to="/">  Home</Link>
           </NavItem>
           <NavItem> 
            Testemunhos
@@ -66,7 +66,7 @@ function NavBar() {
            Sobre Nós
           </NavItem>
           <NavItem> 
-           Clínicas
+         <Link to="/Clinic">  Clínicas</Link>
           </NavItem>
         
         </Nav>
