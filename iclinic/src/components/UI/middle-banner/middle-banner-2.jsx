@@ -16,30 +16,28 @@ const useStyles = makeStyles((Theme) => ({
     display: "flex",
     height:"580px",
     padding:"10px",
+    padding:'0 20px'
 
- 
   },
   leftAside:{
       display:"flex",
      "flex-direction":"column",
       "align-items":"start",
-      "justify-content":"center",
+      "justify-content":"space-between",
        width:"40%",
-       padding:"10px 50px"
+       padding:"10px 50px",
+       height:'50%',
+       marginTop:'20px'
   },
   rightAside:{
-      display:"flex",
-
-      alignItems:"end",
-      justifyContent:"center",
+ 
        width:"60%",
-       padding:"10px 50px"
+       padding:"10px 50px",
+       
   },
   title: {
-    flexGrow: 1,
-    fontFamily:"Mulish",
-    fontWeight:"bold",
-    fontSize:"48px",
+
+    fontSize:"30px",
     color:"#000000", 
      "mix-blend-mode": "normal",
      },subtitle:{
@@ -47,7 +45,7 @@ const useStyles = makeStyles((Theme) => ({
 fontFamily: "Roboto",
 fontStyle:" normal",
 fontWeight: "300",
-fontSize: "21px",
+fontSize: "17px",
 lineHeight: "32px",
 color: "#7D7987;"
      
@@ -68,7 +66,7 @@ const Image = styled.img`
     
  display:flex;
  align-self:end;
- width:100%;
+ width:90%;
 
 `;
 
@@ -80,7 +78,7 @@ export default function MiddleBannerQ() {
     <Container className={classes.root}>
     <ThemeProvider  theme={Theme}>
           <Box className={classes.leftAside}> 
-            <Typography variant="h3">
+            <Typography className={classes.title} variant="h3">
             Download our 
 mobile apps
             </Typography>
@@ -89,7 +87,7 @@ mobile apps
             Our dedicated patient engagement app and web portal allow you to access information instantaneously (no tedeous form, long calls, or administrative hassle) and securely
             </Typography>
             <Button className={classes.button} variant="contained" color="primary" > 
-              Consult today
+              Download
             </Button> 
           </Box>
 

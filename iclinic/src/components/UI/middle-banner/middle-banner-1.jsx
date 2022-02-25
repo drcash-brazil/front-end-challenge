@@ -16,30 +16,27 @@ const useStyles = makeStyles((Theme) => ({
     display: "flex",
     height:"580px",
     padding:"10px",
-
+     marginTop:'20px'
  
   },
   leftAside:{
       display:"flex",
      "flex-direction":"column",
       "align-items":"start",
-      "justify-content":"center",
+      "justify-content":"space-around",
        width:"40%",
-       padding:"10px 50px"
+       padding:"10px 50px",
+       height:'65%'
   },
   rightAside:{
-      display:"flex",
 
-      alignItems:"end",
-      justifyContent:"center",
+      alignItems:"start",
+     
        width:"60%",
        padding:"10px 50px"
   },
   title: {
-    flexGrow: 1,
-    fontFamily:"Mulish",
-    fontWeight:"bold",
-    fontSize:"48px",
+    fontSize:"2rem",
     color:"#000000", 
      "mix-blend-mode": "normal",
      },subtitle:{
@@ -47,7 +44,7 @@ const useStyles = makeStyles((Theme) => ({
 fontFamily: "Roboto",
 fontStyle:" normal",
 fontWeight: "300",
-fontSize: "21px",
+fontSize: "17px",
 lineHeight: "32px",
 color: "#7D7987;"
      
@@ -68,7 +65,7 @@ const Image = styled.img`
     
  display:flex;
  align-self:end;
- width:100%;
+ width:90%;
 
 `;
 
@@ -84,13 +81,13 @@ export default function MiddleBannerA() {
           </Box>
           
           <Box className={classes.leftAside}> 
-            <Typography variant="h3">
+            <Typography  className={classes.title} variant="h3">
             Leading healthcare providers
             </Typography>
          
             <Typography  className={classes.subtitle} variant="subtitle1">
             Trafalgar provides progressive, and affordable healthcare, accessible on mobile and online for everyone. To us, it’s not just work. We take pride 
-in the solutions we deliver
+          in the solutions we deliver
              for everyone
             </Typography>
             <Button className={classes.button} variant="contained" color="primary" > 
