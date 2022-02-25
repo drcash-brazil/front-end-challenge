@@ -19,12 +19,10 @@ function MainContent() {
 
   return (
 <ContentWrapper>
-  
      <Tittle/>
      <Description/>
      <TableUI/>
       <AddButton/>
-  
      </ContentWrapper>
   )
 }

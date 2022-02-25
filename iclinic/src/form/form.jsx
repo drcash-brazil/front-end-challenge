@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 import Step1 from './pages/first';
 import Step2 from './pages/second';
 import Preview from './pages/preview';
-
+import axios from 'axios';
 export default function Form(props) {
   const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
@@ -29,6 +29,19 @@ export default function Form(props) {
   }
 
    const submit = () => {
+  const {nome ,cpf , capital } = data;
+  const {  Estado ,rua ,municipio } = data1;
+   axios.post('https://620fa753ec8b2ee283481997.mockapi.io/Iclinic/clinicas', {
+  nome,
+  cpf,
+  capital ,
+  Estado ,
+  municipio ,
+  rua
+
+   });
+
+
     openNotification('Clinica registada com sucesso') 
    
    }

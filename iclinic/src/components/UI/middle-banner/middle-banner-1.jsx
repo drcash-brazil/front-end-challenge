@@ -15,7 +15,7 @@ const useStyles = makeStyles((Theme) => ({
   root: {
     display: "flex",
     height:"580px",
-    padding:"50px",
+    padding:"10px",
 
  
   },
@@ -23,33 +23,34 @@ const useStyles = makeStyles((Theme) => ({
       display:"flex",
      "flex-direction":"column",
       "align-items":"start",
-      "justify-content":"space-around",
+      "justify-content":"center",
        width:"40%",
-       padding:"10px 50px",
-       height:'70%',
-       marginTop:'30px'
-      
-
+       padding:"10px 50px"
   },
   rightAside:{
       display:"flex",
+
       alignItems:"end",
       justifyContent:"center",
        width:"60%",
        padding:"10px 50px"
   },
   title: {
-    fontSize:"2.5rem",
+    flexGrow: 1,
+    fontFamily:"Mulish",
+    fontWeight:"bold",
+    fontSize:"48px",
     color:"#000000", 
      "mix-blend-mode": "normal",
-     },
- subtitle:{
+     },subtitle:{
+
 fontFamily: "Roboto",
 fontStyle:" normal",
 fontWeight: "300",
-fontSize: "17px",
+fontSize: "21px",
 lineHeight: "32px",
 color: "#7D7987;"
+     
   } ,
   button:{
 borderRadius: "55px",
@@ -67,33 +68,34 @@ const Image = styled.img`
     
  display:flex;
  align-self:end;
- width:90%;
+ width:100%;
 
 `;
 
 
 
-export default function Hero() {
+export default function MiddleBannerA() {
   const classes = useStyles();
   return (
     <Container className={classes.root}>
     <ThemeProvider  theme={Theme}>
+    <Box className={classes.rightAside}> 
+          <Image src={`${process.env.PUBLIC_URL}m1.svg`} />
+          </Box>
+          
           <Box className={classes.leftAside}> 
-            <Typography  className={classes.title} variant="h3">
-            Virtual healthcare for you
+            <Typography variant="h3">
+            Leading healthcare providers
             </Typography>
          
             <Typography  className={classes.subtitle} variant="subtitle1">
-            Trafalgar provides progressive, and affordable 
-            healthcare, accessible on mobile and online 
+            Trafalgar provides progressive, and affordable healthcare, accessible on mobile and online for everyone. To us, it’s not just work. We take pride 
+in the solutions we deliver
              for everyone
             </Typography>
             <Button className={classes.button} variant="contained" color="primary" > 
-              Consult today
+             Learn More
             </Button> 
-          </Box>
-          <Box className={classes.rightAside}> 
-          <Image src={`${process.env.PUBLIC_URL}heroImage.svg`} />
           </Box>
           
           </ThemeProvider>

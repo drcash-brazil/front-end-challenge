@@ -56,13 +56,10 @@ function TableUI(props) {
     .catch( (err) => console.log(err));
   }
   
-  useEffect(() => {
-    getData();
-  }, [])
   
   useEffect(() => {
     getData();
-  }, [data])
+  }, []);
   
 
     const classes = useStyles();
@@ -85,7 +82,7 @@ function TableUI(props) {
           {data.map((item) => (
             <StyledTableRow key={item.id}>
               <StyledTableCell component="th" scope="row">
-                {item.username}
+                {item.nome}
               </StyledTableCell>
               <StyledTableCell align="right">{item.cpf}</StyledTableCell>
               <StyledTableCell align="right">{item.Estado}</StyledTableCell>
