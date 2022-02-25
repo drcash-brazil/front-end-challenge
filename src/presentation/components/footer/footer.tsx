@@ -12,7 +12,7 @@ export const Footer = () => {
           <Heading mb="2rem">Contact Us</Heading>
           <Input fontSize="2rem" height="4rem" placeholder="name" mb="2rem" />
           <Input fontSize="2rem" height="4rem" placeholder="email" mb="2rem" />
-          <Textarea placeholder="Message" mb="2rem" />
+          <Textarea fontSize="2rem" placeholder="Message" mb="2rem" />
           <SpaceButton>Send</SpaceButton>
         </Box>
       </Grid>

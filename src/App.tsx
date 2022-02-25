@@ -1,5 +1,6 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import { BrowserRouter } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 import {
   QueryClientProvider
 } from 'react-query'
@@ -15,6 +16,7 @@ const App = () => {
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
         <ChakraProvider theme={theme}>
+          <ToastContainer position="bottom-right" theme="colored" />
           <Wrapper>
             <Router />
           </Wrapper>

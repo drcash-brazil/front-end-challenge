@@ -40,14 +40,7 @@ export const ClinicPage = ({ loadClinicById }: Props) => {
 
   return (
     <Box>
-      <Box
-        w="100%"
-        h="70vh"
-        bgImg="url('https://github.com/jeseias.png')"
-        bgRepeat="no-repeat"
-        bgSize="cover"
-        bgPos="center"
-      />
+      <Box w="100%" h="45vh" bg="linear-gradient(to bottom right, #002b54, #1660a5)" />
       <Box maxWidth="142rem" width="100%" m="0 auto">
         <Box bg="whiteAlpha.900">
           <Heading

@@ -1,12 +1,23 @@
+/* eslint-disable no-unused-vars */
+export enum ClinicEnum {
+  Id = 'id',
+  Name = 'name',
+  Cpf = 'cpf',
+  Address = 'address',
+  SocialCapital = 'socialCapital'
+}
+
 export type Clinic = {
-  id: string
-  name: string
-  cpf: string
-  address: string
+  [ClinicEnum.Id]: string
+  [ClinicEnum.Name]: string
+  [ClinicEnum.Cpf]: string
+  [ClinicEnum.Address]: string
+  [ClinicEnum.SocialCapital]: string
 }
 
 export type AddClinicPayload = {
-  name: string
-  cpf: string
-  address: string
+  [ClinicEnum.Name]: string
+  [ClinicEnum.Cpf]: string
+  [ClinicEnum.Address]: string
+  [ClinicEnum.SocialCapital]: string
 }

@@ -6,11 +6,13 @@ export const mockClinic = (): Clinic => ({
   id: faker.datatype.uuid(),
   name: faker.internet.userName(),
   address: faker.address.cityName(),
-  cpf: faker.datatype.string()
+  cpf: faker.datatype.string(),
+  capital: faker.address.city()
 })
 
 export const mockAddClinicPayload = (): AddClinicPayload => ({
   name: faker.internet.userName(),
   address: faker.address.cityName(),
-  cpf: faker.datatype.string()
+  cpf: faker.datatype.string(),
+  capital: faker.address.city()
 })
