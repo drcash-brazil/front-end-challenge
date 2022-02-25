@@ -38,9 +38,9 @@ function Step1(props) {
   
   return (
     <form className={classes.form} noValidate autoComplete="off" >
-  <TextField  name="nome"  id="standard-basic" className={classes.input}  onChange={handleChange}  label="Nome da Clínica" />
-  <TextField  name="cpf"   id="standard-basic" className={classes.input}  onChange={handleChange}   label="CPF do Responsável"  />
-  <TextField  name="capital"  id="standard-basic" className={classes.input} onChange={handleChange}   label="Capital Social da Clínica"  />
+  <TextField required name="nome"  id="standard-basic" className={classes.input}  onChange={handleChange}  label="Nome da Clínica" />
+  <TextField required  type="number" name="cpf"   id="standard-basic" className={classes.input}  onChange={handleChange}   label="CPF do Responsável"  />
+  <TextField   required name="capital"  id="standard-basic" className={classes.input} onChange={handleChange}   label="Capital Social da Clínica"  />
 </form>
   )
 }

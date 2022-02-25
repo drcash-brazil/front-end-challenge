@@ -1,8 +1,7 @@
 import React ,{ useState } from "react";
-
 import Pagination from './pagination/index';
 import 'antd/dist/antd.css';
-import Swal from 'sweetalert2';
+import openNotification from '../components/UI/notification'
 import Button from "@material-ui/core/Button";
 import Step1 from './pages/first';
 import Step2 from './pages/second';
@@ -13,12 +12,10 @@ export default function Form(props) {
   const [data, setData] = useState([]);
   const [data1, setData1] = useState([]);
 
-  const childCompRef = React.useRef(null);
   function goNextPage() {
     if (page === 4) return;
     setPage((page) => page + 1);
   }
-
 
 
   const handleSetData1 =(data)=> {
@@ -32,14 +29,8 @@ export default function Form(props) {
   }
 
    const submit = () => {
-    
-    Swal.fire({
-      icon: 'success',
-      title: 'Clínica registada com sucesso',
-      showConfirmButton: false,
-      timer: 1200,
-      zIdex:'20000'
-    })
+    openNotification('Clinica registada com sucesso') 
+   
    }
   return (
     <div className="FormParent">
@@ -48,8 +39,6 @@ export default function Form(props) {
       <Pagination current={page} />
       </div>
 
-
-      {/* the content goes here */}
       <div>
         {page === 1 && <Step1  onChange={handleSetData1}  />}
         {page === 2 && (
@@ -61,7 +50,7 @@ export default function Form(props) {
         
       </div>
 
-      {page !== 3 && <Button onClick={goNextPage} color="primary" variant="contained" >Avançar</Button>}
+      {page !== 3 && <Button onClick={goNextPage} type="submit" color="primary" variant="contained" >Avançar</Button>}
       {page === 3 && (
         <Button type="submit"  variant="contained" color="primary" onClick={submit}>
           Submit

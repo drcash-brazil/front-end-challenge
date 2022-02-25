@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems:'center',
     flexDirection:'column',
     justifyContent:'space-between',
-    border:'solid'
     
   },close:{
       position: 'absolute',

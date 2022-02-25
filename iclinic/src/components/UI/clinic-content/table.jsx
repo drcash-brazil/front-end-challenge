@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useEffect, useState} from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -8,8 +8,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import styled from 'styled-components';
-
-
+import axios from 'axios';
+import Loading from './loading';
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -29,31 +29,13 @@ const StyledTableCell = withStyles((theme) => ({
     },
   }))(TableRow);
   
-  function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-  }
-  
-  const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-  ];
+
   
   const useStyles = makeStyles({
     table: {
       minWidth: 700,
     },
   });
-
-
-
-
 
 
 const TableWrapper = styled(TableContainer)`
@@ -64,35 +46,58 @@ width:80%;
 `; 
 
 function TableUI(props) {
+
+ const [data, setData] = useState([]);
+ const [loading, setLoading] = useState(true);
+
+  const getData = async () =>{
+     await axios.get('https://620fa753ec8b2ee283481997.mockapi.io/Iclinic/clinicas')
+    .then( (data)=> {setData(data.data); setLoading(false)})
+    .catch( (err) => console.log(err));
+  }
+  
+  useEffect(() => {
+    getData();
+  }, [])
+  
+  useEffect(() => {
+    getData();
+  }, [data])
+  
+
     const classes = useStyles();
 
   return (
-    <TableWrapper component={Paper}>
+    <>
+  {  loading ?  <Loading/>: (<TableWrapper component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-            <StyledTableCell align="right">Calories</StyledTableCell>
-            <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+            <StyledTableCell>Nome</StyledTableCell>
+            <StyledTableCell align="right">CPF</StyledTableCell>
+            <StyledTableCell align="right">Estado</StyledTableCell>
+            <StyledTableCell align="right">Municipio</StyledTableCell>
+            <StyledTableCell align="right">Rua</StyledTableCell>
+            <StyledTableCell align="right">CapitalSocial</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
+          {data.map((item) => (
+            <StyledTableRow key={item.id}>
               <StyledTableCell component="th" scope="row">
-                {row.name}
+                {item.username}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
+              <StyledTableCell align="right">{item.cpf}</StyledTableCell>
+              <StyledTableCell align="right">{item.Estado}</StyledTableCell>
+              <StyledTableCell align="right">{item.municipio}</StyledTableCell>
+              <StyledTableCell align="right">{item.rua}</StyledTableCell>
+              <StyledTableCell align="right">{item.capital}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
-  </TableWrapper>
+  </TableWrapper>)}
+  </>
   )
 }
 
