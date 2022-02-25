@@ -3,41 +3,46 @@ import React ,{ useState } from "react";
 import Pagination from './pagination/index';
 import 'antd/dist/antd.css';
 import Swal from 'sweetalert2';
-
+import Button from "@material-ui/core/Button";
 import Step1 from './pages/first';
-export default function Form() {
+import Step2 from './pages/second';
+import Preview from './pages/preview';
+
+export default function Form(props) {
   const [page, setPage] = useState(1);
-  const [data, setData] = useState({
-    user: {},
-    profile: {},
-    settings: {}
-  });
+  const [data, setData] = useState([]);
+  const [data1, setData1] = useState([]);
 
-
+  const childCompRef = React.useRef(null);
   function goNextPage() {
     if (page === 4) return;
     setPage((page) => page + 1);
   }
 
-  function updateData(type, newData) {
-    setData((data) => {
-      return { ...data, [type]: newData };
-    });
+
+
+  const handleSetData1 =(data)=> {
+  console.log(data);
+  setData(data);
   }
 
-  function submit() {
+  const handleSetData2 =(data)=> {
+  console.log(data);
+  setData1(data);
+  }
+
+   const submit = () => {
     
     Swal.fire({
-      position: 'top-end',
       icon: 'success',
-      title: 'Your work has been saved',
+      title: 'Clínica registada com sucesso',
       showConfirmButton: false,
-      timer: 1500
+      timer: 1200,
+      zIdex:'20000'
     })
-  }
-
+   }
   return (
-    <div className="App">
+    <div className="FormParent">
 
       <div>
       <Pagination current={page} />
@@ -46,45 +51,23 @@ export default function Form() {
 
       {/* the content goes here */}
       <div>
-        {page === 1 && <Step1 />}
+        {page === 1 && <Step1  onChange={handleSetData1}  />}
         {page === 2 && (
-          <OnboardingTwo data={data.profile} update={updateData} />
+          <Step2   onChange={handleSetData2} />
         )}
         {page === 3 && (
-          <OnboardingThree data={data.settings} update={updateData} />
+          <Preview data={[ data , data1]} >  </Preview>
         )}
-        {page === 4 && <Step1 />}
+        
       </div>
 
-      {page !== 4 && <button onClick={goNextPage}>Go Next</button>}
-      {page === 4 && (
-        <button type="submit" onClick={submit}>
+      {page !== 3 && <Button onClick={goNextPage} color="primary" variant="contained" >Avançar</Button>}
+      {page === 3 && (
+        <Button type="submit"  variant="contained" color="primary" onClick={submit}>
           Submit
-        </button>
+        </Button>
       )}
     </div>
   );
 }
 
-function OnboardingOne({ data, update }) {
-  const newData = {};
-
-  return (
-    <div>
-      i am page one
-      <button onClick={() => update("user", newData)}></button>
-    </div>
-  );
-}
-
-function OnboardingTwo({ data, update }) {
-  return <div>i am page two</div>;
-}
-
-function OnboardingThree({ data, update }) {
-  return <div>i am page three</div>;
-}
-
-function OnboardingFour({ data, update }) {
-  return <div>i am page four</div>;
-}
