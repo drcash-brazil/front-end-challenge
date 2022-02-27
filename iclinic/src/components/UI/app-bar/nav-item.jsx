@@ -4,6 +4,7 @@ const NavItem = styled.li`
 font-family:"Roboto";
 a{
     text-decoration:none;
+    color:black;
 }
 `;
 

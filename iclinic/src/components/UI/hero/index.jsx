@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import { makeStyles } from "@material-ui/core/styles";
 
 import Theme from '../../../utils/pallete/index.jsx'
-
+import Bounce from 'react-reveal/Bounce';
 
 import { ThemeProvider } from '@material-ui/styles';
 
@@ -78,7 +78,9 @@ export default function Hero() {
   return (
     <Container className={classes.root}>
     <ThemeProvider  theme={Theme}>
+         
           <Box className={classes.leftAside}> 
+         <Bounce left>
             <Typography  className={classes.title} variant="h3">
             Virtual healthcare for you
             </Typography>
@@ -91,9 +93,12 @@ export default function Hero() {
             <Button className={classes.button} variant="contained" color="primary" > 
               Consult today
             </Button> 
+          </Bounce>
           </Box>
           <Box className={classes.rightAside}> 
+          <Bounce>
           <Image src={`${process.env.PUBLIC_URL}heroImage.svg`} />
+          </Bounce>
           </Box>
           
           </ThemeProvider>

@@ -3,12 +3,16 @@ import Card from './card'
 import styled from 'styled-components';
 import data from './data';
 import { Typography } from '@material-ui/core';
+
+import Reveal from 'react-reveal/Reveal';
 const FeaturesWrapper = styled.section`
 display:flex;
 align-items:center;
 justify-content:center;
 padding:0px 90px;
 flex-wrap:wrap;
+background-image: url(${props => props.img});
+background-repeat:no-repeat;
 
 `;
 
@@ -20,25 +24,40 @@ font-size: 30px;
 display:flex;
 flex-direction:column;
 &:after{
-  content:'____';
+  content:'______';
   margin-bottom:10px;
+  color: #7D7987;
+  font-size:20px;
 }
+`;
+const Description = styled(Typography)`
+display:flex;
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 30px;
+text-align: center;
+color: #7D7987;
+padding: 15px 200px;
+margin-bottom:10px;
 `;
 
 function Features() {
   return (
-    <>
+     <Reveal effect="fadeInUp">
       <Text  variant="h5"  className="tittle"> Nossos Serviços </Text>
-    <FeaturesWrapper>
-         {data.map(  (item, key) =>{
+      <Description variant='subtitle4'>We provide to you the best choiches for you. Adjust it to your health needs and make sure your undergo treatment with our highly qualified doctors 
+      you can consult with us which type of service is suitable for your health </Description>
+    <FeaturesWrapper  img={ `${process.env.PUBLIC_URL}Vector.svg` }>
+         {data.map((item , id) =>{
            return(
-                <Card  description={item.description} tittle={item.tittle}   image={ `${process.env.PUBLIC_URL+item.img}` }  />
+                <Card key={id} description={item.description} tittle={item.tittle}   image={ `${process.env.PUBLIC_URL+item.img}` }  />
            )
 
          } )}
 
     </FeaturesWrapper>
-    </>
+    </Reveal>
   )
 }
 

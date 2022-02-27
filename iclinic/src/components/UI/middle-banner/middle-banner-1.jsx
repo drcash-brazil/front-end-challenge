@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import { makeStyles } from "@material-ui/core/styles";
 
 import Theme from '../../../utils/pallete/index.jsx'
-
+import Slide from 'react-reveal/Slide';
 
 import { ThemeProvider } from '@material-ui/styles';
 
@@ -77,10 +77,11 @@ export default function MiddleBannerA() {
     <Container className={classes.root}>
     <ThemeProvider  theme={Theme}>
     <Box className={classes.rightAside}> 
-          <Image src={`${process.env.PUBLIC_URL}m1.svg`} />
+       <Slide right>   <Image src={`${process.env.PUBLIC_URL}m1.svg`} /></Slide>
           </Box>
           
           <Box className={classes.leftAside}> 
+          <Slide right>
             <Typography  className={classes.title} variant="h3">
             Leading healthcare providers
             </Typography>
@@ -92,7 +93,8 @@ export default function MiddleBannerA() {
             </Typography>
             <Button className={classes.button} variant="contained" color="primary" > 
              Learn More
-            </Button> 
+            </Button>
+            </Slide> 
           </Box>
           
           </ThemeProvider>

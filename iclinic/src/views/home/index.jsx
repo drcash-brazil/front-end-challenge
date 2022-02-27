@@ -9,7 +9,7 @@ const [loading , setLoading] = useState(false);
     setLoading(true);
     setTimeout(() => {
       setLoading(false)
-    }, 4000);
+    }, 1500);
 
   }, []);
   return (

@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Theme from '../../../utils/pallete/index.jsx'
 
+import Slide from 'react-reveal/Slide';
 
 import { ThemeProvider } from '@material-ui/styles';
 
@@ -15,7 +16,6 @@ const useStyles = makeStyles((Theme) => ({
   root: {
     display: "flex",
     height:"580px",
-    padding:"10px",
     padding:'0 20px'
 
   },
@@ -78,7 +78,7 @@ export default function MiddleBannerQ() {
     <Container className={classes.root}>
     <ThemeProvider  theme={Theme}>
           <Box className={classes.leftAside}> 
-            <Typography className={classes.title} variant="h3">
+          <Slide left>            <Typography className={classes.title} variant="h3">
             Download our 
 mobile apps
             </Typography>
@@ -89,10 +89,14 @@ mobile apps
             <Button className={classes.button} variant="contained" color="primary" > 
               Download
             </Button> 
+            </Slide>
+
           </Box>
 
           <Box className={classes.rightAside}> 
+          <Slide left> 
           <Image src={`${process.env.PUBLIC_URL}trafalgar-illustration.svg`} />
+          </Slide>
           </Box>
           
           </ThemeProvider>
