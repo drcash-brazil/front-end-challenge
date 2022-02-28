@@ -3,6 +3,7 @@ export type HttpMethod = 'post' | 'get'
 
 export enum HttpStatusCode {
   ok = 200,
+  created = 201,
   notFound = 404
 }
 

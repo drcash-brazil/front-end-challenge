@@ -28,17 +28,31 @@ export const NewPage = ({ loadAddress, addClinic }: Props) => {
 
   const formData = [formDateOne, formDateTwo, 'last-item']
 
-  const onSubmit: SubmitHandler<AddClinicPayload> = async (data) => {
+  const validateUserData: SubmitHandler<AddClinicPayload> = async (data) => {
     try {
       const isValid = await clinicValidation.validate(data)
-      const isLocationValid = await loadAddress.load(isValid.address)
-      const newAddedClinic = await addClinic.add(isValid)
-      console.log({ isLocationValid, isValid, newAddedClinic })
+      if (isValid) isAddressValid(isValid)
+    } catch (error) {
+      toast.error((error as Error).message)
+    }
+  }
 
-      // console.log('newAddedClinic', newAddedClinic)
-      // if (isValid && isLocationValid) {
-      // }
-      toast.success(`Clinic ${data.name} was added with success`)
+  const isAddressValid = async (data: AddClinicPayload) => {
+    try {
+      const isLocationValid = await loadAddress.load(data.address)
+      if (isLocationValid) onSubmit(data)
+    } catch (error) {
+      toast.error('Your location is not valid')
+    }
+  }
+
+  const onSubmit = async (data: AddClinicPayload) => {
+    try {
+      const newAddedClinic = await addClinic.add(data)
+      console.log(newAddedClinic)
+      if (newAddedClinic) {
+        toast.success(`Clinic ${data.name} was added with success`)
+      }
     } catch (error) {
       toast.error((error as Error).message)
     }
@@ -92,7 +106,7 @@ export const NewPage = ({ loadAddress, addClinic }: Props) => {
               ))}
             </Box>
             <Box p="2rem" w="100%" h="100%">
-              <SpaceButton dark onClick={handleSubmit(onSubmit)}>Send</SpaceButton>
+              <SpaceButton dark onClick={handleSubmit(validateUserData)}>Send</SpaceButton>
             </Box>
           </FormCarousel>
         </Box>

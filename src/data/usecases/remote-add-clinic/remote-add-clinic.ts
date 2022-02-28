@@ -18,7 +18,7 @@ export class RemoteAddClinic implements AddClinic {
     })
 
     switch (httpResponse.statusCode) {
-      case HttpStatusCode.ok: return (httpResponse.body as AddClinic.Model)
+      case HttpStatusCode.created: return (httpResponse.body as AddClinic.Model)
       default: throw new UnexpectedError()
     }
   }
