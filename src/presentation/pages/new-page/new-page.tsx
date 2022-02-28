@@ -4,25 +4,26 @@ import {
   Heading,
   InputGroup,
   Stack,
-  FormLabel,
-  Textarea
+  FormLabel
 } from '@chakra-ui/react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { v4 as uuid } from 'uuid'
 
+import { AddClinicPayload } from '@/domain/models'
+import { AddClinic, LoadAddressByZipCode } from '@/domain/usecases'
+
 import { Container, FormCarousel, SpaceButton } from '@/presentation/components'
 
 import { formDateOne, formDateTwo } from './new-page.data'
 import { clinicValidation } from './new-page-validations'
-import { AddClinicPayload } from '@/domain/models'
-import { LoadAddressByZipCode } from '@/domain/usecases'
 
 type Props = {
   loadAddress: LoadAddressByZipCode
+  addClinic: AddClinic
 }
 
-export const NewPage = ({ loadAddress }: Props) => {
+export const NewPage = ({ loadAddress, addClinic }: Props) => {
   const { register, handleSubmit, formState: { errors } } = useForm<AddClinicPayload>()
 
   const formData = [formDateOne, formDateTwo, 'last-item']
@@ -30,12 +31,14 @@ export const NewPage = ({ loadAddress }: Props) => {
   const onSubmit: SubmitHandler<AddClinicPayload> = async (data) => {
     try {
       const isValid = await clinicValidation.validate(data)
+      const isLocationValid = await loadAddress.load(isValid.address)
+      const newAddedClinic = await addClinic.add(isValid)
+      console.log({ isLocationValid, isValid, newAddedClinic })
 
-      if (isValid) {
-        const isLocationValid = await loadAddress.load(isValid.address)
-        console.log('is The location valid', isLocationValid)
-        toast.success(`Clinic ${data.name} was added with success`)
-      }
+      // console.log('newAddedClinic', newAddedClinic)
+      // if (isValid && isLocationValid) {
+      // }
+      toast.success(`Clinic ${data.name} was added with success`)
     } catch (error) {
       toast.error((error as Error).message)
     }
@@ -76,12 +79,15 @@ export const NewPage = ({ loadAddress }: Props) => {
             <Box>
               {formDateTwo.map(item => (
                 <Stack key={uuid()} p="2rem" w="100%" h="100%">
-                  <Textarea
-                    size="lg"
-                    h="100%"
-                    placeholder={item.placeholder}
-                    {...register(item.name)}
-                  />
+                  <InputGroup>
+                    <FormLabel>{item.name}</FormLabel>
+                    <Input
+                      d="block"
+                      size="lg"
+                      placeholder={item.placeholder}
+                      {...register(item.name)}
+                    />
+                  </InputGroup>
                 </Stack>
               ))}
             </Box>

@@ -20,6 +20,6 @@ export const formDateOne: FormProps[] = [
 export const formDateTwo: FormProps[] = [
   {
     name: ClinicEnum.Address,
-    placeholder: 'Address'
+    placeholder: '01001000'
   }
 ]
