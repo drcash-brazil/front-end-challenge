@@ -1,8 +1,8 @@
-import { AddClinicPayload, ClinicEnum } from '@/domain/models'
+import { ClinicEnum, ClinicFields } from '@/domain/models'
 
-type FormDateOneProps = { name: any, placeholder: string }
+type FormProps = { name: ClinicFields, placeholder: string }
 
-export const formDateOne: FormDateOneProps[] = [
+export const formDateOne: FormProps[] = [
   {
     name: ClinicEnum.Name,
     placeholder: 'Name'
@@ -17,7 +17,7 @@ export const formDateOne: FormDateOneProps[] = [
   }
 ]
 
-export const formDateTwo = [
+export const formDateTwo: FormProps[] = [
   {
     name: ClinicEnum.Address,
     placeholder: 'Address'

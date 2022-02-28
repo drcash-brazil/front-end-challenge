@@ -1,4 +1,6 @@
 /* eslint-disable no-unused-vars */
+export type ClinicFields = 'name' | 'cpf' | 'address' | 'socialCapital'
+
 export enum ClinicEnum {
   Id = 'id',
   Name = 'name',
@@ -16,7 +18,7 @@ export type Clinic = {
 }
 
 export type AddClinicPayload = {
-  [ClinicEnum.Name]: string
+  name: string
   [ClinicEnum.Cpf]: string
   [ClinicEnum.Address]: string
   [ClinicEnum.SocialCapital]: string
