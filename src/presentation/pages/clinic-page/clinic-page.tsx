@@ -1,4 +1,5 @@
-import { Box, Heading, Text } from '@chakra-ui/react'
+import { useEffect, useState } from 'react'
+import { Box, Text } from '@chakra-ui/react'
 import { useParams } from 'react-router-dom'
 import {
   useQuery, useQueryClient
@@ -6,7 +7,7 @@ import {
 
 import { LoadClinicById } from '@/domain/usecases'
 import { Clinic } from '@/domain/models'
-import { useEffect, useState } from 'react'
+import { GradientTitle } from '@/presentation/components'
 
 type ClinicPageParamProps = {
   id: string
@@ -43,7 +44,7 @@ export const ClinicPage = ({ loadClinicById }: Props) => {
       <Box w="100%" h="45vh" bg="linear-gradient(to bottom right, #002b54, #1660a5)" />
       <Box maxWidth="142rem" width="100%" m="0 auto">
         <Box bg="whiteAlpha.900">
-          <Heading
+          <GradientTitle
             fontSize="6rem"
             position="relative"
             top="-3.6rem"
@@ -52,7 +53,7 @@ export const ClinicPage = ({ loadClinicById }: Props) => {
             p="0 4rem"
           >
             {clinic?.name}
-          </Heading>
+          </GradientTitle>
           <Box mt="5rem" p="5rem" fontSize="4rem">
             <Text><b>Address:</b> {clinic?.address}</Text>
             <Text><b>CPF:</b> {clinic?.cpf}</Text>

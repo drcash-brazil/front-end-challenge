@@ -1,7 +1,6 @@
 import {
   Box,
   Input,
-  Heading,
   InputGroup,
   Stack,
   FormLabel
@@ -13,7 +12,7 @@ import { v4 as uuid } from 'uuid'
 import { AddClinicPayload } from '@/domain/models'
 import { AddClinic, LoadAddressByZipCode } from '@/domain/usecases'
 
-import { Container, FormCarousel, SpaceButton } from '@/presentation/components'
+import { Container, FormCarousel, SpaceButton, GradientTitle } from '@/presentation/components'
 
 import { formDateOne, formDateTwo } from './new-page.data'
 import { clinicValidation } from './new-page-validations'
@@ -62,19 +61,13 @@ export const NewPage = ({ loadAddress, addClinic }: Props) => {
     <Box>
       <Box w="100%" h="45vh" bg="linear-gradient(to bottom right, #002b54, #1660a5)" />
       <Container>
-        <Heading
+        <GradientTitle
           position="relative"
           top="-5rem"
           left="2rem"
-          fontSize="6rem"
-          color="whiteAlpha.900"
-          bg="linear-gradient(to bottom right, #002b54, #1660a5)"
-          boxShadow="0 0 1rem rgba(0,0,0, .5)"
-          display="inline-block"
-          p="1rem 2rem"
         >
           Create a new Clinic
-        </Heading>
+        </GradientTitle>
         <Box p="4rem">
           <FormCarousel items={formData}>
             <Stack spacing={3} p="2rem" w="100%" h="100%">
