@@ -5,8 +5,7 @@ import {
   InputGroup,
   Stack,
   FormLabel,
-  Textarea,
-  Flex
+  Textarea
 } from '@chakra-ui/react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import toast from 'react-hot-toast'
