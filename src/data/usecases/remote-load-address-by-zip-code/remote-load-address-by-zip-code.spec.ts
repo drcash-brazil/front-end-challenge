@@ -1,5 +1,7 @@
 import * as faker from 'faker'
 
+import { mapRemoteAddress } from '@/main/utils/helpers'
+
 import { HttpStatusCode } from '@/data/protocols/http'
 import { HttpClientSpy, mockRemoteAddressModel } from '@/__mocks__'
 
@@ -27,7 +29,7 @@ describe('RemoteLoadAddressByZipCode', () => {
 
     await sut.load(zipCode)
 
-    expect(httpClientSpy.url).toBe(`${url}/${zipCode}`)
+    expect(httpClientSpy.url).toBe(`${url}/${zipCode}/json`)
     expect(httpClientSpy.method).toBe('get')
   })
 
@@ -52,6 +54,6 @@ describe('RemoteLoadAddressByZipCode', () => {
 
     const httpResponse = await sut.load('123')
 
-    expect(httpResponse).toEqual(result)
+    expect(httpResponse).toEqual(mapRemoteAddress(result))
   })
 })
