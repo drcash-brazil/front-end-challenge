@@ -11,6 +11,7 @@ type Props = {
 }
 
 export const HomeClinicsSection = ({ clinics }: Props) => {
+  const shortenedClinics = clinics.slice(0, 8)
   return (
     <Box bg="blackAlpha.200" color="gray.900" textAlign="center" p="6rem 0">
       <Box maxWidth="142rem" m="0 auto">
@@ -20,7 +21,7 @@ export const HomeClinicsSection = ({ clinics }: Props) => {
           gap="2rem"
           mt="4rem"
         >
-          {clinics.map(clinic => <Clinic key={clinic.id} {...clinic}/>)}
+          {shortenedClinics.map(clinic => <Clinic key={clinic.id} {...clinic}/>)}
         </Grid>
         <Link to={PagesRoutes.Clinics}>
           <SpaceButton dark mt="4rem">See All</SpaceButton>
