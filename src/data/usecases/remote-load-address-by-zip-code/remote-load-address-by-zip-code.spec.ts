@@ -1,9 +1,9 @@
 import * as faker from 'faker'
 
 import { HttpStatusCode } from '@/data/protocols/http'
-import { mockClinic, HttpClientSpy } from '@/__mocks__'
+import { HttpClientSpy, mockRemoteAddressModel } from '@/__mocks__'
+
 import { RemoteLoadAddressByZipCode } from './remote-load-address-by-zip-code'
-import { mockRemoteAddressModel } from '@/__mocks__/mock-address'
 
 type SutTypes = {
   sut: RemoteLoadAddressByZipCode
