@@ -16,9 +16,13 @@ import { Container, FormCarousel, SpaceButton } from '@/presentation/components'
 import { formDateOne, formDateTwo } from './new-page.data'
 import { clinicValidation } from './new-page-validations'
 import { AddClinicPayload } from '@/domain/models'
+import { LoadAddressByZipCode } from '@/domain/usecases'
 
+type Props = {
+  loadAddress: LoadAddressByZipCode
+}
 
-export const NewPage = () => {
+export const NewPage = ({ loadAddress }: Props) => {
   const { register, handleSubmit, formState: { errors } } = useForm<AddClinicPayload>()
 
   const formData = [formDateOne, formDateTwo, 'last-item']
@@ -28,6 +32,8 @@ export const NewPage = () => {
       const isValid = await clinicValidation.validate(data)
 
       if (isValid) {
+        const isLocationValid = await loadAddress.load(isValid.address)
+        console.log('is The location valid', isLocationValid)
         toast.success(`Clinic ${data.name} was added with success`)
       }
     } catch (error) {
