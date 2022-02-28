@@ -17,6 +17,7 @@ import { formDateOne, formDateTwo } from './new-page.data'
 import { clinicValidation } from './new-page-validations'
 import { AddClinicPayload } from '@/domain/models'
 
+
 export const NewPage = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<AddClinicPayload>()
 
