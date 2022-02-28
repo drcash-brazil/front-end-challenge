@@ -22,15 +22,14 @@ export const FormCarousel: React.FC<FormCarouselProps> = ({ children, items }) =
         maxWidth="50rem"
         width="100%"
         m="0 auto"
-        p="2rem"
         overflow="hidden"
         border="2px solid"
         borderColor="gray.900"
       >
         <Grid
-          pb="5rem"
-          w={`calc(100% * ${numberOfSlides})`}
+          pb="4rem"
           h="100%"
+          w={`calc(100% * ${numberOfSlides})`}
           gridTemplateColumns={`repeat(${numberOfSlides}, 1fr)`}
           transition="all ease-in-out .25s"
           transform={`translateX(-${index * 33.3}%)`}

@@ -54,33 +54,32 @@ export const NewPage = () => {
         </Heading>
         <Box p="4rem">
           <FormCarousel items={formData}>
-            <Flex justifyContent="center" alignItems="center" w="100%">
-              <Stack spacing={3}>
-                {formDateOne.map(item => (
-                  <InputGroup key={uuid()}>
-                    <Input
-                      type="text"
-                      size="lg"
-                      placeholder={item.placeholder}
-                      {...register(item.name)}
-                    />
-                    {errors[item.name] && <FormLabel>{errors[item.name]?.message}</FormLabel>}
-                  </InputGroup>
-                ))}
-              </Stack>
-            </Flex>
+            <Stack spacing={3} p="2rem" w="100%" h="100%">
+              {formDateOne.map(item => (
+                <InputGroup key={uuid()}>
+                  <Input
+                    type="text"
+                    size="lg"
+                    placeholder={item.placeholder}
+                    {...register(item.name)}
+                  />
+                  {errors[item.name] && <FormLabel>{errors[item.name]?.message}</FormLabel>}
+                </InputGroup>
+              ))}
+            </Stack>
             <Box>
               {formDateTwo.map(item => (
-                <Stack key={uuid()}>
+                <Stack key={uuid()} p="2rem" w="100%" h="100%">
                   <Textarea
                     size="lg"
+                    h="100%"
                     placeholder={item.placeholder}
                     {...register(item.name)}
                   />
                 </Stack>
               ))}
             </Box>
-            <Box>
+            <Box p="2rem" w="100%" h="100%">
               <SpaceButton dark onClick={handleSubmit(onSubmit)}>Send</SpaceButton>
             </Box>
           </FormCarousel>
