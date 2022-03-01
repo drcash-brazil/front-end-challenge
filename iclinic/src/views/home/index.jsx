@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  NavBar,
   Hero,
   MiddleBannerQ,
   MiddleBannerA,
@@ -25,8 +24,6 @@ function Home() {
         <Splash />
       ) : (
         <Layout title="Iclinic | Home">
-
-          <NavBar />
           <Hero /> 
           <Features /> 
           <MiddleBannerA /> 
