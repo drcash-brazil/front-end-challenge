@@ -13,7 +13,9 @@ const CarrouselWrapper = styled.div`
   width: 95%;
   padding: 25px 5px;
   .slider {
-    
+      .slick-arrow{
+        display:none;
+      }
     .slick-dots {
       position: absolute;
       bottom: -55px;
