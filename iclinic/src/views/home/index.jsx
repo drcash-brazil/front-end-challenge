@@ -1,5 +1,5 @@
 import React ,  {useState , useEffect} from 'react'
-import {NavBar , Hero , MiddleBannerQ , MiddleBannerA , Features} from '../../components';
+import {NavBar , Hero , MiddleBannerQ , MiddleBannerA , Features ,Carrousel} from '../../components';
 import Splash from '../splash';
 
 function Home() {
@@ -16,7 +16,7 @@ const [loading , setLoading] = useState(false);
 <>
      {
 
-   loading ? (<Splash/>) : (<> <NavBar/><Hero/> <Features/> <MiddleBannerA/> <MiddleBannerQ/> </>)
+   loading ? (<Splash/>) : (<> <NavBar/><Hero/> <Features/> <MiddleBannerA/> <MiddleBannerQ/> <Carrousel/> </>)
 
      }
   </>

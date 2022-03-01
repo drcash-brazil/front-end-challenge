@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import LightSpeed from 'react-reveal/LightSpeed';
+
 
 const CardWrapper = styled.div`
 display:flex;
@@ -14,6 +14,9 @@ width :30%;
 height :354px; 
 margin:10px;
 padding:25px;
+@media(max-width:776px){
+  width:100%;
+}
 p{
   font-family: Mulish;
 font-style: normal;
@@ -27,11 +30,11 @@ color: #7D7987;
 function Card(props) {
   return (
     <CardWrapper>
-      <LightSpeed>
+
          <img src="image" src={props.image} />  
           <h4>{props.tittle}</h4>
           <p> {props.description} </p>
-          </LightSpeed>
+   
     </CardWrapper>
   )
 }
