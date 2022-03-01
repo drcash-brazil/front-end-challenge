@@ -70,13 +70,13 @@ function CarrouselItem(props) {
   return (
     <CarrouselItemWrapper>
       <Box className="main-content">
-        <img src={props.avatar} alt="image" />
-        <Typography className="name" variant="subtitle4">
+        <img src={props.avatar} alt={props.name} />
+        <Typography className="name" variant="subtitle2">
           <span>{props.name}</span>
           <span>{props.role}</span>
         </Typography>
       </Box>
-      <Typography className="comment" variant="subtitle4">
+      <Typography className="comment" variant="subtitle2">
         {props.comment}
       </Typography>
     </CarrouselItemWrapper>

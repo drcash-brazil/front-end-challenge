@@ -16,7 +16,7 @@ const useStyles = makeStyles((Theme) => ({
     marginTop: "20px",
   },
   title: {
-    fontSize: "2rem",
+    fontSize: "27px",
     color: "#000000",
     "mix-blend-mode": "normal",
   },
@@ -27,7 +27,7 @@ const useStyles = makeStyles((Theme) => ({
     fontSize: "17px",
     lineHeight: "32px",
     color: "#7D7987;",
- 
+    margin:"10px 0px"
   },
   button: {
     borderRadius: "55px",
@@ -96,20 +96,20 @@ export default function MiddleBannerA() {
         <Box className="rightAside">
 
             <Typography className={classes.title} variant="h3">
-              Leading healthcare providers
+            Principais prestadores de cuidados de saúde
             </Typography>
 
             <Typography className={classes.subtitle} variant="subtitle1">
-              Trafalgar provides progressive, and affordable healthcare,
-              accessible on mobile and online for everyone. To us, it’s not just
-              work. We take pride in the solutions we deliver for everyone
+            A Iclinic oferece cuidados de saúde progressivos e acessíveis,
+              acessível em dispositivos móveis e online para todos. Para nós, não é apenas
+              trabalhar. Temos orgulho das soluções que oferecemos para todos
             </Typography>
             <Button
               className={classes.button}
               variant="contained"
               color="primary"
             >
-              Learn More
+              Saber mais
             </Button>
        
         </Box>

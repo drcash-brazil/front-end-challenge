@@ -49,7 +49,7 @@ function Carrousel() {
   };
 
   return (
-    <CarrouselWrapper>
+    <CarrouselWrapper id="newletter">
       <Typography variant="h5" className="tittle">
         O que os clientes dizem
       </Typography>

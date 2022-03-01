@@ -1,11 +1,10 @@
 import React from "react";
-import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
-
+import Typed from 'react-typed';
 import Theme from "../../../utils/pallete/index.jsx";
 
 import { ThemeProvider } from "@material-ui/styles";
@@ -15,6 +14,7 @@ const useStyles = makeStyles((Theme) => ({
     display: "flex",
     height: "580px",
     padding: "50px",
+    alignItems:"center"
   },
 
   title: {
@@ -101,19 +101,22 @@ export default function Hero() {
       <HeroWrapper className={classes.root}>
         <Box className="leftAside">
           <Typography className={classes.title} variant="h3">
-            Virtual healthcare for you
+               <Typed
+                    strings={['Saúde virtual para você|']}
+                    typeSpeed={40}
+                />
           </Typography>
 
-          <Typography className={classes.subtitle} variant="subtitle1">
-            Trafalgar provides progressive, and affordable healthcare,
-            accessible on mobile and online for everyone
+          <Typography className={classes.subtitle} variant="subtitle1">  
+A Iclinic oferece cuidados de saúde progressivos e acessíveis,
+            acessível em dispositivos móveis e online para todos
           </Typography>
           <Button
             className={classes.button}
             variant="contained"
             color="primary"
           >
-            Consult today
+            Marque uma consulta
           </Button>
         </Box>
         <Box className="rightAside">

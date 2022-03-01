@@ -1,27 +1,39 @@
-import React ,  {useState , useEffect} from 'react'
-import {NavBar , Hero , MiddleBannerQ , MiddleBannerA , Features ,Carrousel} from '../../components';
-import Splash from '../splash';
+import React, { useState, useEffect } from "react";
+import {
+  NavBar,
+  Hero,
+  MiddleBannerQ,
+  MiddleBannerA,
+  Features,
+  Carrousel,
+  Layout,
+} from "../../components";
+import Splash from "../splash";
 
 function Home() {
-
-const [loading , setLoading] = useState(false);
-  useEffect(()=>{
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
     setLoading(true);
     setTimeout(() => {
-      setLoading(false)
+      setLoading(false);
     }, 1500);
-
   }, []);
   return (
-<>
-     {
+    <>
+      {loading ? (
+        <Splash />
+      ) : (
+        <Layout title="Iclinic | Home">
 
-   loading ? (<Splash/>) : (<> <NavBar/><Hero/> <Features/> <MiddleBannerA/> <MiddleBannerQ/> <Carrousel/> </>)
-
-     }
-  </>
-
-    )
+          <NavBar />
+          <Hero /> <Features /> 
+          <MiddleBannerA /> 
+          <MiddleBannerQ />
+          <Carrousel />
+        </Layout>
+      )}
+    </>
+  );
 }
 
 export default Home;

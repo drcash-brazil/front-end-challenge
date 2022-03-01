@@ -45,7 +45,7 @@ padding: 15px 200px;
 margin-bottom:10px;
 @media(max-width:776px){
 
-   font-size:14px;
+   font-size:12px;
   padding:10px 16px;
   line-height:20px;
 
@@ -55,10 +55,10 @@ margin-bottom:10px;
 function Features() {
   return (
      <>
-      <Text  variant="h5"  className="tittle"> Nossos Serviços </Text>
-      <Description variant='subtitle4'>We provide to you the best choiches for you. Adjust it to your health needs and make sure your undergo treatment with our highly qualified doctors 
-      you can consult with us which type of service is suitable for your health </Description>
-    <FeaturesWrapper  img={ `${process.env.PUBLIC_URL}Vector.svg` }>
+      <Text id="features" variant="h5"  className="tittle"> Nossos Serviços </Text>
+      <Description variant="subtitle2">Nós fornecemos a você as melhores escolhas para você. Adapte-o às suas necessidades de saúde e certifique-se de que faz um tratamento com os nossos médicos altamente 
+      qualificados, pode consultar-nos qual o tipo de serviço adequado à sua saúde </Description>
+    <FeaturesWrapper   img={ `${process.env.PUBLIC_URL}Vector.svg` }>
          {data.map((item , id) =>{
            return(
                 <Card key={id} description={item.description} tittle={item.tittle}   image={ `${process.env.PUBLIC_URL+item.img}` }  />

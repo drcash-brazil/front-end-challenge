@@ -4,3 +4,4 @@ export {default as MiddleBannerA} from './UI/middle-banner/middle-banner-1';
 export {default as MiddleBannerQ} from './UI/middle-banner/middle-banner-2';
 export {default as Features} from './UI/features/index';
 export {default as Carrousel} from './UI/newsletter/carrousel';
+export {default as Layout} from './layout';

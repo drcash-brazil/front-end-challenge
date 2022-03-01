@@ -1,5 +1,4 @@
 import React from "react";
-import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
@@ -7,8 +6,6 @@ import styled from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Theme from "../../../utils/pallete/index.jsx";
-
-import Slide from "react-reveal/Slide";
 
 import { ThemeProvider } from "@material-ui/styles";
 
@@ -29,6 +26,7 @@ const useStyles = makeStyles((Theme) => ({
     fontSize: "17px",
     lineHeight: "32px",
     color: "#7D7987;",
+    margin: "10px 0px",
   },
   button: {
     borderRadius: "55px",
@@ -36,10 +34,9 @@ const useStyles = makeStyles((Theme) => ({
   },
 }));
 
-
 const MiddlerBannerWrapper = styled.section`
-align-items:center;
-margin-bottom:50px;
+  align-items: center;
+  margin-bottom: 50px;
   .rightAside {
     display: flex;
     align-items: center;
@@ -63,17 +60,17 @@ margin-bottom:50px;
     flex-direction: column;
     height: unset;
     padding: 10px;
-    button{
-    font-size:10px;
-  }
-   h3{
-    font-size:20px;
-   }
-   h6{
-  font-size:15px;
-  margin:10px 0px;
-  text-align:start;
-   }
+    button {
+      font-size: 10px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+    h6 {
+      font-size: 15px;
+      margin: 10px 0px;
+      text-align: start;
+    }
     .leftAside {
       flex-direction: column;
       width: 100%;
@@ -89,11 +86,9 @@ margin-bottom:50px;
       }
     }
   }
-
 `;
 
 const Image = styled.img`
- 
   width: 90%;
 `;
 
@@ -103,31 +98,26 @@ export default function MiddleBannerQ() {
     <MiddlerBannerWrapper className={classes.root}>
       <ThemeProvider theme={Theme}>
         <Box className="leftAside">
-       
-            <Typography className={classes.title} variant="h3">
-              Download our mobile apps
-            </Typography>
-            <Typography className={classes.subtitle} variant="subtitle1">
-              Our dedicated patient engagement app and web portal allow you to
-              access information instantaneously (no tedeous form, long calls,
-              or administrative hassle) and securely
-            </Typography>
-            <Button
-              className={classes.button}
-              variant="contained"
-              color="primary"
-            >
-              Download
-            </Button>
-
+          <Typography className={classes.title} variant="h3">
+            Baixe nossos aplicativos móveis
+          </Typography>
+          <Typography className={classes.subtitle} variant="subtitle1">
+            Nosso aplicativo dedicado de engajamento do paciente e portal da web
+            permitem que você acessar informações instantaneamente (sem forma
+            tediosa, chamadas longas, ou problemas administrativos) e com
+            segurança
+          </Typography>
+          <Button
+            className={classes.button}
+            variant="outlined"
+            color="primary"
+          >
+            Baixar »
+          </Button>
         </Box>
 
         <Box className="rightAside">
-   
-            <Image
-              src={`${process.env.PUBLIC_URL}trafalgar-illustration.svg`}
-            />
-
+          <Image src={`${process.env.PUBLIC_URL}trafalgar-illustration.svg`} />
         </Box>
       </ThemeProvider>
     </MiddlerBannerWrapper>

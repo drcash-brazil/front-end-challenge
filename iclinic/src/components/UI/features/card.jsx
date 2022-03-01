@@ -13,10 +13,8 @@ justify-content:space-around;
 width :30%;
 height :354px; 
 margin:10px;
-padding:25px;
-@media(max-width:776px){
-  width:100%;
-}
+padding:25px;´
+
 p{
   font-family: Mulish;
 font-style: normal;
@@ -25,13 +23,29 @@ font-size: 16px;
 line-height: 28px;
 color: #7D7987;
 }
+&:hover{
+  background-color:#458FF6;
+  transition:1s;
+
+  h4{
+    color:#FFF;
+  }
+  p{
+    color:#FFF;
+  }
+
+}
+
+@media(max-width:776px){
+  width:100%;
+}
 `;
 
 function Card(props) {
   return (
     <CardWrapper>
 
-         <img src="image" src={props.image} />  
+         <img alt={props.tittle} src={props.image} />  
           <h4>{props.tittle}</h4>
           <p> {props.description} </p>
    

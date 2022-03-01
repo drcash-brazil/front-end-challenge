@@ -9,8 +9,8 @@ import Preview from './pages/preview';
 import axios from 'axios';
 export default function Form(props) {
   const [page, setPage] = useState(1);
-  const [data, setData] = useState([]);
-  const [data1, setData1] = useState([]);
+  const [data, setData] = useState(null);
+  const [data1, setData1] = useState(null);
 
   function goNextPage() {
     if (page === 4) return;
