@@ -10,7 +10,7 @@ const CarrouselWrapper = styled.div`
   border-radius: 24px;
   
   margin: 0  auto;
-  width: 95%;
+  width: 85%;
   padding: 25px 5px;
   .slider {
       .slick-arrow{
