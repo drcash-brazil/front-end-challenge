@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 
 const CarrouselItemWrapper = styled.div`
-  padding: 10px 50px;
+  padding: 10px 26px;
   display: flex;
   align-items: center;
   justify-content: space-between;

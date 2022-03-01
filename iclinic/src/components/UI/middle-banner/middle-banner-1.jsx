@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
+import Slider from 'react-reveal';
 
 import Theme from "../../../utils/pallete/index.jsx";
 
@@ -87,14 +88,14 @@ export default function MiddleBannerA() {
     <MiddlerBannerWrapper className={classes.root} >
       <ThemeProvider theme={Theme}>
         <Box className="lefttAside">
-   
+   <Slider left>
       
             <Image src={`${process.env.PUBLIC_URL}m1.svg`} />
-        
+            </Slider>
         </Box>
 
         <Box className="rightAside">
-
+<Slider left>
             <Typography className={classes.title} variant="h3">
             Principais prestadores de cuidados de saúde
             </Typography>
@@ -111,7 +112,7 @@ export default function MiddleBannerA() {
             >
               Saber mais
             </Button>
-       
+            </Slider>
         </Box>
       </ThemeProvider>
     </MiddlerBannerWrapper>

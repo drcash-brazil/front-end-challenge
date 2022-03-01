@@ -4,9 +4,9 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
-import Typed from 'react-typed';
+import Typed from "react-typed";
 import Theme from "../../../utils/pallete/index.jsx";
-
+import Slider from 'react-reveal';
 import { ThemeProvider } from "@material-ui/styles";
 
 const useStyles = makeStyles((Theme) => ({
@@ -14,7 +14,7 @@ const useStyles = makeStyles((Theme) => ({
     display: "flex",
     height: "580px",
     padding: "50px",
-    alignItems:"center"
+    alignItems: "center",
   },
 
   title: {
@@ -60,17 +60,17 @@ const HeroWrapper = styled.section`
     flex-direction: column;
     height: unset;
     padding: 10px;
-    button{
-      font-size:10px;
+    button {
+      font-size: 10px;
     }
-    h3{
-    font-size:25px;
-   }
-   h6{
-  font-size:15px;
-  margin:10px 0px;
-  width:80%;
-   }
+    h3 {
+      font-size: 25px;
+    }
+    h6 {
+      font-size: 15px;
+      margin: 10px 0px;
+      width: 80%;
+    }
     .leftAside {
       flex-direction: column;
       width: 100%;
@@ -101,14 +101,11 @@ export default function Hero() {
       <HeroWrapper className={classes.root}>
         <Box className="leftAside">
           <Typography className={classes.title} variant="h3">
-               <Typed
-                    strings={['Saúde virtual para você|']}
-                    typeSpeed={40}
-                />
+            <Typed strings={["Saúde virtual para você|"]} typeSpeed={40} />
           </Typography>
 
-          <Typography className={classes.subtitle} variant="subtitle1">  
-A Iclinic oferece cuidados de saúde progressivos e acessíveis,
+          <Typography className={classes.subtitle} variant="subtitle1">
+            A Iclinic oferece cuidados de saúde progressivos e acessíveis,
             acessível em dispositivos móveis e online para todos
           </Typography>
           <Button
@@ -119,8 +116,11 @@ A Iclinic oferece cuidados de saúde progressivos e acessíveis,
             Marque uma consulta
           </Button>
         </Box>
+       
         <Box className="rightAside">
+        <Slider left> 
           <Image src={`${process.env.PUBLIC_URL}heroImage.svg`} />
+        </Slider>
         </Box>
       </HeroWrapper>
     </ThemeProvider>

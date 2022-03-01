@@ -10,6 +10,7 @@ import {
 } from "../../components";
 import Splash from "../splash";
 
+
 function Home() {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -26,7 +27,8 @@ function Home() {
         <Layout title="Iclinic | Home">
 
           <NavBar />
-          <Hero /> <Features /> 
+          <Hero /> 
+          <Features /> 
           <MiddleBannerA /> 
           <MiddleBannerQ />
           <Carrousel />
