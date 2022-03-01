@@ -17,7 +17,7 @@ const CarrouselItemWrapper = styled.div`
   .main-content {
     display: flex;
     align-items: center;
-    width: 40%;
+    width: 45%;
     justify-content: space-around;
   }
   .comment {

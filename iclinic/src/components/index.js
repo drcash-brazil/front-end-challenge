@@ -6,3 +6,4 @@ export {default as Features} from './UI/features/index';
 export {default as Carrousel} from './UI/newsletter/carrousel';
 export {default as Layout} from './layout';
 export {default as Footer} from './UI/footer/index';
+export {default as SomeArticles} from './UI/some-articles/index';

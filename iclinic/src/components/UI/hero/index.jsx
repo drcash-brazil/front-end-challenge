@@ -101,7 +101,7 @@ export default function Hero() {
       <HeroWrapper className={classes.root}>
         <Box className="leftAside">
           <Typography className={classes.title} variant="h3">
-            <Typed strings={["Saúde virtual para você|"]} typeSpeed={40} />
+            <Typed strings={["Saúde virtual para você"]} typeSpeed={40} />
           </Typography>
 
           <Typography className={classes.subtitle} variant="subtitle1">

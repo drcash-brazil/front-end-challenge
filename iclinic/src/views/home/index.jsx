@@ -6,6 +6,7 @@ import {
   Features,
   Carrousel,
   Layout,
+  SomeArticles
 } from "../../components";
 import Splash from "../splash";
 
@@ -29,6 +30,7 @@ function Home() {
           <MiddleBannerA /> 
           <MiddleBannerQ />
           <Carrousel />
+          <SomeArticles/>
         </Layout>
       )}
     </>

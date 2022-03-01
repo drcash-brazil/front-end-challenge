@@ -1,4 +1,4 @@
-import { Button, notification } from 'antd';
+import { notification } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
 
 const openNotification = message  => {
