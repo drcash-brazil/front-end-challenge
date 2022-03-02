@@ -8,6 +8,8 @@ import {
 import { useForm, SubmitHandler } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { v4 as uuid } from 'uuid'
+import { useNavigate } from 'react-router-dom'
+import { useQueryClient, useMutation } from 'react-query'
 
 import { AddClinicPayload } from '@/domain/models'
 import { AddClinic, LoadAddressByZipCode } from '@/domain/usecases'
@@ -16,6 +18,7 @@ import { Container, FormCarousel, SpaceButton, GradientTitle } from '@/presentat
 
 import { formDateOne, formDateTwo } from './new-page.data'
 import { clinicValidation } from './new-page-validations'
+import { makeSpecificClinicLink } from '@/main/utils/helpers'
 
 type Props = {
   loadAddress: LoadAddressByZipCode
@@ -23,7 +26,25 @@ type Props = {
 }
 
 export const NewPage = ({ loadAddress, addClinic }: Props) => {
+  const navigation = useNavigate()
+
   const { register, handleSubmit, formState: { errors } } = useForm<AddClinicPayload>()
+
+  const queryClient = useQueryClient()
+
+  const { mutate } = useMutation(async (newClinicPayload: AddClinicPayload) =>
+    await addClinic.add(newClinicPayload), {
+    onSuccess: (data) => {
+      // Update 
+      queryClient.invalidateQueries('clinics')
+      toast.success(`Clinic ${data.name} was added with success`)
+      navigation(makeSpecificClinicLink(data.id))
+    },
+    onError: (error) => {
+      toast.error((error as Error).message)
+    }
+  }
+  )
 
   const formData = [formDateOne, formDateTwo, 'last-item']
 
@@ -39,21 +60,9 @@ export const NewPage = ({ loadAddress, addClinic }: Props) => {
   const isAddressValid = async (data: AddClinicPayload) => {
     try {
       const isLocationValid = await loadAddress.load(data.address)
-      if (isLocationValid) onSubmit(data)
+      if (isLocationValid) mutate(data)
     } catch (error) {
       toast.error('Your location is not valid')
-    }
-  }
-
-  const onSubmit = async (data: AddClinicPayload) => {
-    try {
-      const newAddedClinic = await addClinic.add(data)
-      console.log(newAddedClinic)
-      if (newAddedClinic) {
-        toast.success(`Clinic ${data.name} was added with success`)
-      }
-    } catch (error) {
-      toast.error((error as Error).message)
     }
   }
 

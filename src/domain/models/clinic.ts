@@ -10,7 +10,7 @@ export enum ClinicEnum {
 }
 
 export type Clinic = {
-  [ClinicEnum.Id]: string
+  id: string
   [ClinicEnum.Name]: string
   [ClinicEnum.Cpf]: string
   [ClinicEnum.Address]: string
