@@ -18,7 +18,7 @@ export default function Modal(props) {
   return (
 
       <ModalWrapper>
-        <Form />
+        aaa
       </ModalWrapper>
 
   );

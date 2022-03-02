@@ -1,75 +1,169 @@
-import React ,{ useState } from "react";
-import Pagination from './pagination/index';
-import 'antd/dist/antd.css';
-import openNotification from '../components/UI/notification'
+import React from "react";
+import { Formiz, FormizStep, useForm } from "@formiz/core";
+import {
+  isEmail,
+  isInRangeNumber,
+  isLength,
+  isMaxLength,
+  isMaxNumber,
+  isMinLength,
+  isMinNumber,
+  isNotEmptyArray,
+  isNotEmptyString,
+  isNumber,
+  isPattern,
+  isPercentage,
+  isRequired,
+} from "@formiz/validations";
 import Button from "@material-ui/core/Button";
-import Step1 from './pages/first';
-import Step2 from './pages/second';
-import Preview from './pages/preview';
-import axios from 'axios';
-export default function Form(props) {
-  const [page, setPage] = useState(1);
-  const [data, setData] = useState(null);
-  const [data1, setData1] = useState(null);
+import MyField from "./custom-field";
+import Pagination from "./pagination";
+import styled from "styled-components";
 
-  function goNextPage() {
-    if (page === 4) return;
-    setPage((page) => page + 1);
+const FormWrapper = styled.form`
+  border: solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+  height: 350px;
+  border-radius: 20px;
+  .form {
+    color: red;
   }
-
-
-  const handleSetData1 =(data)=> {
-  console.log(data);
-  setData(data);
+  .next-buttton {
+    margin-left: 10px;
   }
+`;
+const Form = () => {
+  const myForm = useForm();
+  const [isLoading, setIsLoading] = React.useState(false);
+  const submitForm = (values) => {
+    setIsLoading(true);
 
-  const handleSetData2 =(data)=> {
-  console.log(data);
-  setData1(data);
-  }
-
-   const submit = () => {
-  const {nome ,cpf , capital } = data;
-  const {  Estado ,rua ,municipio } = data1;
-   axios.post('https://620fa753ec8b2ee283481997.mockapi.io/Iclinic/clinicas', {
-  nome,
-  cpf,
-  capital ,
-  Estado ,
-  municipio ,
-  rua
-
-   });
-
-
-    openNotification('Clinica registada com sucesso') 
-   
-   }
+    setTimeout(() => {
+      setIsLoading(false);
+      alert(JSON.stringify(values));
+      myForm.invalidateFields({
+        email: "You can display an error after an API call",
+      });
+      const step = myForm.getFieldStepName("email");
+      myForm.goToStep(step);
+    }, 1000);
+  };
   return (
-    <div className="FormParent">
+    <Formiz onValidSubmit={submitForm} connect={myForm}>
+      <FormWrapper
+        noValidate
+        onSubmit={myForm.submitStep}
+        className="form"
+        style={{ minHeight: "16rem" }}
+      >
+        <Pagination current={myForm.currentStep?.index} />
+        <div className="form__content">
+          <FormizStep name="step1">
+            <MyField
+              name="name"
+              label="Name"
+              placeholder="Iclinic"
+              required="Preencha o nome"
+            />
 
-      <div>
-      <Pagination current={page} />
-      </div>
+            <MyField
+              name="CPF"
+              label="CPF do Responsável"
+              required="Preencha o CPF"
+              placeholder="999.999.999-99"
+              validations={[
+                {
+                  rule: isPattern("[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}"),
+                  message: "Insira um CPF válido",
+                },
+              ]}
+            />
 
-      <div>
-        {page === 1 && <Step1  onChange={handleSetData1}  />}
-        {page === 2 && (
-          <Step2   onChange={handleSetData2} />
-        )}
-        {page === 3 && (
-          <Preview data={[ data , data1]} >  </Preview>
-        )}
-        
-      </div>
+            <MyField
+              name="Capital"
+              label="Capital Social"
+              required="Preencha o Capital"
+              type="number"
+              placeholder="1234567890"
+            />
+          </FormizStep>
+          <FormizStep name="step2">
+            <MyField
+              required
+              name="CEP"
+              label="CEP"
+              type="text"
+              placeholder="00000-000"
+              required="Insira o CEP"
+              validations={[
+                {
+                  rule: isPattern("[0-9]{5}-[0-9]{3}"),
+                  message: "Insira um CEP Válido",
+                },
+              ]}
+            />
+          </FormizStep>
+          <FormizStep name="step3">
+            <MyField name="password" label="Password" type="password" />
+            <MyField
+              name="passwordConfirm"
+              label="Confirm password"
+              type="password"
+              validations={[
+                {
+                  rule: (value) => myForm.values.password === value,
+                  deps: [myForm.values.password],
+                  message: "Passwords do not match",
+                },
+              ]}
+            />
+          </FormizStep>
+        </div>
 
-      {page !== 3 && <Button onClick={goNextPage} type="submit" color="primary" variant="contained" >Avançar</Button>}
-      {page === 3 && (
-        <Button type="submit"  variant="contained" color="primary" onClick={submit}>
-          Submit
-        </Button>
-      )}
-    </div>
+        <div className="form__footer">
+          <div className="mr-auto" style={{ minWidth: "6rem" }}></div>
+          <div className="ml-auto" style={{ minWidth: "6rem" }}>
+            {!myForm.isFirstStep && (
+              <Button
+                className="prev-buttton"
+                type="button"
+                onClick={myForm.prevStep}
+                color="primary"
+                variant="contained"
+              >
+                Anterior
+              </Button>
+            )}
+            {myForm.isLastStep ? (
+              <Button
+                className="next-buttton"
+                type="submit"
+                variant="contained"
+                color="primary"
+                disabled={
+                  isLoading || (!myForm.isValid && myForm.isStepSubmitted)
+                }
+              >
+                {isLoading ? "Loading..." : "Submit"}
+              </Button>
+            ) : (
+              <Button
+                className="submit-buttton"
+                type="submit"
+                disabled={!myForm.isStepValid && myForm.isStepSubmitted}
+                variant="contained"
+                color="primary"
+              >
+                Próximo
+              </Button>
+            )}
+          </div>
+        </div>
+      </FormWrapper>
+    </Formiz>
   );
-}
-
+};
+export default Form;

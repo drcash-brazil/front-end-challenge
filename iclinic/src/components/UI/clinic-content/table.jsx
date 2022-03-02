@@ -47,7 +47,7 @@ width:80%;
 
 function TableUI(props) {
 
- const [data, setData] = useState(null);
+ const [data, setData] = useState([]);
  const [loading, setLoading] = useState(true);
 
   

@@ -2,7 +2,9 @@
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import * as React from 'react';
-import Modal from './modal';
+
+import Form from "../../../form/form";
+
 const useStyles = makeStyles({
   main: {
     display: "flex",
@@ -22,9 +24,10 @@ function AddButton() {
 
 
     const classes = useStyles();
-    return (<>  { open ? <Modal/> : <> </>}
-    <Button className={classes.main} onClick={handleOpen}  color="primary" variant="contained">Adicionar Clínica</Button>
-  </>
+        
+        return (<>  <Form />    <Button className={classes.main} onClick={handleOpen}  color="primary" variant="contained">Adicionar Clínica</Button>
+</>
+
 
   )
 }

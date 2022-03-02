@@ -1,1 +1,1 @@
-export {default as MultiSteps } from './form';
+export {default as Form } from './form';

@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@formiz/core": "^1.8.0",
+    "@formiz/validations": "^1.0.0",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@sweetalert/with-react": "^0.1.1",

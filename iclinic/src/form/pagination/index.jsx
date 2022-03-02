@@ -9,8 +9,7 @@ function Pagination(props) {
     <Steps size="small" current={props.current}>
     <Step title="Dados" />
     <Step title="Endereço" />
-    <Step title="Dados" />
-    <Step title="Dados" />
+    <Step title="Concluído" />
   </Steps>
   )
 }
