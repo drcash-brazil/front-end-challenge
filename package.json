@@ -30,8 +30,10 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@testing-library/dom": "^8.11.3",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "@types/faker": "^5.5.9",
     "@types/jest": "^27.0.3",
     "@types/react": "^17.0.38",

@@ -35,7 +35,6 @@ export const NewPage = ({ loadAddress, addClinic }: Props) => {
   const { mutate } = useMutation(async (newClinicPayload: AddClinicPayload) =>
     await addClinic.add(newClinicPayload), {
     onSuccess: (data) => {
-      // Update 
       queryClient.invalidateQueries('clinics')
       toast.success(`Clinic ${data.name} was added with success`)
       navigation(makeSpecificClinicLink(data.id))
@@ -96,7 +95,6 @@ export const NewPage = ({ loadAddress, addClinic }: Props) => {
               {formDateTwo.map(item => (
                 <Stack key={uuid()} p="2rem" w="100%" h="100%">
                   <InputGroup>
-                    <FormLabel>{item.name}</FormLabel>
                     <Input
                       d="block"
                       size="lg"
