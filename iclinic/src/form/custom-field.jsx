@@ -16,6 +16,7 @@ const MyField = (props) => {
       setValue,
       value,
     } = useField(props)
+    
     const { label, type, required } = props
     const [isFocused, setIsFocused] = React.useState(false);
     const showError = !isValid && !isFocused && (!isPristine || isSubmitted)
@@ -30,6 +31,7 @@ const MyField = (props) => {
           {required && ' *'}
         </label>
         <Input
+        disabled={props.disable}
           key={resetKey}
           placeholder={props.placeholder}
           id={id}

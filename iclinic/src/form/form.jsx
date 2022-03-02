@@ -1,32 +1,20 @@
 import React from "react";
 import { Formiz, FormizStep, useForm } from "@formiz/core";
-import {
-  isEmail,
-  isInRangeNumber,
-  isLength,
-  isMaxLength,
-  isMaxNumber,
-  isMinLength,
-  isMinNumber,
-  isNotEmptyArray,
-  isNotEmptyString,
-  isNumber,
-  isPattern,
-  isPercentage,
-  isRequired,
-} from "@formiz/validations";
+import { isPattern } from "@formiz/validations";
 import Button from "@material-ui/core/Button";
 import MyField from "./custom-field";
 import Pagination from "./pagination";
 import styled from "styled-components";
+import axios from "axios";
 
 const FormWrapper = styled.form`
-  border: solid;
+  border: 0.5px solid;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 22px;
-  height: 350px;
+  padding: 30px;
+  height: 700px;
+  width: 400px;
   border-radius: 20px;
   .form {
     color: red;
@@ -34,10 +22,17 @@ const FormWrapper = styled.form`
   .next-buttton {
     margin-left: 10px;
   }
+  .prev-buttton {
+    margin-right: 10px;
+  }
+  .form__content{
+    height:70%;
+  }
 `;
 const Form = () => {
   const myForm = useForm();
   const [isLoading, setIsLoading] = React.useState(false);
+  const [data, setData] = React.useState([]);
   const submitForm = (values) => {
     setIsLoading(true);
 
@@ -45,14 +40,34 @@ const Form = () => {
       setIsLoading(false);
       alert(JSON.stringify(values));
       myForm.invalidateFields({
-        email: "You can display an error after an API call",
+        email: "hahahahahahahahah",
       });
       const step = myForm.getFieldStepName("email");
       myForm.goToStep(step);
     }, 1000);
   };
+  const handleChange = async (values) => {
+    console.log(values.CEP);
+    let cep = values.CEP;
+    if (cep) {
+      //60440-132
+      let pattern = /^[0-9]{5}-[0-9]{3}$/;
+      let value = pattern.test(cep);
+      console.log("value:::" + value);
+
+      if (value) {
+        await axios
+          .get(`https://viacep.com.br/ws/${cep}/json/`)
+          .then((response) => setData(response.data))
+          .catch( (err)=>console.log(err));
+      } else {
+        setData([]);
+      }
+    }
+  };
+
   return (
-    <Formiz onValidSubmit={submitForm} connect={myForm}>
+    <Formiz onValidSubmit={submitForm} onChange={handleChange} connect={myForm}>
       <FormWrapper
         noValidate
         onSubmit={myForm.submitStep}
@@ -104,6 +119,62 @@ const Form = () => {
                   message: "Insira um CEP Válido",
                 },
               ]}
+            />
+            <MyField
+              name="localidade"
+              label="localidade"
+              type="text"
+              placeholder={data?.localidade}
+              disable={true}
+            />
+            <MyField
+              name="bairro"
+              label="bairro"
+              type="text"
+              placeholder={data?.bairro}
+              disable={true}
+            />
+            <MyField
+              name="logradouro"
+              label="logradouro"
+              type="text"
+              placeholder={data?.logradouro}
+              disable={true}
+            />
+            <MyField
+              name="complemento"
+              label="complemento"
+              type="text"
+              placeholder={data?.complemento}
+              disable={true}
+            />
+            <MyField
+              name="uf"
+              label="uf"
+              type="text"
+              placeholder={data.uf}
+              disable={true}
+            />
+            <MyField
+              name="ibge"
+              label="ibge"
+              type="text"
+              placeholder={data.ibge}
+              disable={true}
+            />
+            <MyField
+              name="siafi"
+              label="siafi"
+              type="text"
+              placeholder={data.siafi}
+              disable={true}
+            />
+            <MyField
+              name="ddd"
+              label="ddd"
+              type="text"
+              placeholder={data.ddd}
+              disable={true}
             />
           </FormizStep>
           <FormizStep name="step3">
