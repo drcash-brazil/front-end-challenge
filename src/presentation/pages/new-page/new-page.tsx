@@ -32,7 +32,7 @@ export const NewPage = ({ loadAddress, addClinic }: Props) => {
 
   const queryClient = useQueryClient()
 
-  const { mutate } = useMutation(async (newClinicPayload: AddClinicPayload) =>
+  const { mutate, isLoading } = useMutation(async (newClinicPayload: AddClinicPayload) =>
     await addClinic.add(newClinicPayload), {
     onSuccess: (data) => {
       queryClient.invalidateQueries('clinics')
@@ -106,7 +106,7 @@ export const NewPage = ({ loadAddress, addClinic }: Props) => {
               ))}
             </Box>
             <Box p="2rem" w="100%" h="100%">
-              <SpaceButton dark onClick={handleSubmit(validateUserData)}>Send</SpaceButton>
+              <SpaceButton dark onClick={handleSubmit(validateUserData)}>{isLoading ? 'Sending...' : 'Send'}</SpaceButton>
             </Box>
           </FormCarousel>
         </Box>
