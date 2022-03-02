@@ -13,12 +13,14 @@ import Splash from "../splash";
 
 function Home() {
   const [loading, setLoading] = useState(false);
+  
   useEffect(() => {
-    setLoading(true);
+       setLoading(true);
     setTimeout(() => {
       setLoading(false);
     }, 1500);
   }, []);
+
   return (
     <>
       {loading ? (

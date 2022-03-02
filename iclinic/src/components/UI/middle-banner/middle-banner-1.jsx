@@ -101,7 +101,7 @@ export default function MiddleBannerA() {
             </Typography>
 
             <Typography className={classes.subtitle} variant="subtitle1">
-            A Iclinic oferece cuidados de saúde progressivos e acessíveis,
+            A Michael-Clinics oferece cuidados de saúde progressivos e acessíveis,
               acessível em dispositivos móveis e online para todos. Para nós, não é apenas
               trabalhar. Temos orgulho das soluções que oferecemos para todos
             </Typography>

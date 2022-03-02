@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import Slider from 'react-reveal';
 const CardWrapper = styled.div`
   width: 30%;
   height: 100%;
@@ -66,6 +66,7 @@ const CardWrapper = styled.div`
 function Card({ image, title, description }) {
   return (
     <CardWrapper>
+      <Slider left>
       <div className="imgWrapper">
         <img alt={title} src={image} />
       </div>
@@ -73,7 +74,7 @@ function Card({ image, title, description }) {
         <h3>{title}</h3>
         <p className="desc">{description}</p>
         <p className="readMore"> Ler mais » </p>
-      </div>
+      </div></Slider>
     </CardWrapper>
   );
 }

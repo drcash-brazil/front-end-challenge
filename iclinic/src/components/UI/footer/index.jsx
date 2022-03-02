@@ -23,8 +23,8 @@ const FooterWrapper = styled.footer`
     li {
       font-style: normal;
       font-weight: 300;
-      font-size: 18px;
-      line-height:25px;
+      font-size: 17px;
+      line-height:18px;
       color: #ffffff;
       mix-blend-mode: normal;
     }
@@ -36,13 +36,15 @@ const FooterWrapper = styled.footer`
       color: #ffffff;
       mix-blend-mode: normal;
     }
-    span:first-letter {
+    span {
       font-size: 10px;
-      background-color: #fff;
+      background-color: #FFF;
       border-radius: 25px;
-      width: 10px;
-      height: 10px;
+      width: 30px;
+      height: 30px;
+      color:#3a6375;
       border-radius: 50%;
+     margin-right:5px;
     }
     display: flex;
     flex-direction: column;
@@ -85,10 +87,9 @@ function Footer() {
   return (
     <FooterWrapper>
       <List className="fistList">
-        <ListItem className="title"> I IClinic </ListItem>
+        <ListItem className="title"> <span> I  </span> IClinic</ListItem>
         <ListItem>
-          Trafalgar provides progressive, and affordable healthcare, accessible
-          on mobile and online for everyone{" "}
+        A Iclinic - Michel oferece cuidados de saúde progressivos e acessíveis, acessíveis em dispositivos móveis e online para todos
         </ListItem>
         <ListItem> @GeoChivas99s 2022. All rights reserved </ListItem>
       </List>

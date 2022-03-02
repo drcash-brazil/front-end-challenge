@@ -47,19 +47,19 @@ width:80%;
 
 function TableUI(props) {
 
- const [data, setData] = useState([]);
+ const [data, setData] = useState(null);
  const [loading, setLoading] = useState(true);
 
-  const getData = async () =>{
-     await axios.get('https://620fa753ec8b2ee283481997.mockapi.io/Iclinic/clinicas')
-    .then( (data)=> {setData(data.data); setLoading(false)})
-    .catch( (err) => console.log(err));
-  }
-  
   
   useEffect(() => {
+    
+  async function getData(){
+    await axios.get('https://620fa753ec8b2ee283481997.mockapi.io/Iclinic/clinicas')
+   .then( (data)=> {setData(data.data); setLoading(false)})
+   .catch( (err) => console.log(err));
+ } 
     getData();
-  }, []);
+  }, [data]);
   
  
     const classes = useStyles();

@@ -54,7 +54,7 @@ function NavBar() {
       <AppBar position="sticky">
         <NavItemsWrapper>
           <Typography variant="h6">
-            <span className="iconLogo"> I</span> Iclinic
+            <span className="iconLogo"> M</span> Iclinic
           </Typography>
           <Nav>
             <NavItem>

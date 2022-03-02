@@ -94,9 +94,10 @@ const Image = styled.img`
   width: 95%;
 `;
 
-export default function Hero() {
+export default function Hero() { 
   const classes = useStyles();
-  return (
+  
+  return(
     <ThemeProvider theme={Theme}>
       <HeroWrapper className={classes.root}>
         <Box className="leftAside">
@@ -105,7 +106,7 @@ export default function Hero() {
           </Typography>
 
           <Typography className={classes.subtitle} variant="subtitle1">
-            A Iclinic oferece cuidados de saúde progressivos e acessíveis,
+            A Micheal-Clinics oferece cuidados de saúde progressivos e acessíveis,
             acessível em dispositivos móveis e online para todos
           </Typography>
           <Button
