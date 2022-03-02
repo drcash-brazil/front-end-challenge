@@ -47,6 +47,7 @@ export const FormCarousel: React.FC<FormCarouselProps> = ({ children, items }) =
         >
           {items.map((_, currentIndex) => (
             <Box
+              role="navigation"
               key={uuid()}
               onClick={() => setIndex(currentIndex)}
               cursor="pointer"
