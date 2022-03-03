@@ -10,7 +10,7 @@ const useStyles = makeStyles((Theme) => ({
   fontSize: "20px",
   lineHeight: "32px",
   color: "#7D7987",
-   width:"50%" ,
+   width:"100%" ,
    textAlign:"center"  ,
    margin:"30px 0 "  
     } 
