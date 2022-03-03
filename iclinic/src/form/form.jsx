@@ -4,99 +4,12 @@ import { isPattern } from "@formiz/validations";
 import Button from "@material-ui/core/Button";
 import MyField from "./custom-field";
 import Pagination from "./pagination";
-import styled from "styled-components";
+
 import axios from "axios";
 import Swal from "sweetalert2";
 import ArrowBackICon from "@material-ui/icons/ArrowBack";
 import { Link } from "react-router-dom";
-
-const FormWrapper = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 30px;
-  height: auto;
-  width: 700px;
-  min-height: 30rem !important;
-  background: #fff;
-  border-radius: 20px;
-  @media (max-width: 776px) {
-    width: 300px;
-  }
-  @media (max-width: 380px) {
-    width: 270px;
-    min-height: 40rem !important;
-    .ml-auto {
-      display: flex;
-    }
-  }
-  .form-group {
-    margin: 10px 0;
-  }
-  .form {
-    color: red;
-  }
-  .next-buttton {
-    margin-left: 20px;
-  }
-  .prev- buttton {
-    margin-right: 20px;
-  }
-  .submit-buttton {
-    margin-left: 10px;
-  }
-  .stepform2Wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 20px 0px;
-
-    .form-group {
-      width: 30%;
-      @media (max-width: 776px) {
-        width: 48%;
-      }
-    }
-  }
-`;
-
-const Parent = styled.section`
-  overflow: auto;
-  background: linear-gradient(183.41deg, #67c3f3 -8.57%, #5a98f2 82.96%);
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 100px;
-  height: 100vh;
-  @media (max-width: 776px) {
-    padding: 10px;
-  }
-  .back {
-    color: #fff;
-    font-size: 25px;
-    position: absolute;
-    z-index: 20;
-    top: 0;
-    left: 0;
-    margin: 10px;
-    text-align: center;
-    a {
-      color: #fff;
-    }
-    @media (max-width: 776px) {
-      margin: 30px;
-      position: sticky;
-    }
-    cursor: pointer;
-
-    .icon {
-      color: #fff;
-
-      font-size: 20px;
-    }
-  }
-`;
+import {Parent , FormWrapper} from './style';
 
 const Form = () => {
   const myForm = useForm();
@@ -104,11 +17,8 @@ const Form = () => {
   const [data, setData] = React.useState([]);
 
   const submitForm = (values) => {
-   
     const { CEP, CPF, Capital, Nome } = values;
     const { bairro, localidade, logradouro, siafi, uf } = data;
-
-  
 
     setIsLoading(true);
     setTimeout(() => {
@@ -131,31 +41,34 @@ const Form = () => {
           console.log(err);
           Swal.fire("Erro!", "Verifique a conexão!!", "error");
         });
-      const step = myForm.getFieldStepName("name");
+
+      const step = myForm.getFieldStepName("Nome");
       myForm.goToStep(step);
+      const inputs = document.querySelectorAll(".ant-input");
+      if (inputs) {
+        inputs.forEach((element) => {
+          element.value = "";
+        });
+      }
     }, 1000);
   };
 
   const handleChange = async (values) => {
- 
     let cep = values.CEP;
     if (cep) {
-  
       let pattern = /^[0-9]{5}-[0-9]{3}$/;
       let value = pattern.test(cep);
-  
 
       if (value) {
         await axios
           .get(`https://viacep.com.br/ws/${cep}/json/`)
           .then((response) => {
             setData(response.data);
-            if(response.data?.erro === true){
-          
-              document.querySelector('.submit-buttton').disabled=true
-            }else{
-              document.querySelector('.submit-buttton').disabled=false
-
+            if (response.data?.erro === true) {
+              document.querySelector(".submit-buttton").disabled = true;
+              Swal.fire("Erro!", "CEP inexistente !!", "error");
+            } else {
+              document.querySelector(".submit-buttton").disabled = false;
             }
           })
           .catch((err) => {
