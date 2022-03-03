@@ -104,24 +104,16 @@ const Form = () => {
   const [data, setData] = React.useState([]);
 
   const submitForm = (values) => {
-    console.log("values");
-    console.log(values);
-    console.log("data");
-    const { CEP, CPF, Capital, Nome} = values;
-    const {
-      bairro,
-      localidade,
-      logradouro,
-      siafi,
-      uf,
-    } = data;
+   
+    const { CEP, CPF, Capital, Nome } = values;
+    const { bairro, localidade, logradouro, siafi, uf } = data;
 
-    //console.log(data);
+  
 
     setIsLoading(true);
     setTimeout(() => {
       axios
-      .post("https://620fa753ec8b2ee283481997.mockapi.io/Iclinic/clinicas", {
+        .post("https://620fa753ec8b2ee283481997.mockapi.io/Iclinic/clinicas", {
           Nome,
           CPF,
           Capital,
@@ -133,7 +125,6 @@ const Form = () => {
           siafi,
         })
         .then((response) => {
-        //  console.log('response::::'+response);
           Swal.fire("Clinica Registada!", "Sucesso!!", "success");
         })
         .catch((err) => {
@@ -146,22 +137,30 @@ const Form = () => {
   };
 
   const handleChange = async (values) => {
- //   console.log(values.CEP);
+ 
     let cep = values.CEP;
     if (cep) {
-      //60440-132
+  
       let pattern = /^[0-9]{5}-[0-9]{3}$/;
       let value = pattern.test(cep);
-      //console.log("value:::" + value);
+  
 
       if (value) {
         await axios
           .get(`https://viacep.com.br/ws/${cep}/json/`)
-          .then((response) => setData(response.data))
-          .catch((err) => console.log(err));
-      } else {
-        setData([]);
-        console.log("CEP inexistente");
+          .then((response) => {
+            setData(response.data);
+            if(response.data?.erro === true){
+          
+              document.querySelector('.submit-buttton').disabled=true
+            }else{
+              document.querySelector('.submit-buttton').disabled=false
+
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     }
   };
@@ -343,7 +342,7 @@ const Form = () => {
                 <Button
                   className="submit-buttton"
                   type="submit"
-                  disabled={(!myForm.isStepValid && myForm.isStepSubmitted)}
+                  disabled={!myForm.isStepValid && myForm.isStepSubmitted}
                   variant="contained"
                   color="primary"
                 >
