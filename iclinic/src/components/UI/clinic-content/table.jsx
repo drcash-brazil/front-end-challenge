@@ -40,7 +40,7 @@ const StyledTableCell = withStyles((theme) => ({
 
 const TableWrapper = styled(TableContainer)`
 
-width:80%;
+width:100%;
 
 
 `; 
@@ -55,11 +55,11 @@ function TableUI(props) {
     
   async function getData(){
     await axios.get('https://620fa753ec8b2ee283481997.mockapi.io/Iclinic/clinicas')
-   .then( (data)=> {setData(data.data); setLoading(false)})
+   .then( (data)=> {setData(data.data); setLoading(false); /* console.log(data.data)*/})
    .catch( (err) => console.log(err));
  } 
     getData();
-  }, [data]);
+  }, []);
   
  
     const classes = useStyles();
@@ -72,23 +72,29 @@ function TableUI(props) {
           <TableRow>
             <StyledTableCell>Nome</StyledTableCell>
             <StyledTableCell align="right">CPF</StyledTableCell>
-            <StyledTableCell align="right">Estado</StyledTableCell>
-            <StyledTableCell align="right">Municipio</StyledTableCell>
-            <StyledTableCell align="right">Rua</StyledTableCell>
-            <StyledTableCell align="right">CapitalSocial</StyledTableCell>
+            <StyledTableCell align="right">Capital</StyledTableCell>
+            <StyledTableCell align="right">CEP</StyledTableCell>
+            <StyledTableCell align="right">Localidade</StyledTableCell>
+            <StyledTableCell align="right">Bairro</StyledTableCell>
+            <StyledTableCell align="right">Lagradouro</StyledTableCell>
+            <StyledTableCell align="right">uf</StyledTableCell>
+            <StyledTableCell align="right">siafi</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {data.map((item) => (
             <StyledTableRow key={item.id}>
               <StyledTableCell component="th" scope="row">
-                {item.nome}
+                {item.Nome}
               </StyledTableCell>
-              <StyledTableCell align="right">{item.cpf}</StyledTableCell>
-              <StyledTableCell align="right">{item.Estado}</StyledTableCell>
-              <StyledTableCell align="right">{item.municipio}</StyledTableCell>
-              <StyledTableCell align="right">{item.rua}</StyledTableCell>
-              <StyledTableCell align="right">{item.capital}</StyledTableCell>
+              <StyledTableCell align="right">{item.CPF}</StyledTableCell>
+              <StyledTableCell align="right">{item.Capital}</StyledTableCell>
+              <StyledTableCell align="right">{item.CEP}</StyledTableCell>
+              <StyledTableCell align="right">{item.localidade}</StyledTableCell>
+              <StyledTableCell align="right">{item.bairro}</StyledTableCell>
+              <StyledTableCell align="right">{item.logradouro}</StyledTableCell>
+              <StyledTableCell align="right">{item.uf}</StyledTableCell>
+              <StyledTableCell align="right">{item.siafi}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

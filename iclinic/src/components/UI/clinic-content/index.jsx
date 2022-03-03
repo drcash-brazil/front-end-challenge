@@ -19,6 +19,7 @@ function MainContent() {
     <ContentWrapper>
       <Tittle />
       <Description />
+      <TableUI/>
     </ContentWrapper>
   );
 }

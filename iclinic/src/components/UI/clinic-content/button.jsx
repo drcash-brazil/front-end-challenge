@@ -6,10 +6,12 @@ import {Link} from 'react-router-dom';
 const useStyles = makeStyles({
   main: {
     display: "flex",
-    alignSelf: "end",
-    marginRight: "120px",
     marginTop: "10px",
-  },
+    margin:'0 auto',
+ 
+  },link:{
+    color:'#FFF'
+  }
 });
 
 function AddButton() {
@@ -27,7 +29,7 @@ function AddButton() {
       color="primary"
       variant="contained"
     >
-      <Link to="/Register">
+      <Link className={classes.link} to="/Register">
       Adicionar Clínica
       </Link>
     </Button>

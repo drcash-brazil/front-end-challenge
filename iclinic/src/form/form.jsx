@@ -8,6 +8,7 @@ import styled from "styled-components";
 import axios from "axios";
 import Swal from "sweetalert2";
 import ArrowBackICon from "@material-ui/icons/ArrowBack";
+import { Link } from "react-router-dom";
 
 const FormWrapper = styled.form`
   display: flex;
@@ -16,19 +17,18 @@ const FormWrapper = styled.form`
   padding: 30px;
   height: auto;
   width: 700px;
-  min-height:30rem;
+  min-height: 30rem !important;
   background: #fff;
   border-radius: 20px;
-  @media(max-width:776px){
-    width:300px;
+  @media (max-width: 776px) {
+    width: 300px;
   }
-  @media(max-width:380px){
-    width:270px;
-    min-height:40rem !important;
-  .ml-auto{
-    display:flex;
-  }
-
+  @media (max-width: 380px) {
+    width: 270px;
+    min-height: 40rem !important;
+    .ml-auto {
+      display: flex;
+    }
   }
   .form-group {
     margin: 10px 0;
@@ -50,18 +50,18 @@ const FormWrapper = styled.form`
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 0px;
-    
+
     .form-group {
       width: 30%;
-      @media(max-width:776px){
-        width:48%;
+      @media (max-width: 776px) {
+        width: 48%;
       }
     }
   }
 `;
 
 const Parent = styled.section`
-overflow:auto;
+  overflow: auto;
   background: linear-gradient(183.41deg, #67c3f3 -8.57%, #5a98f2 82.96%);
   flex-direction: column;
   display: flex;
@@ -69,9 +69,9 @@ overflow:auto;
   justify-content: center;
   padding: 100px;
   height: 100vh;
-   @media(max-width:776px){
-     padding:10px;
-   }
+  @media (max-width: 776px) {
+    padding: 10px;
+  }
   .back {
     color: #fff;
     font-size: 25px;
@@ -79,12 +79,15 @@ overflow:auto;
     z-index: 20;
     top: 0;
     left: 0;
-    margin:10px;
+    margin: 10px;
     text-align: center;
-     @media(max-width:776px){
-       margin:30px;
-       position:sticky;
-     }
+    a {
+      color: #fff;
+    }
+    @media (max-width: 776px) {
+      margin: 30px;
+      position: sticky;
+    }
     cursor: pointer;
 
     .icon {
@@ -100,19 +103,41 @@ const Form = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [data, setData] = React.useState([]);
 
-
-
   const submitForm = (values) => {
+    console.log("values");
+    console.log(values);
+    console.log("data");
+    const { CEP, CPF, Capital, Nome} = values;
+    const {
+      bairro,
+      localidade,
+      logradouro,
+      siafi,
+      uf,
+    } = data;
 
+    //console.log(data);
 
     setIsLoading(true);
     setTimeout(() => {
       axios
-        .put("https://620fa753ec8b2ee283481997.mockapi.io/Iclinic/clinicas", {})
+      .post("https://620fa753ec8b2ee283481997.mockapi.io/Iclinic/clinicas", {
+          Nome,
+          CPF,
+          Capital,
+          CEP,
+          localidade,
+          bairro,
+          uf,
+          logradouro,
+          siafi,
+        })
         .then((response) => {
+        //  console.log('response::::'+response);
           Swal.fire("Clinica Registada!", "Sucesso!!", "success");
         })
         .catch((err) => {
+          console.log(err);
           Swal.fire("Erro!", "Verifique a conexão!!", "error");
         });
       const step = myForm.getFieldStepName("name");
@@ -121,7 +146,7 @@ const Form = () => {
   };
 
   const handleChange = async (values) => {
-    console.log(values.CEP);
+ //   console.log(values.CEP);
     let cep = values.CEP;
     if (cep) {
       //60440-132
@@ -141,12 +166,12 @@ const Form = () => {
     }
   };
 
-  const handleBackPage = () => {};
   return (
     <Parent>
-      <span className="back" onClick={handleBackPage}>
-        {" "}
-        <ArrowBackICon className="icon" /> Voltar
+      <span className="back">
+        <Link to="/Clinic">
+          <ArrowBackICon className="icon" /> Voltar
+        </Link>{" "}
       </span>
 
       <Formiz
@@ -165,8 +190,8 @@ const Form = () => {
           <div className="form__content">
             <FormizStep name="step1">
               <MyField
-                name="name"
-                label="Name"
+                name="Nome"
+                label="Nome"
                 placeholder="Iclinic"
                 required="Preencha o nome"
                 id="nome"
@@ -217,6 +242,7 @@ const Form = () => {
                   label="localidade"
                   type="text"
                   placeholder={data?.localidade}
+                  value={data?.localidade}
                   disable={true}
                 />
                 <MyField
@@ -224,6 +250,7 @@ const Form = () => {
                   label="bairro"
                   type="text"
                   placeholder={data?.bairro}
+                  value={data?.bairro}
                   disable={true}
                 />
                 <MyField
@@ -231,6 +258,7 @@ const Form = () => {
                   label="logradouro"
                   type="text"
                   placeholder={data?.logradouro}
+                  value={data?.logradouro}
                   disable={true}
                 />
                 <MyField
@@ -238,6 +266,7 @@ const Form = () => {
                   label="complemento"
                   type="text"
                   placeholder={data?.complemento}
+                  value={data?.complemento}
                   disable={true}
                 />
                 <MyField
@@ -245,6 +274,7 @@ const Form = () => {
                   label="uf"
                   type="text"
                   placeholder={data.uf}
+                  value={data.uf}
                   disable={true}
                 />
                 <MyField
@@ -252,6 +282,7 @@ const Form = () => {
                   label="ibge"
                   type="text"
                   placeholder={data.ibge}
+                  value={data.ibge}
                   disable={true}
                 />
                 <MyField
@@ -259,6 +290,7 @@ const Form = () => {
                   label="siafi"
                   type="text"
                   placeholder={data.siafi}
+                  value={data.siafi}
                   disable={true}
                 />
                 <MyField
@@ -266,23 +298,17 @@ const Form = () => {
                   label="ddd"
                   type="text"
                   placeholder={data.ddd}
+                  value={data.ddd}
                   disable={true}
                 />
               </div>
             </FormizStep>
             <FormizStep name="step3">
-              <MyField name="password" label="Password" type="password" />
               <MyField
-                name="passwordConfirm"
-                label="Confirm password"
-                type="password"
-                validations={[
-                  {
-                    rule: (value) => myForm.values.password === value,
-                    deps: [myForm.values.password],
-                    message: "Passwords do not match",
-                  },
-                ]}
+                name="description"
+                label="decrição"
+                type="text-area"
+                placeholder="Uma clínica especializada em rinoplastia..."
               />
             </FormizStep>
           </div>
@@ -317,7 +343,7 @@ const Form = () => {
                 <Button
                   className="submit-buttton"
                   type="submit"
-                  disabled={!myForm.isStepValid && myForm.isStepSubmitted}
+                  disabled={(!myForm.isStepValid && myForm.isStepSubmitted)}
                   variant="contained"
                   color="primary"
                 >
