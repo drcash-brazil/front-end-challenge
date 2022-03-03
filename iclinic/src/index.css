@@ -4,9 +4,3 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen';
   transition:3s;
 }
-.FormParent{
-height:100%;
-display:flex;
-justify-content: space-around;
-flex-direction:column;
-}

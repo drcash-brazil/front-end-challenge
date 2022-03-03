@@ -16,6 +16,7 @@ const NavItemsWrapper = styled(Toolbar)`
   color: black;
   display: flex;
   justify-content: space-between;
+  box-shadow:unset;
   .menuToogle {
     display: none;
   }
