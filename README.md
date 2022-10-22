@@ -2,121 +2,92 @@
 
 Seja bem-vindo ao repositório do projeto iClinic, um caso de uso que deve ser implementado contendo uma versão para plataforma web. Obrigado por participar do desafio da Dr.Cash! Estamos muito contentes pelo seu primeiro passo para fazer parte de um time excepcional.
 
-
 ## Afinal, o que é esse desafio?
 
 Primeiramente é importante se atentar aos pilares da Dr.Cash, seguindo metodologias de desenvolvimento ágil.
 
 - [Transparência] - Todo momento é momento para perguntar, tirar dúvidas e conversar sobre os processos e tarefas a serem executados, comunicação em primeiro lugar, sempre.
 
-- [Adaptabilidade] - Ofereça melhorias baseado em perspectivas e fundamentos, como também se adeque as normas impostas visando padrões já estipulados.
+- [Adaptabilidade] - Ofereça melhorias baseado em perspectivas e fundamentos, como também se adeque às normas impostas visando padrões já estipulados.
 
 - [Autonomia] - Ser Autodidata, proativo e fidelidade na busca constante por conhecimento.
+
+# Instruções
+
+Neste momento do processo seletivo você deverá criar uma fork deste projeto e desenvolver em cima dele. Nos encontraremos ao fim do seu desenvolvimento para você nos contar como foi resolver o teste, quais os caminhos que você seguiu na organização do código, as bibliotecas utilizadas e também nos trazer feedbacks para que possamos melhorar cada vez mais.
+
+Não existe um gabarito para este teste técnico, as decisões tomadas são particulares e variam de pessoa pra pessoa, desde que alcance o objetivo final. Seja criativo e nos surpreenda.
+
+Pensamos muito em tornar esse teste uma etapa tranquila e que você esteja confortável para efetua-la, portanto daremos um prazo de alguns dias, preferencialmente com finais de semana entre eles para não interferir no seu dia a dia.
 
 
 # Desafio 
 
-Exemplificar um caso de uso que mantenha em foco a manipulação de formulário de cadastro com paginação, que determina a utilização de recursos do React como também propõe o domínio de se trabalhar com validações, frameworks e lógicas de programação básica com a utilização de JavaScript, Html, CSS, ReactJS, alinhado com paradigmas como Orientado a Objetos e Programação funcional. Fique à vontade para fazer a Estruturação de Layout e Fluxo de Aplicação na maneira que quiser.
+O desafio é construir desenvolver nesta aplicação um gerenciador de redes de clínicas. Um projeto simples, que nos permitirá realizar os cadastros das redes, clínicas e funcionários, como também realizar as devidas associações de clínicas em redes e funcionários a clínicas.
+
+Na interface deverá ser uma tela com os CRUD's das três visualizações (Clínicas, Redes e Funcionários), nos permitindo ter acesso às informações cadastrais e associar as clínicas a uma rede e os funcionários a uma clínica.
+
+Não se preocupe, construímos algumas API fake mas que o ajudarão no processo, todas elas ficam em um arquivo chamado `server.js` dentro da aplicação prontas para uso, mas não devem ser alteradas.
+
+# Requisitos
+
+- CRUD* de redes
+- CRUD* de clínicas
+- CRD funcionários (sem update)
+- Ser possível associar uma ou mais clínicas a uma rede
+- Ser possível associar um ou mais funcionários a uma clínica
+
+*CRUD - Create, Read, Update and Delete, ou seja, criação, leitura, edição e exclusão de registros.
 
 
-Obs:  O único pré-requisito é que o código seja feito em ReactJS, de preferência na versão mais atual. 
+# Alguns pontos para levar em consideração
 
-# - Contexto
-Michael contratou um plataforma para gerenciar as clínicas de sua rede. A regra de negócio consiste no registro de suas clínicas que realizam tratamentos estéticos em seu estado. 
+- Uma rede é composta apenas por clínicas;
+- Uma clínica é composta apenas por funcionários;
+- Um funcionário não pode conter clínicas e/ou redes.
 
-Com isso, você foi o responsável por pensar na escalabilidade como também garantir que os dados cadastrados de suas clínicas permaneçam íntegros.
+# O que nós esperamos do seu teste
 
-## Criar Landing Page.
-Supreenda-nos com a criação de uma landing page para a rede de clínicas de Michael.
+- Alcance dos objetivos propostos
+- Layout responsivo
+- A manipulação e criação de hooks também contarão na avaliação do projeto
+- Criatividade na resolução do problema
+- Semântica, organização e componentização
 
-## Criar layout para tela de listagem e cadastro de clínicas.
-1) A partir da página home, deve ser possível navegar até a página de listagem de clínicas, aonde o usuário poderá realizar o cadastro de uma clínica em específico.
-2) Deve existir uma lista de clínicas
+# O que nos deixaria muito animados
 
-No formulário de cadastro de clínica, deve-se coletar os seguintes dados:
+- Animações e transições com CSS (Atenção com a performance neste ponto 😁)
+- Testes
+- Visualização da aplicação em live (AWS S3, Vercel, Firebase Hosting e etc)
+- Desenvolver algum requisito a mais que se encaixe na regra
 
-Página 1
-- a) Nome da clínica.
-- b) CPF do responsável.
-- c) Capital social da Clínica.
+# O que não nos deixaria felizes
+ 
+- Se o teste não for feito por você
+- Se nao atender aos requisitos mínimos
+- Se manipulou/alterou algum serviço do server.js sem autorização
 
-Página 2
-- a) Dados de endereço (Livre)
+# Observações finais
 
-Página 3
-- a) Um Botão para a conclusão de cadastro juntamente com uma mensagem de cadastro realizado com sucesso.
+Após fazer o fork do projeto, o processo de iniciá-lo é padrão. 
+Rode os comandos
 
+`npm i`
 
-# Pontos a serem observados: 
-1) Material UI como biblioteca para desenvolver layouts.
-2) Deve ser criado uma Landing Page. O custom design deve preservar a UI e UX, se atentando às tecnologias voltadas para o CSS, SASS, JSS ou Styled Components.
-3) Na obtenção para os dados de endereço deve ser utilizado a API dos correios, ViaCEP (https://viacep.com.br/).
-4) A manipulação e criação de hooks também contarão na avaliação do projeto.
-5) Fique livre para tratar as questões de boas práticas, convenções, nomenclaturas, padrões, frameworks e etc...
+e depois:
 
-# Features:
-- Deve ser possível listar e cadastrar clínicas.
-- Os dados coletados podem ser tratados com uma Mock API.
+`npm start`
 
-# Bonus:
-- Tela de Splash;
-- Home Page com transições e animações;
-- Tratamento de erros e apresentação dos fluxos de exceção: Generic Error's e Loading's;
+E em poucos segundos o projeto estará rodando na porta `localhost:3000`.
 
-# App em execução
+Todas as nossas Apis estão no `server.js`, são serviços criados utilizando o [MirageJS](https://miragejs.com/), para auxiliar no seu desenvolvimento. Todos rodam local e se comportam como apis tradicionais, portanto um exemplo de utilização seria:
 
-Instrua como usar e também como foi a desenvoltura mediante os processos realizados neste sistema desenvolvido, além de quais ferramentas e tecnologias o auxiliaram e por quê?
+GET `https://localhost:3000/api/clinicas`
 
-## Como executar o projeto 
+Abaixo tem um link com todas as rotas e o formato dos campos.
 
-Descreva como executar o projeto e detalhe caso haja algum script ou regra existente.
+[Documentação - API Mock](https://docs.google.com/document/d/1pFGRIqrD8Hx913ky6V_7KZd0tEjVLnsjv1nTRt0OulY/edit?usp=sharing)
 
-## Estrutura de arquivos do projeto
-
-Importante se atentar nos aspectos de modularização, demonstre seu conhecimento sobre importações e exportações com raciocínio lógico e boas práticas.
-```` 
-*Exemplo Simplista*
-root
-+--iClinic // 
-|
-     Utils //  
-|      index // 
-|      MaskedInputs //
-|      Palette //
-     Validations //  
-|      index // 
-|      isValidNewPatient //
-|      isValid //
-     Components //
-|      UI //
-|        index // 
-|        Inputs // 
-|        Selectors // 
-|        Grids // 
-       Form // 
-|        index // 
-|        Form // 
-|        Pagination //
-|          index //
-|          Pagination //
-|          Pages //
-|            index //
-|            First //
-|            Second //
-|            Third //
-| 
-````
-
-## Frameworks aplicadas no projeto
-
-
-**Atenção** - Informe quais recursos de terceriros foram utilizados no projeto e descreva o por quê.
-
-
-## Experiência com o projeto 
-    # Descreva sua experiênca com o projeto, tanto na parte técnica quanto na parte teórica.
-  
-  
 ## Futuro
 
 Descreva sobre possíveis planos para este projeto, melhorias ou alterações que você realizaria em prol de aumentar a qualidade no desenvolvimento.
@@ -125,11 +96,6 @@ Descreva sobre possíveis planos para este projeto, melhorias ou alterações qu
 ### **ATENÇÃO**
 
 Não tente fazer o PUSH diretamente para ESTE repositório!
-    
-   
-### Autor
-
-<!-- - [Arthur de Castro](https://github.com/arthurfjadecastro) -->
 
 **ATENÇÃO**
 Crie uma branch nova seguindo o seguinte padrão:
@@ -153,3 +119,4 @@ ATENÇÃO.
 Não tente fazer o PUSH diretamente para ESTE repositório!
 
 
+Boa sorte! 🤞
