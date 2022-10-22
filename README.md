@@ -16,26 +16,26 @@ Primeiramente é importante se atentar aos pilares da Dr.Cash, seguindo metodolo
 
 Neste momento do processo seletivo você deverá criar uma fork deste projeto e desenvolver em cima dele. Nos encontraremos ao fim do seu desenvolvimento para você nos contar como foi resolver o teste, quais os caminhos que você seguiu na organização do código, as bibliotecas utilizadas e também nos trazer feedbacks para que possamos melhorar cada vez mais.
 
-Não existe um gabarito para este teste técnico, as decisões tomadas são particulares e variam de pessoa pra pessoa, desde que alcance o objetivo final. Seja criativo e nos surpreenda.
+Não existe um gabarito para este teste técnico, as decisões tomadas são particulares e variam de pessoa para pessoa, desde que alcance o objetivo final. Seja criativo(a) e nos surpreenda.
 
-Pensamos muito em tornar esse teste uma etapa tranquila e que você esteja confortável para efetua-la, portanto daremos um prazo de alguns dias, preferencialmente com finais de semana entre eles para não interferir no seu dia a dia.
+Pensamos muito em tornar esse teste uma etapa tranquila e que você esteja confortável para efetuá-la, portanto daremos um prazo de alguns dias, preferencialmente com um final de semana para não interferir no seu dia a dia.
 
 
 # Desafio 
 
-O desafio é construir desenvolver nesta aplicação um gerenciador de redes de clínicas. Um projeto simples, que nos permitirá realizar os cadastros das redes, clínicas e funcionários, como também realizar as devidas associações de clínicas em redes e funcionários a clínicas.
+O desafio é desenvolver nesta aplicação um gerenciador de redes de clínicas. Um projeto simples, que nos permitirá realizar os cadastros das redes, clínicas e funcionários, como também realizar as devidas associações de clínicas em redes e funcionários à clínicas.
 
-Na interface deverá ser uma tela com os CRUD's das três visualizações (Clínicas, Redes e Funcionários), nos permitindo ter acesso às informações cadastrais e associar as clínicas a uma rede e os funcionários a uma clínica.
+Esta interface deverá ser uma tela com os CRUD's das três visualizações (Clínicas, Redes e Funcionários), nos permitindo ter acesso às informações cadastrais e associar as clínicas a uma rede e os funcionários a uma clínica.
 
-Não se preocupe, construímos algumas API fake mas que o ajudarão no processo, todas elas ficam em um arquivo chamado `server.js` dentro da aplicação prontas para uso, mas não devem ser alteradas.
+Não se preocupe, construímos algumas APIs fake´s que o ajudarão no processo, todas elas ficam em um arquivo chamado `server.js` - dentro da aplicação - prontas para uso e não devem ser alteradas.
 
 # Requisitos
 
-- CRUD* de redes
-- CRUD* de clínicas
-- CRD funcionários (sem update)
-- Ser possível associar uma ou mais clínicas a uma rede
-- Ser possível associar um ou mais funcionários a uma clínica
+- CRUD* de redes;
+- CRUD* de clínicas;
+- CRD funcionários (sem update);
+- Ser possível associar uma ou mais clínicas a uma rede;
+- Ser possível associar um ou mais funcionários a uma clínica.
 
 *CRUD - Create, Read, Update and Delete, ou seja, criação, leitura, edição e exclusão de registros.
 
@@ -48,24 +48,24 @@ Não se preocupe, construímos algumas API fake mas que o ajudarão no processo,
 
 # O que nós esperamos do seu teste
 
-- Alcance dos objetivos propostos
-- Layout responsivo
-- A manipulação e criação de hooks também contarão na avaliação do projeto
-- Criatividade na resolução do problema
-- Semântica, organização e componentização
+- Alcance dos objetivos propostos;
+- Layout responsivo;
+- A manipulação e criação de hooks também contarão na avaliação do projeto;
+- Criatividade na resolução do problema;
+- Semântica, organização e componentização.
 
 # O que nos deixaria muito animados
 
-- Animações e transições com CSS (Atenção com a performance neste ponto 😁)
-- Testes
-- Visualização da aplicação em live (AWS S3, Vercel, Firebase Hosting e etc)
-- Desenvolver algum requisito a mais que se encaixe na regra
+- Animações e transições com CSS (Atenção com a performance neste ponto 😁);
+- Testes;
+- Visualização da aplicação em live (AWS S3, Vercel, Firebase Hosting e etc);
+- Desenvolver algum requisito a mais que se encaixe na regra.
 
 # O que não nos deixaria felizes
  
-- Se o teste não for feito por você
-- Se nao atender aos requisitos mínimos
-- Se manipulou/alterou algum serviço do server.js sem autorização
+- Se o teste não for feito por você;
+- Se os requisitos mínimos não forem atendidos;
+- Se algum serviço do server.js  for  manipulado/alterado sem autorização.
 
 # Observações finais
 
@@ -80,7 +80,7 @@ e depois:
 
 E em poucos segundos o projeto estará rodando na porta `localhost:3000`.
 
-Todas as nossas Apis estão no `server.js`, são serviços criados utilizando o [MirageJS](https://miragejs.com/), para auxiliar no seu desenvolvimento. Todos rodam local e se comportam como apis tradicionais, portanto um exemplo de utilização seria:
+Todas as nossas Apis estão no `server.js`, são serviços criados utilizando o [MirageJS](https://miragejs.com/), para auxiliar no seu desenvolvimento. Todos rodam local e se comportam como APIs tradicionais. Segue um exemplo de um das chamadas:
 
 GET `https://localhost:3000/api/clinicas`
 
