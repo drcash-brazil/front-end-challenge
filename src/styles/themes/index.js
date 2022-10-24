@@ -1,5 +1,3 @@
-import { css } from "styled-components";
-
 export const themes = {
   pallet: {
     green: {
@@ -45,53 +43,5 @@ export const themes = {
     lg: "(min-width: 992px)",
     xl: "(min-width: 1200px)",
     xxl: "(min-width: 1400px)",
-  },
-  css: {
-    scrollBars: {
-      thin: css`
-        &::-webkit-scrollbar-track {
-          background: #f5f5f5;
-        }
-        &::-webkit-scrollbar {
-          width: 6px;
-          height: 6px;
-        }
-        &::-webkit-scrollbar-thumb {
-          background: #00000029;
-        }
-        scrollbar-color: rgba(0, 0, 0, 0.25) rgba(0, 0, 0, 0.15);
-        scrollbar-width: thin;
-        -webkit-overflow-scrolling: touch;
-      `,
-      thinHover: css`
-        &::-webkit-scrollbar-track {
-          visibility: hidden;
-          box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-          background-color: #f5f5f5;
-        }
-        &::-webkit-scrollbar {
-          width: 6px;
-          height: 6px;
-          background-color: transparent;
-        }
-        &::-webkit-scrollbar-thumb {
-          visibility: hidden;
-          background-color: #00000029;
-        }
-        scroll-behavior: smooth;
-        scrollbar-width: thin;
-        scrollbar-color: transparent transparent;
-        &:hover {
-          &::-webkit-scrollbar-thumb {
-            visibility: visible;
-          }
-          &::-webkit-scrollbar-track {
-            visibility: visible;
-          }
-          scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.3);
-        }
-      `,
-    },
   },
 };

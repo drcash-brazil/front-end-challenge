@@ -7,6 +7,34 @@ const GlobalStyle = createGlobalStyle`
     outline: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+
+    &::-webkit-scrollbar-track {
+      visibility: hidden;
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: #f5f5f5;
+    }
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+      background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      visibility: hidden;
+      background-color: #00000029;
+    }
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    &:hover {
+      &::-webkit-scrollbar-thumb {
+        visibility: visible;
+      }
+      &::-webkit-scrollbar-track {
+        visibility: visible;
+      }
+      scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.3);
+    }
   };
 
   img{
