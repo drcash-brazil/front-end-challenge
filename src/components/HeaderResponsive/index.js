@@ -1,4 +1,3 @@
-import { List } from "phosphor-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -9,7 +8,7 @@ import {
   WrapperHeaderResponsive,
   ContentHeader,
   ButtonBurger,
-  StyledMenu,
+  NavList,
 } from "./styles";
 
 export function HeaderResponsive() {
@@ -18,13 +17,15 @@ export function HeaderResponsive() {
   return (
     <WrapperHeaderResponsive>
       <ContentHeader>
+        <img src={DrCash} alt="" />
+
         <ButtonBurger open={open} onClick={() => setOpen(!open)}>
           <div />
           <div />
           <div />
         </ButtonBurger>
 
-        <StyledMenu open={open}>
+        <NavList open={open}>
           <Link to="/network">
             <span>Redes</span>
           </Link>
@@ -34,9 +35,7 @@ export function HeaderResponsive() {
           <Link to="/network">
             <span>Funcionários</span>
           </Link>
-        </StyledMenu>
-
-        <img src={DrCash} alt="" />
+        </NavList>
       </ContentHeader>
     </WrapperHeaderResponsive>
   );

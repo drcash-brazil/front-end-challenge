@@ -9,6 +9,7 @@ export const themes = {
     gray: {
       gray100: "#f0f8ff",
       gray200: "#f4f6f8",
+      gray500: "#7C7C8A",
       gray900: "#121214",
     },
     white: "#fff",

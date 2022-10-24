@@ -8,7 +8,7 @@ export const WrapperHeaderResponsive = styled.div`
   z-index: 1;
 `;
 
-export const ContentHeader = styled.nav`
+export const ContentHeader = styled.div`
   width: 100%;
   height: 100%;
 
@@ -21,7 +21,7 @@ export const ContentHeader = styled.nav`
   padding: 0 1rem;
 `;
 
-export const StyledMenu = styled.nav`
+export const NavList = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
