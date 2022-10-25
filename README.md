@@ -90,8 +90,15 @@ Abaixo tem um link com todas as rotas e o formato dos campos.
 
 ## Futuro
 
-Descreva sobre possíveis planos para este projeto, melhorias ou alterações que você realizaria em prol de aumentar a qualidade no desenvolvimento.
+- Descreva sobre possíveis planos para este projeto, melhorias ou alterações que você realizaria em prol de aumentar a qualidade no desenvolvimento.
 
+Infelizmente, devido a outros afazeres como faculdade, não foi possível finalizar o desenvolvimento ou executar corretamente os requisitos descritos no projeto. Um plano para se fazer melhorias ou alterações em prol de aumentar a qualidade no desenvolvimento no projeto seria:
+- Tela de login.
+- Melhorar a responsividade da aplicação.
+- Landing page falando a respeito do iClinic. 
+- Melhorar a questão do tema da aplicação, desenvolvendo temas no modo escuro e claro.
+- Colocar na página principal gráficos/tabelas/demonstrativos, monstrando informações a respeito das entidades descritas no projeto (quantidade de funcionários, redes e clinicas).
+- Melhorar ou até mesmo criar novos componentes. Como podemos ver no projeto, os formulários poderiam vir a ser um componente, já que por exemplo, o formulário de clínica é utilizado na página para criar nova clínica, na sidebar para visualizar todos os dados de uma clínica e também na página para editar os dados da clínica.
     
 ### **ATENÇÃO**
 
