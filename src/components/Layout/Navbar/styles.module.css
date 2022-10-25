@@ -1,0 +1,12 @@
+.headerDrawer {
+  height: 64px;
+  width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.headerDrawer button {
+  margin-right: 5px;
+}
