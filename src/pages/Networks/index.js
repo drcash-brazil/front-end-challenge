@@ -1,6 +1,5 @@
-import React, { useCallback, useMemo, useRef, useState } from "react";
-import { At, MagnifyingGlass, Phone, X } from "phosphor-react";
-import * as Yup from "yup";
+import React, { useCallback, useMemo, useState } from "react";
+import { At, MagnifyingGlass, Phone } from "phosphor-react";
 
 // COMPONENTS
 import { TextInput } from "../../components/Input";
@@ -20,20 +19,14 @@ import {
   NetworkName,
   TitlePage,
   WrapperNetworks,
-  HeaderModal,
-  TitleModal,
-  Label,
-  Wrapper,
-  StyledForm,
-  ButtonCloseModal,
 } from "./styles";
 import { getNetworks } from "../../services/endpoints/networks";
 import { useQuery } from "react-query";
 import { Loading } from "../../components/Loading";
 import { ModalRadix, ModalWrapper } from "../../components/ModalRadix";
+import { ModalCreate } from "../../components/ModalCreate";
 
 export function Networks() {
-  const formRef = useRef(null);
   const queryKey = useMemo(() => ["networks"], []);
   const [isOpenModalCreateNetword, setIsOpenModalCreateNetword] =
     useState(false);
@@ -57,34 +50,6 @@ export function Networks() {
       retry: 0,
     }
   );
-
-  const handleSubmit = useCallback(async (data) => {
-    console.log("data", data);
-
-    try {
-      // Remove all previous errors
-      formRef.current.setErrors({});
-      const schema = Yup.object().shape({
-        nome: Yup.string().required("Nome da rede é obrigatório"),
-        email: Yup.string().email().required("E-mail da rede é obrigatório"),
-        fone: Yup.string().min(11).required("Telefone da rede é obrigatório"),
-        address: Yup.string().required("Endereço da rede é obrigatório"),
-      });
-      await schema.validate(data, {
-        abortEarly: false,
-      });
-      // Validation passed
-      console.log(data);
-    } catch (err) {
-      const validationErrors = {};
-      if (err instanceof Yup.ValidationError) {
-        err.inner.forEach((error) => {
-          validationErrors[error.path] = error.message;
-        });
-        formRef.current.setErrors(validationErrors);
-      }
-    }
-  }, []);
 
   return (
     <WrapperNetworks>
@@ -142,53 +107,7 @@ export function Networks() {
 
       <ModalRadix open={isOpenModalCreateNetword}>
         <ModalWrapper>
-          <Wrapper>
-            <HeaderModal>
-              <TitleModal>Cadastrar Rede</TitleModal>
-              <ButtonCloseModal
-                type="button"
-                onClick={() => setIsOpenModalCreateNetword(false)}
-              >
-                <X />
-              </ButtonCloseModal>
-            </HeaderModal>
-
-            <StyledForm ref={formRef} onSubmit={handleSubmit}>
-              <Label>Nome</Label>
-              <TextInput.Root>
-                <TextInput.InputUnform
-                  name="nome"
-                  placeholder="Insira o nome"
-                />
-              </TextInput.Root>
-
-              <Label>Endereço de e-mail</Label>
-              <TextInput.Root>
-                <TextInput.InputUnform
-                  name="email"
-                  placeholder="Insira o e-mail"
-                />
-              </TextInput.Root>
-
-              <Label>Telefone</Label>
-              <TextInput.Root>
-                <TextInput.InputUnform
-                  name="fone"
-                  placeholder="Insira o telefone"
-                />
-              </TextInput.Root>
-
-              <Label>Endereço</Label>
-              <TextInput.Root>
-                <TextInput.InputUnform
-                  name="address"
-                  placeholder="Insira o endereço"
-                />
-              </TextInput.Root>
-
-              <Button type="submit">Cadastrar</Button>
-            </StyledForm>
-          </Wrapper>
+          <ModalCreate close={() => setIsOpenModalCreateNetword(false)} />
         </ModalWrapper>
       </ModalRadix>
     </WrapperNetworks>

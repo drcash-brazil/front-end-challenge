@@ -38,7 +38,18 @@ function TextInputInputUnform({ name, ...rest }) {
     <>
       <StyledInput ref={inputRef} {...rest} />
 
-      {error && <span style={{ color: "red" }}>{error}</span>}
+      {error && (
+        <span
+          style={{
+            color: "red",
+            overflow: "hidden",
+            whiteSpace: "nowrap",
+            textOverflow: "ellipsis",
+          }}
+        >
+          {error}
+        </span>
+      )}
     </>
   );
 }

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Form } from "@unform/web";
 
 export const WrapperNetworks = styled.div`
   display: flex;
@@ -130,42 +129,4 @@ export const BoxInfo = styled.div`
 
 export const Info = styled.span`
   font-size: ${({ theme }) => theme.fontSize.sm};
-`;
-
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  min-width: 600px;
-  padding: 2.5rem;
-`;
-export const HeaderModal = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-export const StyledForm = styled(Form)`
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-
-  button {
-    margin-top: 0.75rem;
-  }
-`;
-export const TitleModal = styled.h2``;
-export const Label = styled.span``;
-export const ButtonCloseModal = styled.button`
-  cursor: pointer;
-
-  svg {
-    color: ${({ theme }) => theme.pallet.black};
-    width: 1.25rem;
-    height: 1.25rem;
-  }
-
-  &:hover {
-    svg {
-      color: ${({ theme }) => theme.pallet.red};
-    }
-  }
 `;

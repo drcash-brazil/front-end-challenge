@@ -5,7 +5,6 @@ export const ModalRadixOverlay = styled(Dialog.Overlay)`
   position: fixed;
   inset: 0;
   background-color: #00000029;
-  /* background-color: ${({ theme }) => theme.pallet.gray.gray100}; */
   z-index: 998;
 `;
 
@@ -15,7 +14,7 @@ export const ModalRadixWrapper = styled(Dialog.Content)`
   left: 50%;
   transform: translate(-50%, -50%);
 
-  background: ${({ theme }) => theme.pallet.gray.gray100};
+  background: ${({ theme }) => theme.pallet.white};
   border-radius: 5px;
 
   box-shadow: ${({ theme }) => theme.boxShadow.variant};

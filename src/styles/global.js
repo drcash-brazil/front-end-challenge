@@ -112,6 +112,17 @@ const GlobalStyle = createGlobalStyle`
   input[type=number] {
     -moz-appearance: textfield;
   }
+  
+  .iclinic_select__control {
+    min-height: 48px !important;
+    background-color: ${({ theme }) => theme.pallet.gray.gray100} !important;
+    border-width: 2px !important;
+    border-color: ${({ theme }) => theme.pallet.green.green500} !important;
+
+    &:hover {
+      box-shadow: none !important;
+    }
+  }
 `;
 
 export default GlobalStyle;
