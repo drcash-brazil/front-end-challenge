@@ -154,3 +154,18 @@ export const StyledForm = styled(Form)`
 `;
 export const TitleModal = styled.h2``;
 export const Label = styled.span``;
+export const ButtonCloseModal = styled.button`
+  cursor: pointer;
+
+  svg {
+    color: ${({ theme }) => theme.pallet.black};
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  &:hover {
+    svg {
+      color: ${({ theme }) => theme.pallet.red};
+    }
+  }
+`;
