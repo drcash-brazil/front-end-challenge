@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const WrapperNetworks = styled.div`
+export const WrapperEmployees = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -17,14 +17,12 @@ export const HeaderPage = styled.header`
   align-items: flex-start;
   width: 100%;
 
-  @media ${({ theme }) => theme.device.md} {
+  @media ${({ theme }) => theme.device.sm} {
     flex-direction: row;
     justify-content: space-between;
     gap: 0;
   }
 `;
-
-export const TitlePage = styled.h1``;
 
 export const HeaderContentRight = styled.div`
   display: flex;
@@ -41,18 +39,6 @@ export const HeaderContentRight = styled.div`
   }
 
   @media ${({ theme }) => theme.device.sm} {
-    flex-direction: row;
-
-    div {
-      width: 65%;
-    }
-
-    button {
-      width: 35%;
-    }
-  }
-
-  @media ${({ theme }) => theme.device.md} {
     width: auto;
 
     div {
@@ -65,13 +51,14 @@ export const HeaderContentRight = styled.div`
   }
 `;
 
-export const NetworkList = styled.div`
+export const TitlePage = styled.h1``;
+
+export const EmployeeList = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1rem;
   margin: 1rem 0;
   padding: 0.3125rem;
-  height: 100%;
   overflow-y: auto;
 `;
 
@@ -81,13 +68,16 @@ export const Item = styled.div`
   height: fit-content;
   background: ${({ theme }) => theme.pallet.white};
   box-shadow: ${({ theme }) => theme.boxShadow.variant};
+  color: ${({ theme }) => theme.pallet.gray.gray900};
   gap: 0.5rem;
   padding: 1rem;
+  cursor: pointer;
 `;
 
 export const HeaderItem = styled.div`
   display: flex;
   align-items: center;
+  position: relative;
   gap: 0.3125rem;
 `;
 
@@ -129,4 +119,19 @@ export const BoxInfo = styled.div`
 
 export const Info = styled.span`
   font-size: ${({ theme }) => theme.fontSize.sm};
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: ${({ theme }) => theme.fontSize.sm};
+`;
+
+export const ButtonDelete = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: ${({ theme }) => theme.pallet.red};
+  }
 `;

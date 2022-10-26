@@ -34,6 +34,8 @@ export const themes = {
     md: "1rem",
     /** @property 1.125rem (18px) */
     lg: "1.125rem",
+    /** @property 2rem (24px) */
+    xxl: "1.5rem",
     /** @property 2rem (32px) */
     xxxl: "2rem",
   },

@@ -1,9 +1,16 @@
 import React, { useCallback, useMemo, useState } from "react";
-import { At, MagnifyingGlass, Phone } from "phosphor-react";
+import { useQuery } from "react-query";
+import { At, Phone } from "phosphor-react";
+
+// SERVICES
+import { getNetworks } from "../../../services/endpoints/networks";
 
 // COMPONENTS
-import { TextInput } from "../../components/Input";
-import { Button } from "../../components/Button";
+import { Button } from "../../../components/Button";
+import { Loading } from "../../../components/Loading";
+import { ModalRadix, ModalWrapper } from "../../../components/ModalRadix";
+import { ModalCreateNetwork } from "./ModalCreateNetwork";
+import { Feedback } from "../../../components/Feedback";
 
 // STYLES
 import {
@@ -20,15 +27,11 @@ import {
   TitlePage,
   WrapperNetworks,
 } from "./styles";
-import { getNetworks } from "../../services/endpoints/networks";
-import { useQuery } from "react-query";
-import { Loading } from "../../components/Loading";
-import { ModalRadix, ModalWrapper } from "../../components/ModalRadix";
-import { ModalCreate } from "../../components/ModalCreate";
 
-export function Networks() {
+export function NetworksList() {
   const queryKey = useMemo(() => ["networks"], []);
-  const [isOpenModalCreateNetword, setIsOpenModalCreateNetword] =
+
+  const [isOpenModalCreateNetwork, setIsOpenModalCreateNetwork] =
     useState(false);
 
   const handleGetNetworks = useCallback(async () => {
@@ -39,17 +42,10 @@ export function Networks() {
     return redes;
   }, []);
 
-  const { data, isLoading, isFetching, error } = useQuery(
-    queryKey,
-    handleGetNetworks,
-    {
-      onSuccess: (dataTab) => {
-        console.log("data", dataTab);
-      },
-      refetchOnWindowFocus: false,
-      retry: 0,
-    }
-  );
+  const { data, isLoading, error } = useQuery(queryKey, handleGetNetworks, {
+    refetchOnWindowFocus: false,
+    retry: 0,
+  });
 
   return (
     <WrapperNetworks>
@@ -57,21 +53,9 @@ export function Networks() {
         <TitlePage>Redes</TitlePage>
 
         <HeaderContentRight>
-          <TextInput.Root>
-            <TextInput.Icon>
-              <MagnifyingGlass />
-            </TextInput.Icon>
-
-            <TextInput.Input
-              disabled={isLoading || isFetching}
-              type="text"
-              placeholder="Procurar Redes"
-            />
-          </TextInput.Root>
-
           <Button
             type="button"
-            onClick={() => setIsOpenModalCreateNetword(true)}
+            onClick={() => setIsOpenModalCreateNetwork(true)}
           >
             Cadastrar Rede
           </Button>
@@ -83,7 +67,7 @@ export function Networks() {
       {!isLoading && !error && !!data.length && (
         <NetworkList>
           {data.map((item) => (
-            <Item key={item.id}>
+            <Item key={item.id} to={`/network/${item.id}`}>
               <HeaderItem>
                 <BoxInitialLetter>{item.nome.substr(0, 1)}</BoxInitialLetter>
                 <NetworkName>{item.nome}</NetworkName>
@@ -105,9 +89,15 @@ export function Networks() {
         </NetworkList>
       )}
 
-      <ModalRadix open={isOpenModalCreateNetword}>
+      {!isLoading && !error && !data.length && (
+        <Feedback description="Nenhuma rede encontrada" />
+      )}
+
+      <ModalRadix open={isOpenModalCreateNetwork}>
         <ModalWrapper>
-          <ModalCreate close={() => setIsOpenModalCreateNetword(false)} />
+          <ModalCreateNetwork
+            close={() => setIsOpenModalCreateNetwork(false)}
+          />
         </ModalWrapper>
       </ModalRadix>
     </WrapperNetworks>

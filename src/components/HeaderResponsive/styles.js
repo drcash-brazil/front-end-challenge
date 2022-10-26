@@ -24,12 +24,12 @@ export const ContentHeader = styled.div`
 export const NavList = styled.nav`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background: ${({ theme }) => theme.pallet.gray.gray100};
+  background: ${({ theme }) => theme.pallet.gray.gray200};
+  box-shadow: ${({ open, theme }) => (open ? theme.boxShadow.variant : "none")};
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
   height: 100vh;
   text-align: left;
-  padding: 2rem;
+  padding: 4rem 2rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -37,12 +37,13 @@ export const NavList = styled.nav`
 
   @media (max-width: 576px) {
     width: 100%;
+    justify-content: center;
   }
 
   a {
-    font-size: 2rem;
+    font-size: ${({ theme }) => theme.fontSize.xxl};
     text-transform: uppercase;
-    padding: 2rem 0;
+    padding: 1rem 0;
     font-weight: bold;
     letter-spacing: 0.5rem;
     color: #0d0c1d;
@@ -83,7 +84,6 @@ export const ButtonBurger = styled.button`
     width: 2rem;
     height: 0.25rem;
     background: ${({ open }) => (open ? "#0D0C1D" : "#EFFFFA")};
-    /* background: #effffa; */
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;

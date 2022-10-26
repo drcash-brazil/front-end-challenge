@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 // STYLES
 import { ContentButton } from "./styles";
 
-export function Button({ children, className, ...props }) {
+export function ButtonOutLine({ children, className, ...props }) {
   return (
     <ContentButton className={className} {...props}>
       {children}
@@ -12,7 +12,7 @@ export function Button({ children, className, ...props }) {
   );
 }
 
-Button.propTypes = {
+ButtonOutLine.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.node,
@@ -21,6 +21,6 @@ Button.propTypes = {
   className: PropTypes.string,
 };
 
-Button.defaultProps = {
+ButtonOutLine.defaultProps = {
   className: undefined,
 };

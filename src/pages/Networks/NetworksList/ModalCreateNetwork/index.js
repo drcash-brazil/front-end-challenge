@@ -1,9 +1,23 @@
-import { X } from "phosphor-react";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Button } from "../Button";
-import { TextInput } from "../Input";
-import { Selector } from "../Selector";
+import React, {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useMemo,
+} from "react";
+import PropTypes from "prop-types";
+import { useMutation, useQueryClient } from "react-query";
 import * as Yup from "yup";
+import { X } from "phosphor-react";
+
+// SERVICES
+import { getClinics } from "../../../../services/endpoints/clinics";
+import { createNetwork } from "../../../../services/endpoints/networks";
+
+// COMPONENTS
+import { TextInput } from "../../../../components/Input";
+import { Button } from "../../../../components/Button";
+import { Selector } from "../../../../components/Selector";
 
 // STYLES
 import {
@@ -14,17 +28,38 @@ import {
   TitleModal,
   Wrapper,
 } from "./styles";
-import { getClinics } from "../../services/endpoints/clinics";
-import { createNetwork } from "../../services/endpoints/networks";
 
-export function ModalCreate({ close }) {
+export function ModalCreateNetwork({ close }) {
+  const queryKey = useMemo(() => ["networks"], []);
+  const queryClient = useQueryClient();
+
   const [clinicsOptions, setClinicsOptions] = useState([]);
   const [selectedClinics, setSelectedClinics] = useState([]);
+  const [creatingNetwork, setCreatingNetwork] = useState(false);
+
   const formRef = useRef(null);
+
+  const createNetworkMutation = useMutation(
+    (formData) => {
+      const prevData = queryClient.getQueryData(queryKey);
+
+      queryClient.setQueryData(queryKey, (old) => {
+        return [...old, { ...formData }];
+      });
+
+      return { prevData };
+    },
+    {
+      onError: (err, newTodo, context) => {
+        queryClient.setQueryData(queryKey, context.prevData);
+      },
+    }
+  );
 
   const handleSubmit = useCallback(
     async (data) => {
       const { apiCall } = createNetwork();
+      setCreatingNetwork(true);
 
       formRef.current.setErrors({});
       const schema = Yup.object().shape({
@@ -39,19 +74,28 @@ export function ModalCreate({ close }) {
           abortEarly: false,
         });
 
-        const response = await apiCall({
+        const { redes } = await apiCall({
           nome: data.nome,
           email: data.email,
           fone: Number(data.fone),
           address: data.address,
           clinicas: selectedClinics.map((item) => {
-            return { id: Number(item.value), nome: item.label };
+            return { id: item.value, nome: item.label };
           }),
         });
 
-        console.log("response create", response);
+        createNetworkMutation.mutate({
+          id: redes.id,
+          ...data,
+          clinicas: selectedClinics.map((item) => {
+            return { id: item.value, nome: item.label };
+          }),
+        });
+
+        setCreatingNetwork(false);
+        close();
       } catch (err) {
-        console.log(err);
+        setCreatingNetwork(false);
         const validationErrors = {};
         if (err instanceof Yup.ValidationError) {
           err.inner.forEach((error) => {
@@ -61,7 +105,7 @@ export function ModalCreate({ close }) {
         }
       }
     },
-    [selectedClinics]
+    [selectedClinics, createNetworkMutation, close]
   );
 
   const handleGetClinics = useCallback(async () => {
@@ -78,17 +122,12 @@ export function ModalCreate({ close }) {
           };
         })
       );
-      console.log("clinicas", clinicas);
     } catch (error) {}
   }, []);
 
   useEffect(() => {
     handleGetClinics();
   }, [handleGetClinics]);
-
-  useEffect(() => {
-    console.log("selectedClinics", selectedClinics);
-  }, [selectedClinics]);
 
   return (
     <Wrapper>
@@ -102,23 +141,36 @@ export function ModalCreate({ close }) {
       <StyledForm ref={formRef} onSubmit={handleSubmit}>
         <Label>Nome</Label>
         <TextInput.Root>
-          <TextInput.InputUnform name="nome" placeholder="Insira o nome" />
+          <TextInput.InputUnform
+            name="nome"
+            disabled={creatingNetwork}
+            placeholder="Insira o nome"
+          />
         </TextInput.Root>
 
         <Label>Endereço de e-mail</Label>
         <TextInput.Root>
-          <TextInput.InputUnform name="email" placeholder="Insira o e-mail" />
+          <TextInput.InputUnform
+            name="email"
+            disabled={creatingNetwork}
+            placeholder="Insira o e-mail"
+          />
         </TextInput.Root>
 
         <Label>Telefone</Label>
         <TextInput.Root>
-          <TextInput.InputUnform name="fone" placeholder="Insira o telefone" />
+          <TextInput.InputUnform
+            name="fone"
+            disabled={creatingNetwork}
+            placeholder="Insira o telefone"
+          />
         </TextInput.Root>
 
         <Label>Endereço</Label>
         <TextInput.Root>
           <TextInput.InputUnform
             name="address"
+            disabled={creatingNetwork}
             placeholder="Insira o endereço"
           />
         </TextInput.Root>
@@ -127,12 +179,19 @@ export function ModalCreate({ close }) {
         <Selector
           isMulti
           name="clinics"
+          disabled={creatingNetwork}
           options={clinicsOptions}
           onChange={(e) => setSelectedClinics(e)}
         />
 
-        <Button type="submit">Cadastrar</Button>
+        <Button type="submit" disabled={creatingNetwork}>
+          {creatingNetwork ? "Cadastrando..." : "Cadastrar"}
+        </Button>
       </StyledForm>
     </Wrapper>
   );
 }
+
+ModalCreateNetwork.propTypes = {
+  close: PropTypes.func.isRequired,
+};

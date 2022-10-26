@@ -1,19 +1,24 @@
 // LIBS
+import PropTypes from "prop-types";
 import ReactLoading from "react-loading";
 
 // STYLES
 import { WrapperLoading } from "./styles";
 
-export function Loading({
-  h,
-  w,
-  color = "#3FD2B6",
-  type = "bubbles",
-  ...rest
-}) {
+export function Loading({ color, type, ...rest }) {
   return (
-    <WrapperLoading style={{ height: h ? h : "100%", width: w ? w : "100%" }}>
+    <WrapperLoading>
       <ReactLoading type={type} color={color} {...rest} />
     </WrapperLoading>
   );
 }
+
+Loading.propTypes = {
+  color: PropTypes.string,
+  type: PropTypes.string,
+};
+
+Loading.defaultProps = {
+  color: "#3FD2B6",
+  type: "bubbles",
+};

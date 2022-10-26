@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+// ASSETS
 import DrCash from "../../assets/logoDrCash.png";
 
 // STYLES
@@ -29,7 +30,7 @@ export function HeaderResponsive() {
           <Link to="/network">
             <span>Redes</span>
           </Link>
-          <Link to="/network">
+          <Link to="/clinics">
             <span>Clínicas</span>
           </Link>
           <Link to="/network">

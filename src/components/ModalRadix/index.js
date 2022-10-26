@@ -1,10 +1,10 @@
 // Libs
-import PropTypes from 'prop-types';
-import React from 'react';
-import * as Dialog from '@radix-ui/react-dialog';
+import PropTypes from "prop-types";
+import React from "react";
+import * as Dialog from "@radix-ui/react-dialog";
 
 // Styles
-import { ModalRadixOverlay, ModalRadixWrapper } from './styles';
+import { ModalRadixOverlay, ModalRadixWrapper } from "./styles";
 
 export const ModalRadix = ({ children, overlay, ...props }) => {
   return (
@@ -41,7 +41,7 @@ ModalWrapper.propTypes = {
 };
 
 export const ModalTrigger = Dialog.Trigger;
-ModalTrigger.displayName = 'ModalTrigger';
+ModalTrigger.displayName = "ModalTrigger";
 
 export const ModalCloseTrigger = Dialog.Close;
-ModalCloseTrigger.displayName = 'ModalCloseTrigger';
+ModalCloseTrigger.displayName = "ModalCloseTrigger";

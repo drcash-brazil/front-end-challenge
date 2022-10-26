@@ -1,12 +1,20 @@
 import { QueryClientProvider } from "react-query";
 import { ThemeProvider } from "styled-components";
+import RoutesRoot from "./routes";
+
+// HOOKS
+import { useMediaQuery } from "./hooks/useMediaQuery";
+
+// SERVICES
+import { queryClient } from "./services/queryClient";
+
+// COMPONENTS
 import { Header } from "./components/Header";
 import { HeaderResponsive } from "./components/HeaderResponsive";
-import { useMediaQuery } from "./hooks/useMediaQuery";
-import RoutesRoot from "./routes";
-import { queryClient } from "./services/queryClient";
-import GlobalStyle from "./styles/global";
+
+// STYLES
 import { themes } from "./styles/themes";
+import GlobalStyle from "./styles/global";
 
 function App() {
   const isDesktop = useMediaQuery("(min-width: 768px)");
