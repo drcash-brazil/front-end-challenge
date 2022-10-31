@@ -1,15 +1,18 @@
 import Layout from "components/Layout/Layout";
-import TableList from "components/Table/Table";
+import TableNetworks from "components/Table/TableNetworks";
+import useFetchRedes from "queries/redes";
 import React from "react";
 import styled from "styled-components";
 
 const Network: React.FC = () => {
+  const { data, isLoading } = useFetchRedes();
+
   return (
     <Layout>
       <Title>IClinic </Title>
       <Subtitle>Sua rede na palma de sua mão!</Subtitle>
 
-      <TableList />
+      {!isLoading && <TableNetworks values={data.redes} />}
     </Layout>
   );
 };

@@ -1,15 +1,18 @@
 import Layout from "components/Layout/Layout";
-import TableList from "components/Table/Table";
+import TableClinics from "components/Table/TableClinics";
+import useFetchClinicas from "queries/clinicas";
 import React from "react";
 import styled from "styled-components";
 
 const Clinics: React.FC = () => {
+  const { data, isLoading } = useFetchClinicas();
+
   return (
     <Layout>
       <Title>IClinic </Title>
       <Subtitle>Sua rede na palma de sua mão!</Subtitle>
 
-      <TableList />
+      {!isLoading && <TableClinics values={data.clinicas} />}
     </Layout>
   );
 };
