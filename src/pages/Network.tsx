@@ -1,14 +1,31 @@
-import { useParams } from "react-router-dom"
+import Layout from "components/Layout/Layout";
+import TableList from "components/Table/Table";
+import React from "react";
+import styled from "styled-components";
 
 const Network: React.FC = () => {
-   const { rede } = useParams()
-   return (
-      <>
-         <h1>Hello world!</h1>
-         <h1>Hello {rede}</h1>
-      </>
-   )
-}
+  return (
+    <Layout>
+      <Title>IClinic </Title>
+      <Subtitle>Sua rede na palma de sua mão!</Subtitle>
 
-export default Network
+      <TableList />
+    </Layout>
+  );
+};
+
+export default Network;
+
+const Title = styled.h1`
+  color: rgb(0, 56, 75);
+  font-size: 40px;
+  font-family: "Montserrat";
+  font-weight: bold;
+  margin-bottom: 5px;
+`;
+
+const Subtitle = styled.h2`
+  color: rgb(0, 56, 75);
+  font-size: 18px;
+`;
 
