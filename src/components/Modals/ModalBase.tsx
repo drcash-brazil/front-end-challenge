@@ -47,11 +47,11 @@ const Modal = styled.div`
   min-height: 100px;
   background-color: white;
   border-radius: 10px;
-  animation-name: example;
+  animation-name: onShow;
   animation-duration: .8s;
   animation-timing-function: ease;
 
-  @keyframes example {
+  @keyframes onShow {
     from {
       margin-top: -50px;
     }
