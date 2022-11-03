@@ -5,7 +5,7 @@ import Collaborators from "pages/Collaborators";
 import Home from "pages/Home";
 import Network from "pages/Network";
 import NetworkPage from "pages/NetworkPage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 const Router = (): JSX.Element => {
   return (
@@ -21,6 +21,7 @@ const Router = (): JSX.Element => {
         <Route path="/funcionarios" element={<Collaborators />} />
         <Route path="/funcionario/new" element={<CollaboratorPage />} />
         <Route path="/funcionario/:id/:mode" element={<CollaboratorPage />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
   );

@@ -18,7 +18,7 @@ export const ButtonCancel: React.FC<Props> = ({ children, color, icon, ...props 
 export default Button;
 
 
-const ButtonStyled = styled.button<Props>`
+export const ButtonStyled = styled.button<Props>`
   width: 130px;
   height: 40px;
   border-radius: 5px;

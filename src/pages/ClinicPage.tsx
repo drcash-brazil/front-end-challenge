@@ -116,14 +116,7 @@ const ClinicEdit: React.FC = () => {
               address: isNewMode ? "" : clinicaSelected?.address,
             }}
           >
-            {({
-              values,
-              errors,
-              touched,
-              handleChange,
-              handleSubmit,
-              isValid,
-            }) => {
+            {({ values, errors, touched, handleChange, handleSubmit }) => {
               return (
                 <Form onSubmit={handleSubmit}>
                   <Input

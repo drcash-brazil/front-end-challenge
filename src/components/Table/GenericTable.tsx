@@ -28,6 +28,13 @@ type Props = {
   }: AssociatePropsInterface) => Promise<any>;
 };
 
+const InitalState = {
+  id: 0,
+  address: "",
+  fone: 0,
+  nome: "",
+};
+
 const GenericTable: React.FC<Props> = ({
   values,
   name,
@@ -38,7 +45,7 @@ const GenericTable: React.FC<Props> = ({
   const [openModalConfirm, setOpenModalConfirm] = useState<boolean>(false);
   const [openModalAssociate, setOpenModalAssociate] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
-  const [selectedItem, setSelectedItem] = useState<GenericType>();
+  const [selectedItem, setSelectedItem] = useState<GenericType>(InitalState);
   const [itemsPerPage, setItemsPerPage] = useState<number>(10);
   const [page, setPage] = useState<number>(1);
 
@@ -48,17 +55,20 @@ const GenericTable: React.FC<Props> = ({
 
   const queryClient = useQueryClient();
 
-  const { mutate } = useMutation(() => deleteItem(selectedItem?.id ?? 0), {
+  const { mutate } = useMutation(() => deleteItem(selectedItem.id), {
     onSuccess: () => {
       toast.success(`${capitalizeFirstLetter(name)} excluído(a) com sucesso`);
       handleModalConfirm();
       queryClient.invalidateQueries({ queryKey: [`${name}`] });
     },
+    onError: () => {
+      toast.error(
+        "Não foi possível executar essa ação, por favor contacte um administrador!"
+      );
+    },
   });
 
   const handleDelete = async () => {
-    if (!selectedItem) return;
-
     mutate();
   };
 
@@ -78,10 +88,11 @@ const GenericTable: React.FC<Props> = ({
     if (!associateItem) return;
 
     try {
-      await associateItem({ associateItemId, itemId: selectedItem?.id ?? 0 });
+      await associateItem({ associateItemId, itemId: selectedItem.id });
       toast.success(`${capitalizeFirstLetter(name)} associado(a) com sucesso!`);
       handleModalAssociate();
     } catch (err) {
+      toast.error(`Não foi possível associar o item, por favor contacte um administrador!`);
       console.log(err);
     }
   };
