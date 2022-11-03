@@ -7,12 +7,7 @@ type Props = {
   isOpen: boolean;
 };
 
-const ModalBase: React.FC<Props> = ({
-  name,
-  children,
-  onClose,
-  isOpen,
-}) => {
+const ModalBase: React.FC<Props> = ({ name, children, onClose, isOpen }) => {
   return (
     <ModalMain isOpen={isOpen}>
       <ModalContainer>
@@ -52,6 +47,18 @@ const Modal = styled.div`
   min-height: 100px;
   background-color: white;
   border-radius: 10px;
+  animation-name: example;
+  animation-duration: .8s;
+  animation-timing-function: ease;
+
+  @keyframes example {
+    from {
+      margin-top: -50px;
+    }
+    to {
+      margin-top: 0px;
+    }
+  }
 `;
 
 const ModalHeader = styled.div`

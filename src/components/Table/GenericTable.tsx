@@ -208,10 +208,10 @@ const GenericTable: React.FC<Props> = ({
       </TableFooter>
       {itemsFiltered.length === 0 && search.length > 0 && (
         <FeedbackText>
-          Infelizmente nenhum item corresponde a sua pesquisa
+          Infelizmente nenhum item corresponde a sua pesquisa.
         </FeedbackText>
       )}
-      {itemsFiltered.length === 0 && (
+      {itemsFiltered.length === 0 && search.length === 0 && (
         <FeedbackText>
           Lista vazia, adicione um item novo para vê-lo aqui.
         </FeedbackText>
