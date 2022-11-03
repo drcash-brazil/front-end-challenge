@@ -26,7 +26,7 @@ export async function deleteFuncionario(FuncionarioId: number) {
   return data;
 }
 
-export default function useFetchCollaborator() {
+export default function useFetchFuncionarios() {
   return useQuery(["funcionarios"], getFuncionarios);
 }
 

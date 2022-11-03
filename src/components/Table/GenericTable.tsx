@@ -5,13 +5,14 @@ import Pagination from "components/Pagination/Pagination";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addressToUrlMaps, capitalizeFirstLetter, formatPhone } from "utils";
-import { Table, TableFooter, TableHead } from "styles";
+import { FeedbackText, Table, TableFooter, TableHead } from "styles";
 import ModalAssociate from "components/Modals/ModalAssociate";
 import useStore from "services/store";
 import { getClinicas } from "queries/clinicas";
 import { getFuncionarios } from "queries/funcionarios";
 import { toast } from "react-toastify";
 import { GenericType } from "types";
+import styled from "styled-components";
 
 export interface AssociatePropsInterface {
   associateItemId: number;
@@ -209,6 +210,11 @@ const GenericTable: React.FC<Props> = ({
           selectPage={setPage}
         />
       </TableFooter>
+      {itemsFiltered.length === 0 && (
+        <FeedbackText>
+          Infelizmente nenhum item corresponde a sua pesquisa
+        </FeedbackText>
+      )}
     </div>
   );
 };

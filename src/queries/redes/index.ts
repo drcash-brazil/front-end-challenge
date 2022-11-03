@@ -47,7 +47,7 @@ export async function associateClinica({
   return data;
 }
 
-export default function useFetchredes() {
+export default function useFetchRedes() {
   return useQuery(["redes"], getRedes);
 }
 

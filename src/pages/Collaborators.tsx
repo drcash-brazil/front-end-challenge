@@ -1,20 +1,12 @@
 import Layout from "components/Layout/Layout";
-//import Spinner from "components/Spinner /Spinner";
+import Spinner from "components/Spinner/Spinner";
 import GenericTable from "components/Table/GenericTable";
-import { deleteFuncionario, getFuncionarios } from "queries/funcionarios";
-import React, { useEffect } from "react";
-import useStore from "services/store";
+import useFetchFuncionarios, { deleteFuncionario } from "queries/funcionarios";
+import React from "react";
 import styled from "styled-components";
 
 const Collaborators: React.FC = () => {
-  const funcionarios = useStore((state) => state.funcionarios);
-  const updateFuncionarios = useStore((state) => state.updateFuncionarios);
-
-  useEffect(() => {
-    getFuncionarios().then((res) => updateFuncionarios(res));
-  }, [updateFuncionarios]);
-
-  //const { data, isLoading } = useFetchFuncionarios();
+  const { data, isLoading } = useFetchFuncionarios();
 
   const deleteFuncionarioFunction = (itemId: number) =>
     new Promise((resolve, reject) => {
@@ -28,18 +20,19 @@ const Collaborators: React.FC = () => {
       <Title>IClinic </Title>
       <Subtitle>Sua rede na palma de sua mão!</Subtitle>
 
-      {funcionarios && (
-        <GenericTable
-          name="funcionario"
-          deleteItem={deleteFuncionarioFunction}
-          values={funcionarios}
-        />
-      )}
-      {/* {isLoading && (
+      {isLoading && (
         <LoadingContainer>
           <Spinner />
         </LoadingContainer>
-      )} */}
+      )}
+
+      {!isLoading && (
+        <GenericTable
+          name="funcionario"
+          deleteItem={deleteFuncionarioFunction}
+          values={data}
+        />
+      )}
     </Layout>
   );
 };
@@ -58,7 +51,7 @@ const Subtitle = styled.h2`
   color: rgb(0, 56, 75);
   font-size: 18px;
 `;
-/* 
+
 const LoadingContainer = styled.div`
   margin: 0 auto;
   margin-top: 70px;
@@ -67,4 +60,3 @@ const LoadingContainer = styled.div`
   justify-content: center;
 `;
 
- */

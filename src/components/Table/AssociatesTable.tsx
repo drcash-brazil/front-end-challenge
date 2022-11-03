@@ -2,7 +2,8 @@ import InputSearch from "components/Input/InputSearch";
 import Pagination from "components/Pagination/Pagination";
 import { useCallback, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Table, TableFooter, TableHead } from "styles";
+import styled from "styled-components";
+import { FeedbackText, Table, TableFooter, TableHead } from "styles";
 
 interface GenericType {
   id: number;
@@ -72,6 +73,11 @@ const AssociatesTable: React.FC<Props> = ({ values, name }) => {
           selectPage={setPage}
         />
       </TableFooter>
+      {itemsFiltered.length === 0 && (
+        <FeedbackText>
+          Infelizmente nenhum item corresponde a sua pesquisa
+        </FeedbackText>
+      )}
     </div>
   );
 };

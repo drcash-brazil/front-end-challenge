@@ -1,23 +1,17 @@
 import Layout from "components/Layout/Layout";
-import {
+import useFetchClinicas, {
   associateCollaborator,
   deleteClinica,
-  getClinicas,
 } from "queries/clinicas";
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import useStore from "services/store";
 import GenericTable, {
   AssociatePropsInterface,
 } from "components/Table/GenericTable";
+import Spinner from "components/Spinner/Spinner";
 
 const Clinics: React.FC = () => {
-  const clinicas = useStore((state) => state.clinicas);
-  const updateClinicas = useStore((state) => state.updateClinicas);
-
-  useEffect(() => {
-    getClinicas().then((res) => updateClinicas(res));
-  }, [updateClinicas]);
+  const { data, isLoading } = useFetchClinicas();
 
   const associateItem = ({
     associateItemId,
@@ -44,18 +38,17 @@ const Clinics: React.FC = () => {
       <Title>Clinicas </Title>
       <Subtitle>Sua rede na palma de sua mão!</Subtitle>
 
-      {/*  {isLoading && (
+      {isLoading && (
         <LoadingContainer>
           <Spinner />
         </LoadingContainer>
       )}
 
-      {!isLoading && <TableClinics values={clinicas} />} */}
-      {clinicas && (
+      {!isLoading && (
         <GenericTable
           name="clinica"
           deleteItem={deleteClinicaFunction}
-          values={clinicas}
+          values={data}
           associateItem={associateItem}
         />
       )}
@@ -78,13 +71,11 @@ const Subtitle = styled.h2`
   font-size: 18px;
 `;
 
-/* const LoadingContainer = styled.div`
+const LoadingContainer = styled.div`
   margin: 0 auto;
   margin-top: 70px;
   width: 100%;
   display: flex;
   justify-content: center;
 `;
-
- */
 

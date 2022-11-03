@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const FeedbackText = styled.div`
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const TableHead = styled.div`
   width: 100%;
   max-width: 1240px;
