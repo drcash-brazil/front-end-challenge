@@ -1,10 +1,10 @@
-import ClinicPage from "pages/ClinicPage";
-import Clinics from "pages/Clinics";
-import CollaboratorPage from "pages/CollaboratorPage";
-import Collaborators from "pages/Collaborators";
+import ClinicPage from "pages/Clinic/ClinicPage";
+import Clinics from "pages/Clinic/Clinics";
+import CollaboratorPage from "pages/Collaborator/CollaboratorPage";
+import Collaborators from "pages/Collaborator/Collaborators";
 import Home from "pages/Home";
-import Network from "pages/Network";
-import NetworkPage from "pages/NetworkPage";
+import Network from "pages/Network/Network";
+import NetworkPage from "pages/Network/NetworkPage";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 const Router = (): JSX.Element => {
