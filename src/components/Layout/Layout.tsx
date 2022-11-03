@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import styled from "styled-components";
-import Logo from "assets/logoDrCash.png";
+import Logo from "assets/logoIClinic.png";
 import { Link } from "react-router-dom";
 
 type Props = {
@@ -17,7 +17,7 @@ const Layout: React.FC<Props> = ({ children }) => {
   return (
     <Container>
       <Header>
-        <img src={Logo} alt="Logo Dr Cash" />
+        <img src={Logo} alt="Logo IClinic" />
         <div>
           <LinkButtonHeader to={"/"}>Inicio</LinkButtonHeader>
           <LinkButtonHeader to={"/redes"}>Redes</LinkButtonHeader>
@@ -92,8 +92,7 @@ const Header = styled.div`
   padding: 20px;
 
   img {
-    width: 150px;
-    height: 40px;
+    width: 50px;
   }
 
   > div {
