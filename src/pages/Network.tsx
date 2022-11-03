@@ -6,6 +6,7 @@ import GenericTable, {
 import useFetchRedes, { associateClinica, deleteRede } from "queries/redes";
 import React from "react";
 import styled from "styled-components";
+import { LoadingContainer, Subtitle, Title } from "styles";
 
 const Network: React.FC = () => {
   const { data, isLoading, isError } = useFetchRedes();
@@ -29,7 +30,7 @@ const Network: React.FC = () => {
 
   return (
     <Layout>
-      <Title>IClinic </Title>
+      <Title>Redes </Title>
       <Subtitle>Sua plataforma de gerenciamento!</Subtitle>
 
       {!isLoading && data && (
@@ -61,24 +62,4 @@ const Network: React.FC = () => {
 
 export default Network;
 
-const Title = styled.h1`
-  color: rgb(0, 56, 75);
-  font-size: 40px;
-  font-family: "Montserrat";
-  font-weight: bold;
-  margin-bottom: 5px;
-`;
-
-const Subtitle = styled.h2`
-  color: rgb(0, 56, 75);
-  font-size: 18px;
-`;
-
-const LoadingContainer = styled.div`
-  margin: 0 auto;
-  margin-top: 70px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-`;
 

@@ -84,3 +84,23 @@ export const Table = styled.table`
   }
 `;
 
+export const Title = styled.h1`
+color: rgb(0, 56, 75);
+font-size: 36px;
+font-family: "Montserrat";
+font-weight: bold;
+margin-bottom: 5px;
+`;
+
+export const Subtitle = styled.h2`
+color: rgb(0, 56, 75);
+font-size: 18px;
+`;
+
+export const LoadingContainer = styled.div`
+margin: 0 auto;
+margin-top: 70px;
+width: 100%;
+display: flex;
+justify-content: center;
+`;
