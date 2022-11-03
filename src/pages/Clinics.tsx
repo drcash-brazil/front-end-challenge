@@ -11,7 +11,7 @@ import GenericTable, {
 import Spinner from "components/Spinner/Spinner";
 
 const Clinics: React.FC = () => {
-  const { data, isLoading } = useFetchClinicas();
+  const { data, isLoading, isError } = useFetchClinicas();
 
   const associateItem = ({
     associateItemId,
@@ -36,7 +36,7 @@ const Clinics: React.FC = () => {
   return (
     <Layout>
       <Title>Clinicas </Title>
-      <Subtitle>Sua rede na palma de sua mão!</Subtitle>
+      <Subtitle>Sua plataforma de gerenciamento!</Subtitle>
 
       {isLoading && (
         <LoadingContainer>
@@ -44,7 +44,16 @@ const Clinics: React.FC = () => {
         </LoadingContainer>
       )}
 
-      {!isLoading && (
+      {isError && (
+        <LoadingContainer>
+          <p>
+            Algo de errado com o servidor, por gentileza tente novamente mais
+            tarde!
+          </p>
+        </LoadingContainer>
+      )}
+
+      {!isLoading && data && (
         <GenericTable
           name="clinica"
           deleteItem={deleteClinicaFunction}

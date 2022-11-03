@@ -11,7 +11,7 @@ export async function getRedes() {
 export async function getRede(NetworkId: number) {
   const { data } = await api.get(`redes/${NetworkId}`);
 
-  return data;
+  return data.redes;
 }
 
 export async function createRede(NetworkData: NetworkType) {
@@ -48,6 +48,6 @@ export async function associateClinica({
 }
 
 export default function useFetchRedes() {
-  return useQuery(["redes"], getRedes);
+  return useQuery(["rede"], getRedes);
 }
 

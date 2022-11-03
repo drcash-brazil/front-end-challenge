@@ -27,6 +27,12 @@ const ModalAssociate: React.FC<Props> = ({
   ...props
 }) => {
   const [selectValue, setSelectValue] = useState<number>(1);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const handleConfirm = (clinicaId: number) => {
+    onConfirm(clinicaId);
+    setLoading((prev) => !prev);
+  };
 
   return (
     <ModalBase onClose={onClose} {...props}>
@@ -46,7 +52,6 @@ const ModalAssociate: React.FC<Props> = ({
           onChange={(e) => {
             setSelectValue(Number(e.target.value));
           }}
-          
         >
           {secondSelectValue &&
             secondSelectValue.map((value, index) => (
@@ -63,7 +68,9 @@ const ModalAssociate: React.FC<Props> = ({
 
       <ButtonsContainer>
         <ButtonCancel onClick={onClose}>Cancelar</ButtonCancel>
-        <Button onClick={() => onConfirm(selectValue)}>Confirmar</Button>
+        <Button disabled={loading} onClick={() => handleConfirm(selectValue)}>
+          {loading ? "Carregando..." : "Confirmar"}
+        </Button>
       </ButtonsContainer>
     </ModalBase>
   );

@@ -11,7 +11,7 @@ export async function getFuncionarios() {
 export async function getFuncionario(FuncionarioId: number) {
   const { data } = await api.get(`funcionarios/${FuncionarioId}`);
 
-  return data;
+  return data.funcionarios;
 }
 
 export async function createFuncionario(Funcionario: CollaboratorType) {
@@ -27,6 +27,6 @@ export async function deleteFuncionario(FuncionarioId: number) {
 }
 
 export default function useFetchFuncionarios() {
-  return useQuery(["funcionarios"], getFuncionarios);
+  return useQuery(["funcionario"], getFuncionarios);
 }
 

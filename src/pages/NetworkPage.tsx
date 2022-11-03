@@ -1,16 +1,17 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import * as yup from "yup";
 import { Form, Formik } from "formik";
 import Input from "components/Input/Input";
 import Button from "components/Button/Button";
 import { PhoneFormat } from "utils";
-import { createRede, editRede } from "queries/redes";
+import { createRede, editRede, getRede } from "queries/redes";
 import Layout from "components/Layout/Layout";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import useStore from "services/store";
 import AssociatesTable from "components/Table/AssociatesTable";
+import { useQuery } from "@tanstack/react-query";
+import Spinner from "components/Spinner/Spinner";
 
 type NetworkDataForm = {
   name: string;
@@ -49,21 +50,22 @@ const NetworkPage: React.FC = () => {
   const navigate = useNavigate();
   const [isLoadingButton, setIsLoadingButton] = useState<boolean>(false);
   const { id, mode } = useParams<{ id: string; mode: string }>();
-  const redes = useStore((state) => state.redes);
 
   const isViewMode = mode === "view";
   const isEditMode = mode === "edit";
+  const isNewMode = !isEditMode && !isViewMode;
 
-  const redeSelected = useMemo(
-    //@ts-ignore
-    () => redes.find((rede) => rede.id === id),
-    [redes, id]
-  );
+  const {
+    data: redeSelected,
+    isLoading,
+    isError,
+  } = useQuery(["rede", id], () => getRede(Number(id) ?? 0));
 
   const handleSubmit = async (values: NetworkDataForm) => {
     setIsLoadingButton(true);
 
     const valuesFormatted = {
+      id: 0,
       nome: values.name,
       email: values.email,
       fone: Number(values.phone.replace(/\D/g, "")),
@@ -72,8 +74,7 @@ const NetworkPage: React.FC = () => {
 
     try {
       if (isEditMode) {
-        //@ts-ignore
-        valuesFormatted["id"] = redeSelected?.id;
+        valuesFormatted["id"] = redeSelected?.id ?? 0;
         await editRede(valuesFormatted);
         toast.success("Rede Atualizada com sucesso!");
         navigate("/redes");
@@ -94,110 +95,110 @@ const NetworkPage: React.FC = () => {
   return (
     <Layout>
       <Content>
-        <Formik
-          validationSchema={FormSchema}
-          onSubmit={handleSubmit}
-          enableReinitialize={true}
-          initialValues={{
-            name: redeSelected?.nome ?? "",
-            email: redeSelected?.email ?? "",
-            phone: redeSelected?.fone.toString() ?? "",
-            address: redeSelected?.address ?? "",
-          }}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleSubmit,
-            isValid,
-          }) => {
-            return (
-              <Form onSubmit={handleSubmit}>
-                <Input
-                  name="name"
-                  label="Nome da Rede"
-                  placeholder="Nome"
-                  error={touched.name && errors.name ? errors.name : undefined}
-                  value={values.name}
-                  onChange={(e) => {
-                    handleChange("name")(e.target.value);
-                  }}
-                  maxLength={80}
-                  disabled={isViewMode}
-                />
-
-                <Input
-                  name="email"
-                  placeholder="exemplo@exemplo.com"
-                  label="E-mail"
-                  error={
-                    touched.email && errors.email ? errors.email : undefined
-                  }
-                  value={values.email}
-                  onChange={(e) => {
-                    handleChange("email")(e.target.value);
-                  }}
-                  maxLength={128}
-                  disabled={isViewMode}
-                />
-
-                <Input
-                  name="phone"
-                  placeholder="(00) 0 0000-0000"
-                  label="Telefone"
-                  error={
-                    touched.phone && errors.phone ? errors.phone : undefined
-                  }
-                  value={values.phone}
-                  onChange={(e) => {
-                    handleChange("phone")(e.target.value);
-                  }}
-                  mask={PhoneFormat}
-                  disabled={isViewMode}
-                />
-
-                <Input
-                  name="address"
-                  placeholder="Endereço"
-                  label="Endereço"
-                  error={
-                    touched.address && errors.address
-                      ? errors.address
-                      : undefined
-                  }
-                  value={values.address}
-                  onChange={(e) => {
-                    handleChange("address")(e.target.value);
-                  }}
-                  disabled={isViewMode}
-                />
-
-                {!isViewMode && (
-                  <FormButton type="submit">
-                    {isLoadingButton
-                      ? "Carregando..."
-                      : isEditMode
-                      ? "Editar"
-                      : "Cadastrar"}
-                  </FormButton>
-                )}
-
-                {isViewMode && (
-                  <AssociatesTable
-                    name="clinica"
-                    //@ts-ignore
-                    values={redeSelected.clinicas}
+        {isError && !isNewMode && (
+          <span>Algo de errado aconteceu, tente novamente mais tarde!</span>
+        )}
+        {isLoading && !isNewMode && <Spinner />}
+        {(isNewMode || (!isLoading && redeSelected)) && (
+          <Formik
+            validationSchema={FormSchema}
+            onSubmit={handleSubmit}
+            enableReinitialize={true}
+            initialValues={{
+              name: isNewMode ? "" : redeSelected.nome,
+              email: isNewMode ? "" : redeSelected.email,
+              phone: isNewMode ? "" : redeSelected.fone.toString(),
+              address: isNewMode ? "" : redeSelected.address,
+            }}
+          >
+            {({ values, errors, touched, handleChange, handleSubmit }) => {
+              return (
+                <Form onSubmit={handleSubmit}>
+                  <Input
+                    name="name"
+                    label="Nome da Rede"
+                    placeholder="Nome"
+                    error={
+                      touched.name && errors.name ? errors.name : undefined
+                    }
+                    value={values.name}
+                    onChange={(e) => {
+                      handleChange("name")(e.target.value);
+                    }}
+                    maxLength={80}
+                    disabled={isViewMode}
                   />
-                )}
-                <FormButtonCancel onClick={() => navigate("/redes")}>
-                  Voltar
-                </FormButtonCancel>
-              </Form>
-            );
-          }}
-        </Formik>
+
+                  <Input
+                    name="email"
+                    placeholder="exemplo@exemplo.com"
+                    label="E-mail"
+                    error={
+                      touched.email && errors.email ? errors.email : undefined
+                    }
+                    value={values.email}
+                    onChange={(e) => {
+                      handleChange("email")(e.target.value);
+                    }}
+                    maxLength={128}
+                    disabled={isViewMode}
+                  />
+
+                  <Input
+                    name="phone"
+                    placeholder="(00) 0 0000-0000"
+                    label="Telefone"
+                    error={
+                      touched.phone && errors.phone ? errors.phone : undefined
+                    }
+                    value={values.phone}
+                    onChange={(e) => {
+                      handleChange("phone")(e.target.value);
+                    }}
+                    mask={PhoneFormat}
+                    disabled={isViewMode}
+                  />
+
+                  <Input
+                    name="address"
+                    placeholder="Endereço"
+                    label="Endereço"
+                    error={
+                      touched.address && errors.address
+                        ? errors.address
+                        : undefined
+                    }
+                    value={values.address}
+                    onChange={(e) => {
+                      handleChange("address")(e.target.value);
+                    }}
+                    disabled={isViewMode}
+                  />
+
+                  {!isViewMode && (
+                    <FormButton type="submit">
+                      {isLoadingButton
+                        ? "Carregando..."
+                        : isEditMode
+                        ? "Editar"
+                        : "Cadastrar"}
+                    </FormButton>
+                  )}
+
+                  {isViewMode && redeSelected && (
+                    <AssociatesTable
+                      name="clinica"
+                      values={redeSelected.clinicas}
+                    />
+                  )}
+                  <FormButtonCancel onClick={() => navigate("/redes")}>
+                    Voltar
+                  </FormButtonCancel>
+                </Form>
+              );
+            }}
+          </Formik>
+        )}
       </Content>
     </Layout>
   );

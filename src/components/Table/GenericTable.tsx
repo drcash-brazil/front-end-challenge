@@ -2,17 +2,16 @@ import ButtonIcon from "components/Button/ButtonIcon";
 import InputSearch from "components/Input/InputSearch";
 import ModalConfirm from "components/Modals/ModalConfirm";
 import Pagination from "components/Pagination/Pagination";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addressToUrlMaps, capitalizeFirstLetter, formatPhone } from "utils";
 import { FeedbackText, Table, TableFooter, TableHead } from "styles";
 import ModalAssociate from "components/Modals/ModalAssociate";
-import useStore from "services/store";
-import { getClinicas } from "queries/clinicas";
-import { getFuncionarios } from "queries/funcionarios";
+import useFetchClinicas from "queries/clinicas";
+import useFetchFuncionarios from "queries/funcionarios";
 import { toast } from "react-toastify";
 import { GenericType } from "types";
-import styled from "styled-components";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export interface AssociatePropsInterface {
   associateItemId: number;
@@ -43,27 +42,24 @@ const GenericTable: React.FC<Props> = ({
   const [itemsPerPage, setItemsPerPage] = useState<number>(10);
   const [page, setPage] = useState<number>(1);
 
-  //Refazer
-  const clinicas = useStore((state) => state.clinicas);
-  const funcionarios = useStore((state) => state.funcionarios);
-  const updateClinicas = useStore((state) => state.updateClinicas);
-  const updateFuncionarios = useStore((state) => state.updateFuncionarios);
+  const { data: clinicas } = useFetchClinicas();
 
-  useEffect(() => {
-    getClinicas().then((res) => updateClinicas(res));
-    getFuncionarios().then((res) => updateFuncionarios(res));
-  }, [updateClinicas, updateFuncionarios]);
+  const { data: funcionarios } = useFetchFuncionarios();
+
+  const queryClient = useQueryClient();
+
+  const { mutate } = useMutation(() => deleteItem(selectedItem?.id ?? 0), {
+    onSuccess: () => {
+      toast.success(`${capitalizeFirstLetter(name)} excluído(a) com sucesso`);
+      handleModalConfirm();
+      queryClient.invalidateQueries({ queryKey: [`${name}`] });
+    },
+  });
 
   const handleDelete = async () => {
     if (!selectedItem) return;
 
-    try {
-      await deleteItem(selectedItem.id);
-      toast.success(`${capitalizeFirstLetter(name)} excluído(a) com sucesso`);
-      handleModalConfirm();
-    } catch (err) {
-      console.log(err);
-    }
+    mutate();
   };
 
   const handleModalConfirm = useCallback(() => {
@@ -210,9 +206,14 @@ const GenericTable: React.FC<Props> = ({
           selectPage={setPage}
         />
       </TableFooter>
-      {itemsFiltered.length === 0 && (
+      {itemsFiltered.length === 0 && search.length > 0 && (
         <FeedbackText>
           Infelizmente nenhum item corresponde a sua pesquisa
+        </FeedbackText>
+      )}
+      {itemsFiltered.length === 0 && (
+        <FeedbackText>
+          Lista vazia, adicione um item novo para vê-lo aqui.
         </FeedbackText>
       )}
     </div>

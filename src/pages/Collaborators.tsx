@@ -6,7 +6,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Collaborators: React.FC = () => {
-  const { data, isLoading } = useFetchFuncionarios();
+  const { data, isLoading, isError } = useFetchFuncionarios();
 
   const deleteFuncionarioFunction = (itemId: number) =>
     new Promise((resolve, reject) => {
@@ -18,15 +18,23 @@ const Collaborators: React.FC = () => {
   return (
     <Layout>
       <Title>IClinic </Title>
-      <Subtitle>Sua rede na palma de sua mão!</Subtitle>
+      <Subtitle>Sua plataforma de gerenciamento!</Subtitle>
 
       {isLoading && (
         <LoadingContainer>
           <Spinner />
         </LoadingContainer>
       )}
+      {isError && (
+        <LoadingContainer>
+          <p>
+            Algo de errado com o servidor, por gentileza tente novamente mais
+            tarde!
+          </p>
+        </LoadingContainer>
+      )}
 
-      {!isLoading && (
+      {!isLoading && data && (
         <GenericTable
           name="funcionario"
           deleteItem={deleteFuncionarioFunction}

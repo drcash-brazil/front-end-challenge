@@ -48,6 +48,6 @@ export async function associateCollaborator({
 }
 
 export default function useFetchClinicas() {
-  return useQuery(["clinicas"], getClinicas);
+  return useQuery(["clinica"], getClinicas);
 }
 

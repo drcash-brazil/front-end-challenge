@@ -21,8 +21,8 @@ const Layout: React.FC<Props> = ({ children }) => {
         <div>
           <LinkButtonHeader to={"/"}>Inicio</LinkButtonHeader>
           <LinkButtonHeader to={"/redes"}>Redes</LinkButtonHeader>
-          <LinkButtonHeader to={"/clinicas"}>Clinicas</LinkButtonHeader>
-          <LinkButtonHeader to={"/funcionarios"}>Funcionarios</LinkButtonHeader>
+          <LinkButtonHeader to={"/clinicas"}>Clínicas</LinkButtonHeader>
+          <LinkButtonHeader to={"/funcionarios"}>Funcionários</LinkButtonHeader>
 
           <i className="fa-solid fa-bars" onClick={handleMenuState}></i>
         </div>
@@ -31,10 +31,10 @@ const Layout: React.FC<Props> = ({ children }) => {
         <LinkButtonHeaderMobile to={"/"}>Inicio</LinkButtonHeaderMobile>
         <LinkButtonHeaderMobile to={"/redes"}>Redes</LinkButtonHeaderMobile>
         <LinkButtonHeaderMobile to={"/clinicas"}>
-          Clinicas
+          Clínicas
         </LinkButtonHeaderMobile>
         <LinkButtonHeaderMobile to={"/funcionarios"}>
-          Funcionarios
+          Funcionários
         </LinkButtonHeaderMobile>
       </MobileHeader>
       <Content>{children}</Content>

@@ -2,7 +2,6 @@ import InputSearch from "components/Input/InputSearch";
 import Pagination from "components/Pagination/Pagination";
 import { useCallback, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import { FeedbackText, Table, TableFooter, TableHead } from "styles";
 
 interface GenericType {
@@ -25,13 +24,12 @@ const AssociatesTable: React.FC<Props> = ({ values, name }) => {
     setSearch(e.currentTarget.value);
   }, []);
 
-  const itemsFiltered = useMemo(
-    () =>
-      values
-        .slice((page - 1) * itemsPerPage, itemsPerPage * page)
-        .filter((value) => value.nome.includes(search)),
-    [values, itemsPerPage, page, search]
-  );
+  const itemsFiltered = useMemo(() => {
+    if (!values) return [];
+    return values
+      .slice((page - 1) * itemsPerPage, itemsPerPage * page)
+      .filter((value) => value.nome.includes(search));
+  }, [values, itemsPerPage, page, search]);
 
   return (
     <div>
@@ -67,7 +65,7 @@ const AssociatesTable: React.FC<Props> = ({ values, name }) => {
       <TableFooter>
         <Pagination
           ItemsPerPage={itemsPerPage}
-          listLength={values.length}
+          listLength={values ? values.length : 1}
           page={page}
           selectItemsPerPage={setItemsPerPage}
           selectPage={setPage}

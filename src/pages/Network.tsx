@@ -8,7 +8,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Network: React.FC = () => {
-  const { data, isLoading } = useFetchRedes();
+  const { data, isLoading, isError } = useFetchRedes();
 
   const associateItem = ({
     associateItemId,
@@ -30,15 +30,24 @@ const Network: React.FC = () => {
   return (
     <Layout>
       <Title>IClinic </Title>
-      <Subtitle>Sua rede na palma de sua mão!</Subtitle>
+      <Subtitle>Sua plataforma de gerenciamento!</Subtitle>
 
-      {!isLoading && (
+      {!isLoading && data && (
         <GenericTable
           name="rede"
           deleteItem={deleteRedeFunction}
           associateItem={associateItem}
           values={data}
         />
+      )}
+
+      {isError && (
+        <LoadingContainer>
+          <p>
+            Algo de errado com o servidor, por gentileza tente novamente mais
+            tarde!
+          </p>
+        </LoadingContainer>
       )}
 
       {isLoading && (
