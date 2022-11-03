@@ -3,7 +3,6 @@ import Spinner from "components/Spinner/Spinner";
 import GenericTable from "components/Table/GenericTable";
 import useFetchFuncionarios, { deleteFuncionario } from "queries/funcionarios";
 import React from "react";
-import styled from "styled-components";
 import { LoadingContainer, Subtitle, Title } from "styles";
 
 const Collaborators: React.FC = () => {

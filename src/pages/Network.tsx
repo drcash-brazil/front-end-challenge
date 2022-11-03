@@ -5,7 +5,6 @@ import GenericTable, {
 } from "components/Table/GenericTable";
 import useFetchRedes, { associateClinica, deleteRede } from "queries/redes";
 import React from "react";
-import styled from "styled-components";
 import { LoadingContainer, Subtitle, Title } from "styles";
 
 const Network: React.FC = () => {
