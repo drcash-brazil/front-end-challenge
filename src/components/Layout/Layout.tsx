@@ -166,7 +166,7 @@ const MobileHeader = styled.div<{ open: boolean }>`
 
 const Content = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: calc(100vh - 60px);
   background-color: #ffffffed;
   padding: 20px;
 `;

@@ -63,12 +63,16 @@ export const Table = styled.table`
     cursor: pointer;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 780px) {
     display: block;
     max-width: -moz-fit-content;
     max-width: fit-content;
     overflow-x: auto;
     white-space: nowrap;
+
+    thead th {
+      width: 1%;
+    }
   }
 `;
 

@@ -1,16 +1,18 @@
-export type ClinicsType = {
+export type ClinicType = {
+  id?: number;
   nome: string;
   email: string;
   fone: number;
   cnpj: number;
   address: string;
-  funcionarios: {
+  funcionarios?: {
     id: number;
     nome: string;
   }[];
 };
 
-export type CollaboratorsType = {
+export type CollaboratorType = {
+  id?: number;
   nome: string;
   email: string;
   fone: number;
@@ -19,13 +21,23 @@ export type CollaboratorsType = {
 };
 
 export type NetworkType = {
+  id?: number;
   nome: string;
   email: string;
   fone: number;
   address: string;
-  clinicas: {
+  clinicas?: {
     id: number;
     nome: string;
   }[];
 };
 
+export interface GenericType {
+  id: number;
+  nome: string;
+  email?: string;
+  fone: number;
+  cnpj?: number;
+  cpf?: number;
+  address: string;
+}

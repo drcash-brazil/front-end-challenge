@@ -1,22 +1,55 @@
+import { useCallback } from "react";
 import styled from "styled-components";
 
-const Pagination: React.FC = () => {
+interface Props {
+  selectItemsPerPage: (itemsPerPage: number) => void;
+  page: number;
+  listLength: number;
+  ItemsPerPage: number;
+  selectPage: (page: number) => void;
+}
+
+const Pagination: React.FC<Props> = ({
+  selectItemsPerPage,
+  page,
+  listLength,
+  ItemsPerPage,
+  selectPage,
+}) => {
+  const handleItemsPerPage = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    selectItemsPerPage(Number(e.target.value));
+  };
+
+  const nextPage = useCallback(() => {
+    if (page === Math.ceil((listLength + 1) / ItemsPerPage)) return;
+
+    selectPage(page + 1);
+  }, [page, selectPage,listLength,ItemsPerPage]);
+
+  const previousPage = useCallback(() => {
+    if (page === 1) return;
+
+    selectPage(page - 1);
+  }, [page, selectPage]);
+
   return (
     <MainContainer>
       <span>Linhas por paginas:</span>
-      <Select>
-        <option>10</option>
-        <option>20</option>
-        <option>30</option>
+      <Select value={ItemsPerPage} onChange={handleItemsPerPage}>
+        <option value={10}>10</option>
+        <option value={20}>20</option>
+        <option value={30}>30</option>
       </Select>
 
       <PaginationContainer>
         <PaginationButton>
-          <i className="fa-solid fa-chevron-left"></i>
+          <i onClick={previousPage} className="fa-solid fa-chevron-left"></i>
         </PaginationButton>
-        <span>1/10</span>
+        <span>
+          {page}/{Math.ceil(listLength / ItemsPerPage)}
+        </span>
         <PaginationButton>
-          <i className="fa-solid fa-chevron-right"></i>
+          <i onClick={nextPage} className="fa-solid fa-chevron-right"></i>
         </PaginationButton>
       </PaginationContainer>
     </MainContainer>
